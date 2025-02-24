@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Имя"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/ageInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Возраст"
+            android:inputType="number"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/heightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Рост (см)"
+            android:inputType="number"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/weightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Вес (кг)"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/benchPressInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Жим лежа (кг)"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/deadliftInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Становая тяга (кг)"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/squatInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Присед (кг)"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сохранить"/>
+
+        <Button
+            android:id="@+id/updateFromStatsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Обновить данные профиля"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

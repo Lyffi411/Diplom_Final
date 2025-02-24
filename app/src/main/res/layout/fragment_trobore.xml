@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:id="@+id/verticalScroll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/zoomContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <!-- Мужчины -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Мужчины"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="16dp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:id="@+id/tableMen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="*"
+                        android:shrinkColumns="*"
+                        android:background="#FFFFFF">
+
+                        <!-- Заголовок -->
+                        <TableRow android:background="@drawable/header_border">
+                            <TextView style="@style/TableHeader" android:text="Весовая" />
+                            <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
+                            <TextView style="@style/TableHeader" android:text="МС (ДК)" />
+                            <TextView style="@style/TableHeader" android:text="МСМК" />
+                            <TextView style="@style/TableHeader" android:text="МС" />
+                            <TextView style="@style/TableHeader" android:text="КМС" />
+                            <TextView style="@style/TableHeader" android:text="I" />
+                            <TextView style="@style/TableHeader" android:text="II" />
+                            <TextView style="@style/TableHeader" android:text="III" />
+                        </TableRow>
+
+                        <!-- Данные для мужчин -->
+                        <TableRow style="@style/TableRowOdd">
+                            <TextView style="@style/TableCell" android:text="60" />
+                            <TextView style="@style/TableCell" android:text="520" />
+                            <TextView style="@style/TableCell" android:text="455" />
+                            <TextView style="@style/TableCell" android:text="567.5" />
+                            <TextView style="@style/TableCell" android:text="495" />
+                            <TextView style="@style/TableCell" android:text="432.5" />
+                            <TextView style="@style/TableCell" android:text="385" />
+                            <TextView style="@style/TableCell" android:text="337.5" />
+                            <TextView style="@style/TableCell" android:text="290" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowEven">
+                            <TextView style="@style/TableCell" android:text="67.5" />
+                            <TextView style="@style/TableCell" android:text="577.5" />
+                            <TextView style="@style/TableCell" android:text="505" />
+                            <TextView style="@style/TableCell" android:text="630" />
+                            <TextView style="@style/TableCell" android:text="550" />
+                            <TextView style="@style/TableCell" android:text="482.5" />
+                            <TextView style="@style/TableCell" android:text="430" />
+                            <TextView style="@style/TableCell" android:text="375" />
+                            <TextView style="@style/TableCell" android:text="322.5" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowOdd">
+                            <TextView style="@style/TableCell" android:text="75" />
+                            <TextView style="@style/TableCell" android:text="637.5" />
+                            <TextView style="@style/TableCell" android:text="557.5" />
+                            <TextView style="@style/TableCell" android:text="682.5" />
+                            <TextView style="@style/TableCell" android:text="597.5" />
+                            <TextView style="@style/TableCell" android:text="532.5" />
+                            <TextView style="@style/TableCell" android:text="475" />
+                            <TextView style="@style/TableCell" android:text="417.5" />
+                            <TextView style="@style/TableCell" android:text="360" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowEven">
+                            <TextView style="@style/TableCell" android:text="82.5" />
+                            <TextView style="@style/TableCell" android:text="677.5" />
+                            <TextView style="@style/TableCell" android:text="592.5" />
+                            <TextView style="@style/TableCell" android:text="727.5" />
+                            <TextView style="@style/TableCell" android:text="635" />
+                            <TextView style="@style/TableCell" android:text="567.5" />
+                            <TextView style="@style/TableCell" android:text="507.5" />
+                            <TextView style="@style/TableCell" android:text="445" />
+                            <TextView style="@style/TableCell" android:text="385" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowOdd">
+                            <TextView style="@style/TableCell" android:text="90" />
+                            <TextView style="@style/TableCell" android:text="712.5" />
+                            <TextView style="@style/TableCell" android:text="622.5" />
+                            <TextView style="@style/TableCell" android:text="765" />
+                            <TextView style="@style/TableCell" android:text="667.5" />
+                            <TextView style="@style/TableCell" android:text="597.5" />
+                            <TextView style="@style/TableCell" android:text="532.5" />
+                            <TextView style="@style/TableCell" android:text="467.5" />
+                            <TextView style="@style/TableCell" android:text="402.5" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowEven">
+                            <TextView style="@style/TableCell" android:text="100" />
+                            <TextView style="@style/TableCell" android:text="750" />
+                            <TextView style="@style/TableCell" android:text="655" />
+                            <TextView style="@style/TableCell" android:text="805" />
+                            <TextView style="@style/TableCell" android:text="702.5" />
+                            <TextView style="@style/TableCell" android:text="630" />
+                            <TextView style="@style/TableCell" android:text="560" />
+                            <TextView style="@style/TableCell" android:text="492.5" />
+                            <TextView style="@style/TableCell" android:text="425" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowOdd">
+                            <TextView style="@style/TableCell" android:text="110" />
+                            <TextView style="@style/TableCell" android:text="787.5" />
+                            <TextView style="@style/TableCell" android:text="690" />
+                            <TextView style="@style/TableCell" android:text="837.5" />
+                            <TextView style="@style/TableCell" android:text="730" />
+                            <TextView style="@style/TableCell" android:text="665" />
+                            <TextView style="@style/TableCell" android:text="592.5" />
+                            <TextView style="@style/TableCell" android:text="522.5" />
+                            <TextView style="@style/TableCell" android:text="450" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowEven">
+                            <TextView style="@style/TableCell" android:text="125" />
+                            <TextView style="@style/TableCell" android:text="822.5" />
+                            <TextView style="@style/TableCell" android:text="720" />
+                            <TextView style="@style/TableCell" android:text="882.5" />
+                            <TextView style="@style/TableCell" android:text="772.5" />
+                            <TextView style="@style/TableCell" android:text="692.5" />
+                            <TextView style="@style/TableCell" android:text="617.5" />
+                            <TextView style="@style/TableCell" android:text="545" />
+                            <TextView style="@style/TableCell" android:text="470" />
+                        </TableRow>
+
+                        <TableRow style="@style/TableRowOdd">
+                            <TextView style="@style/TableCell" android:text="св.125" />
+                            <TextView style="@style/TableCell" android:text="867.5" />
+                            <TextView style="@style/TableCell" android:text="760" />
+                            <TextView style="@style/TableCell" android:text="932.5" />
+                            <TextView style="@style/TableCell" android:text="815" />
+                            <TextView style="@style/TableCell" android:text="730" />
+                            <TextView style="@style/TableCell" android:text="652.5" />
+                            <TextView style="@style/TableCell" android:text="575" />
+                            <TextView style="@style/TableCell" android:text="495" />
+                        </TableRow>
+                    </TableLayout>
+                </HorizontalScrollView>
+
+                <!-- Женщины -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Женщины"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:layout_marginTop="24dp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:id="@+id/tableWeMen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_border"
+                        android:stretchColumns="*">
+
+                        <!-- Заголовок -->
+                        <TableRow android:background="@drawable/header_border">
+                            <TextView style="@style/TableHeader" android:text="Весовая" />
+                            <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
+                            <TextView style="@style/TableHeader" android:text="МС (ДК)" />
+                            <TextView style="@style/TableHeader" android:text="МСМК" />
+                            <TextView style="@style/TableHeader" android:text="МС" />
+                            <TextView style="@style/TableHeader" android:text="КМС" />
+                            <TextView style="@style/TableHeader" android:text="I" />
+                            <TextView style="@style/TableHeader" android:text="II" />
+                            <TextView style="@style/TableHeader" android:text="III" />
+                        </TableRow>
+
+                        <!-- Данные для женщин -->
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="44" />
+                            <TextView style="@style/TableCell" android:text="200" />
+                            <TextView style="@style/TableCell" android:text="180" />
+                            <TextView style="@style/TableCell" android:text="250" />
+                            <TextView style="@style/TableCell" android:text="210" />
+                            <TextView style="@style/TableCell" android:text="190" />
+                            <TextView style="@style/TableCell" android:text="170" />
+                            <TextView style="@style/TableCell" android:text="150" />
+                            <TextView style="@style/TableCell" android:text="130" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="48" />
+                            <TextView style="@style/TableCell" android:text="225" />
+                            <TextView style="@style/TableCell" android:text="195" />
+                            <TextView style="@style/TableCell" android:text="275" />
+                            <TextView style="@style/TableCell" android:text="235" />
+                            <TextView style="@style/TableCell" android:text="205" />
+                            <TextView style="@style/TableCell" android:text="185" />
+                            <TextView style="@style/TableCell" android:text="165" />
+                            <TextView style="@style/TableCell" android:text="145" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="52" />
+                            <TextView style="@style/TableCell" android:text="245" />
+                            <TextView style="@style/TableCell" android:text="215" />
+                            <TextView style="@style/TableCell" android:text="295" />
+                            <TextView style="@style/TableCell" android:text="255" />
+                            <TextView style="@style/TableCell" android:text="225" />
+                            <TextView style="@style/TableCell" android:text="195" />
+                            <TextView style="@style/TableCell" android:text="175" />
+                            <TextView style="@style/TableCell" android:text="155" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="56" />
+                            <TextView style="@style/TableCell" android:text="265" />
+                            <TextView style="@style/TableCell" android:text="230" />
+                            <TextView style="@style/TableCell" android:text="315" />
+                            <TextView style="@style/TableCell" android:text="275" />
+                            <TextView style="@style/TableCell" android:text="245" />
+                            <TextView style="@style/TableCell" android:text="215" />
+                            <TextView style="@style/TableCell" android:text="195" />
+                            <TextView style="@style/TableCell" android:text="170" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="60" />
+                            <TextView style="@style/TableCell" android:text="280" />
+                            <TextView style="@style/TableCell" android:text="245" />
+                            <TextView style="@style/TableCell" android:text="335" />
+                            <TextView style="@style/TableCell" android:text="295" />
+                            <TextView style="@style/TableCell" android:text="265" />
+                            <TextView style="@style/TableCell" android:text="235" />
+                            <TextView style="@style/TableCell" android:text="210" />
+                            <TextView style="@style/TableCell" android:text="185" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="67.5" />
+                            <TextView style="@style/TableCell" android:text="305" />
+                            <TextView style="@style/TableCell" android:text="265" />
+                            <TextView style="@style/TableCell" android:text="360" />
+                            <TextView style="@style/TableCell" android:text="315" />
+                            <TextView style="@style/TableCell" android:text="285" />
+                            <TextView style="@style/TableCell" android:text="255" />
+                            <TextView style="@style/TableCell" android:text="230" />
+                            <TextView style="@style/TableCell" android:text="200" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="75" />
+                            <TextView style="@style/TableCell" android:text="325" />
+                            <TextView style="@style/TableCell" android:text="285" />
+                            <TextView style="@style/TableCell" android:text="385" />
+                            <TextView style="@style/TableCell" android:text="335" />
+                            <TextView style="@style/TableCell" android:text="305" />
+                            <TextView style="@style/TableCell" android:text="275" />
+                            <TextView style="@style/TableCell" android:text="250" />
+                            <TextView style="@style/TableCell" android:text="220" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="82.5" />
+                            <TextView style="@style/TableCell" android:text="345" />
+                            <TextView style="@style/TableCell" android:text="305" />
+                            <TextView style="@style/TableCell" android:text="410" />
+                            <TextView style="@style/TableCell" android:text="355" />
+                            <TextView style="@style/TableCell" android:text="325" />
+                            <TextView style="@style/TableCell" android:text="295" />
+                            <TextView style="@style/TableCell" android:text="270" />
+                            <TextView style="@style/TableCell" android:text="240" />
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView style="@style/TableCell" android:text="св.82.5" />
+                            <TextView style="@style/TableCell" android:text="375" />
+                            <TextView style="@style/TableCell" android:text="330" />
+                            <TextView style="@style/TableCell" android:text="440" />
+                            <TextView style="@style/TableCell" android:text="385" />
+                            <TextView style="@style/TableCell" android:text="355" />
+                            <TextView style="@style/TableCell" android:text="325" />
+                            <TextView style="@style/TableCell" android:text="300" />
+                            <TextView style="@style/TableCell" android:text="270" />
+                        </TableRow>
+                    </TableLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

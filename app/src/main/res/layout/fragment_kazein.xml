@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.Spravochnik.Items.Sport_F.Protein.kazein">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="532dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <!-- Заголовок -->
+
+        <!-- Подзаголовок -->
+
+        <!-- Основной текст -->
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/contentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:lineSpacingMultiplier="1.2"
+        android:text="Одним из широко используемых бодибилдерами
+видов протеинов, является казеинат кальция или
+казеин — сложносоставной белок, являющийся
+результатом ферментного створаживания молока,
+Попадая в желудок человека, казеин образует
+сгусток, который переваривается длительное
+время и долгосрочно обеспечивает организм
+необходимыми аминокислотами. В то же время
+казеин не только медленно расщепляется
+по сравнению с сывороточным, он обладает
+свойством замедлять переваривание других
+видов белка, обладает меньшей биологической
+ценностью, подавляет аппетит и оказывает менеет
+зыраженное анаболическое действие
+
+
+Сейчас набирает популярность мицеллярный
+казеин, который имеет лучшее усвоение
+растворимость и вкусовые качества"
+        android:textColor="#34495e"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitleTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/subtitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Казеиновый протеин"
+        android:textColor="#3498db"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="270dp"
+        android:layout_height="298dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/kazein"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

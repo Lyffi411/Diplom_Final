@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name">Diplom_Final</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">PowerBilding</string>
+    <string name="nav_header_subtitle"></string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="menu_silomer">Силомер</string>
+    <string name="menu_settings">Силомер</string>
+    <string name="menu_normativi">Нормативы</string>
+    <string name="menu_ypragnenia">Упражнения</string>
+    <string name="menu_zdorove">Здоровье</string>
+    <string name="menu_spravochnik">Справочник</string>
+    <string name="menu_stata">Статистика</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="image_button_description">Description of the buttons purpose</string>
+    <string name="calcul">IMT Calculator</string>
+
+    <!-- Массив категорий для выбора -->
+    <string-array name="imt_categories">
+        <item>Поддержание веса</item>
+        <item>Похудение</item>
+        <item>Набор массы</item>
+    </string-array>
+
+    <string-array name="diet_types">
+        <item>Мало-жирная (50% углеводов, 40% белков, 10% жиров)</item>
+        <item>Белковая диета (35% углеводов, 50% белков, 15% жиров)</item>
+        <item>Сбалансированное питание (50% углеводов, 20% белков, 30% жиров)</item>
+        <item>Белковая сушка (20% углеводов, 70% белков, 10% жиров)</item>
+    </string-array>
+
+    <!-- Обновленные стили для таблиц -->
+    <style name="TableHeader">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#2A3F5F</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TableCell">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/cell_border</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">12sp</item>
+
+    </style>
+
+    <!-- Светлая тема -->
+    <style name="AppTheme.Light" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryLight</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantLight</item>
+        <item name="colorOnPrimary">@color/colorOnPrimaryLight</item>
+
+        <item name="android:windowBackground">@color/colorBackgroundLight</item>
+        <item name="colorOnBackground">@color/colorOnBackgroundLight</item>
+    </style>
+
+    <!-- Темная тема -->
+    <style name="AppTheme.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantDark</item>
+        <item name="colorOnPrimary">@color/colorOnPrimaryDark</item>
+        <item name="android:windowBackground">@color/colorBackgroundDark</item>
+        <item name="colorOnBackground">@color/colorOnBackgroundDark</item>
+    </style>
+    <!-- Стиль для четных строк -->
+    <style name="TableRowEven">
+        <item name="android:background">#F8F9FA</item>
+    </style>
+
+    <!-- Стиль для нечетных строк -->
+    <style name="TableRowOdd">
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <!-- Стиль для ховера строк -->
+    <style name="TableRowHover">
+        <item name="android:background">#9C9C9C</item>
+    </style>
+
+    <!-- Стиль для заголовков разделов -->
+    <style name="SectionHeader">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#2A3F5F</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">#FFFFFF</item>
+    </style>
+</resources>

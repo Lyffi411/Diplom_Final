@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.Spravochnik.Items.Sport_F.Protein.matrix">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Подзаголовок -->
+        <TextView
+            android:id="@+id/subtitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Матричный протеин"
+            android:textColor="#3498db"
+            android:textSize="22sp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Основной текст -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="356dp"
+            android:layout_height="298dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/matrix"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Матричный протеин-это круглосуточный мышечный вазодилататор, который поддерживает кровоток в рабочих мышцах и улучшает вашит показатели вне зависимости от того, каким видом спорта вы занимаетесь. Матричный протеин также улучшает доставку кислородаи усиление потребления его мышечной тканью, он поддерживает функцию сердечно-сосудистой системы. Специальные формулы добавки постоянно поддерживают состояние расслабления сосудистой стенки, за счет чего в мышцы поступает значительно больше питательных веществ, они легче проникают в мышечные клетки Снижает утомление во время тренинга и делает восстановление более быстрым и эффективным, является лучшей добавкой для увеличения объемов мышечной массы.
+        Ключевые преимущества продукта: - Поддерживает высокий уровень оксида азота - Создает длительный пампинг - Увеличивает мышечную силу, повышает энергию и выносливость во время тренировки - Обеспечивает быстрый рост сухой мышечной массы - Улучшает вашу физическую форму - Способствует более быстрому восстановлениюи улучшению показателей - Увеличение объема мышечных клеток - Улучшает эректильную функцию - Укрепляет здоровье"
+            android:textColor="#34495e"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.2"
+            android:fontFamily="sans-serif"/>
+
+    </LinearLayout>
+</ScrollView>

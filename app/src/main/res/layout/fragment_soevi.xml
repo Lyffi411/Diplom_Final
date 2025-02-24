@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.Spravochnik.Items.Sport_F.Protein.soevi">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Подзаголовок -->
+        <TextView
+            android:id="@+id/subtitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Соевый протеин"
+            android:textColor="#3498db"
+            android:textSize="22sp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Основной текст -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="356dp"
+            android:layout_height="298dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/soevi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Соевый протеин-один из уважаемых атлетами источников аминокислоти
+ Соевый протеин содержит более высокий процент (35%) некоторых аминокислот (глютамина, лизина и аминокислот с разветвленными цепочками), чем высококачественные животные протеины, в том числе сывороточный, яичный и казеин. Соя так же, как и они, богата аргинином -аминокислотой, способствующей укреплению иммунной функции. А такой незаменимой аминокислоты, как метионин, в сое содержится мало. Но сейчас большинство производителей соевого протеина дополнительно обогащают его метионином Поэтому по биологической ценности соевые пищевые добавки сравнимы с молочным и яичным протеином.
+ Главное преимущество сои — ее полный аминокислотный спектр, который не уступает яичному белку, и растительное происхождение. Практически полное отсутствие жиров и углеводов делают соевые протеины востребованными не только среди вегетарианцев, но и среди профессиональных спортсменов в период «сушки». Немало девушек отдает предпочтение сое, как заменителю пищи в период аэробных нагрузок Ведь соя не только лишена жиров и углеводов,нои поддержит мышцы, давая им необходимый белок,"
+            android:textColor="#34495e"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.2"
+            android:fontFamily="sans-serif"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="genders">
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+    <string-array name="exercise_types">
+        <item>Все упражнения</item>
+        <item>bench_press</item>
+        <item>deadlift</item>
+        <item>squat</item>
+    </string-array>
+</resources> 

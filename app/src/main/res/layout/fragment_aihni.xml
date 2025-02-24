@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.Spravochnik.Items.Sport_F.Protein.aihni">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Подзаголовок -->
+        <TextView
+            android:id="@+id/subtitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Изолят"
+            android:textColor="#3498db"
+            android:textSize="22sp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Основной текст -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="356dp"
+            android:layout_height="298dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/aihni"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Яичный протеин получают из яичного белка. В нем абсолютно нет жира, содержится большое количества белка, и считается, что это идеальный источник протеина из-за полного состава незаменимых аминокислот, аминокислот с разветвленной цепью и глютаминовой кислоты, Как только яичный протеин попадает в организм, он полностью усваивается. Если измерять протеины по качеству и эффективности, яичный протеин будет на вершине списка и эталоном для измерений"
+            android:textColor="#34495e"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.2"
+            android:fontFamily="sans-serif"/>
+
+    </LinearLayout>
+</ScrollView>

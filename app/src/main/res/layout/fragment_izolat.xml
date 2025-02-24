@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.Spravochnik.Items.Sport_F.Protein.izolat">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Подзаголовок -->
+        <TextView
+            android:id="@+id/subtitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Изолят"
+            android:textColor="#3498db"
+            android:textSize="22sp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Основной текст -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="356dp"
+            android:layout_height="298dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/izolat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сывороточный изолят он же изолят
+сывороточного протеина — самый качественный
+источник белка из всех возможных. Также как и
+сывороточный протеин, изолят сывороточного
+протеина производится из продуктов производства
+молочной сыворотки. Изолят молочного белка
+или, как его еще называют, молочный изолят —
+это порошок, осадок, который образуется при
+высушивании молочной сыворотки. Состоит
+сывороточный изолят на 90% из сывороточного
+белка.
+
+
+Протеин можно получить из обычных продуктов
+питания: молочных продуктов, рыбы, мяса,
+морепродуктов, яиц; растительный белок
+содержится в сое и бобовых. Однако по количеству
+аминокислот и их сбалансированности, изоляту
+сывороточного протеина нет равных, а значит нет
+равных по ценности для атлета. Все культуристы
+знают, что изолят протеина обеспечит ваш
+организм строительным материалом для мышц
+Изолят сывороточного протеина, в отличии
+от сывороточного протеина, практически не
+содержит лактозы и будет незаменим для людей,
+страдающих непереносимостью лактозы.
+Атлету изолят сывороточного протеина позволит
+нарастить качественную мышечную массу, а
+также сохранить мышцы в период подготовки к
+соревнованиям или же просто сушки.
+
+
+Сывороточный изолят может использоваться при
+низкокалорийной диете с целью обеспечения
+организма качественным белком, не снабжая при
+этом его излишками жира (такого соотношения
+белка и жира в рационе не реально добиться из
+рбычной пищи). Приятным дополнением будет
+долгое чувство сытости, при относительно низкой
+калорийности. К тому же белок полезен для волос
+и ногтей, и позволит худеющим людям сохранить
+красоту и здоровье, несмотря на строгую диету.."
+            android:textColor="#34495e"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.2"
+            android:fontFamily="sans-serif"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.Spravochnik.Items.Sport_F.Protein.komplecs">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="532dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <!-- Заголовок -->
+
+        <!-- Подзаголовок -->
+
+        <!-- Основной текст -->
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/contentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:lineSpacingMultiplier="1.2"
+        android:text="Комплексные протеины представляют собой смеси белков различного происхождения на основе сывороточного белка и предназначены для набора сухой мышечной массы. В состав комплексных протеинов вводят белки со скоростью усвоения 2-4 часа, например, яичный альбуминили соевый протеин, а также казеин, скорость усвоения которого длится до 7 часов. Таким образом сывороточный белок запускает анаболизм, а остальные протеины на долго продлевают его действие и поддерживают уровень азота. Комплексные протеины обеспечивают длительное чувство сытости и являются прекрасным компонентом низко-углеводной диеты, направленной на сжигание жировых запасов"
+        android:textColor="#34495e"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitleTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/subtitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Комплексный протеин"
+        android:textColor="#3498db"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="270dp"
+        android:layout_height="298dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/komplecs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

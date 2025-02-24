@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_silomer">
+
+    <fragment
+        android:id="@+id/nav_silomer"
+        android:name="com.example.diplom_final.ui.Silomer.SilomerFragment"
+        android:label="@string/menu_silomer"
+        tools:layout="@layout/fragment_silomer">
+        <action
+            android:id="@+id/action_nav_silomer_to_nav_gim"
+            app:destination="@id/nav_gim" />
+        <action
+            android:id="@+id/action_nav_silomer_to_nav_taga"
+            app:destination="@id/nav_taga" />
+        <action
+            android:id="@+id/action_nav_silomer_to_nav_prisad"
+            app:destination="@id/nav_prisad" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_normativi"
+        android:name="com.example.diplom_final.ui.Normativi.NormativiFragment"
+        android:label="@string/menu_normativi"
+        tools:layout="@layout/fragment_normativi" >
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_trobore"
+            app:destination="@id/nav_trobore" />
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_dvobore"
+            app:destination="@id/nav_dvobore" />
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_gimlega"
+            app:destination="@id/nav_gimlega" />
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_tagast"
+            app:destination="@id/nav_tagast" />
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_nargim"
+            app:destination="@id/nav_nargim" />
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_gimlegaodnosl"
+            app:destination="@id/nav_gimlegaodnosl" />
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_gimlegamnogsl"
+            app:destination="@id/nav_gimlegamnogsl" />
+        <action
+            android:id="@+id/action_nav_normativi_to_nav_gimlegamnogopet"
+            app:destination="@id/nav_gimlegamnogopet" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.diplom_final.ui.Settings.Settings"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_ypragnenia"
+        android:name="com.example.diplom_final.ui.Ypragnenia.YpragneniaFragment"
+        android:label="Упражнения"
+        tools:layout="@layout/fragment_ypragnenia">
+        
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_chest_exercises"
+            app:destination="@id/nav_chest_exercises" />
+            
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_back_exercises"
+            app:destination="@id/nav_back_exercises" />
+            
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_leg_exercises"
+            app:destination="@id/nav_leg_exercises" />
+            
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_shoulder_exercises"
+            app:destination="@id/nav_shoulder_exercises" />
+            
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_arm_exercises"
+            app:destination="@id/nav_arm_exercises" />
+            
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_abs_exercises"
+            app:destination="@id/nav_abs_exercises" />
+
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_forearm_exercises"
+            app:destination="@id/nav_forearm_exercises" />
+            
+        <action
+            android:id="@+id/action_nav_ypragnenia_to_glutes_exercises"
+            app:destination="@id/nav_glutes_exercises" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_zdorove"
+        android:name="com.example.diplom_final.ui.Zdorove.ZdoroveFragment"
+        android:label="@string/menu_zdorove"
+        tools:layout="@layout/fragment_zdorove" />
+    <fragment
+        android:id="@+id/nav_stata"
+        android:name="com.example.diplom_final.ui.Stata.Stata"
+        android:label="@string/menu_stata"
+        tools:layout="@layout/fragment_stata" />
+
+    <fragment
+        android:id="@+id/nav_spravochnik"
+        android:name="com.example.diplom_final.ui.Spravochnik.SpravochnikFragment"
+        android:label="@string/menu_spravochnik"
+        tools:layout="@layout/fragment_spravochnik" >
+        <action
+        android:id="@+id/action_spravochnikFragment_to_sportNutritionFragment"
+        app:destination="@id/sportNutritionFragment" />
+        <action
+            android:id="@+id/action_spravochnikFragment_to_foodTableFragment"
+            app:destination="@id/foodTableFragment" />
+        <action
+            android:id="@+id/action_spravochnikFragment_to_pharmacologyFragment"
+            app:destination="@id/pharmacologyFragment" />
+        <action
+            android:id="@+id/action_spravochnikFragment_to_encyclopediaFragment"
+            app:destination="@id/encyclopediaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gim"
+        android:name="com.example.diplom_final.ui.Silomer.Rasshet.GimFragment"
+        tools:layout="@layout/fragment_gim" />
+    <fragment
+        android:id="@+id/nav_taga"
+        android:name="com.example.diplom_final.ui.Silomer.Rasshet.TagaFragment"
+        tools:layout="@layout/fragment_taga" />
+    <fragment
+        android:id="@+id/nav_prisad"
+        android:name="com.example.diplom_final.ui.Silomer.Rasshet.PrisadFragment"
+        tools:layout="@layout/fragment_prisad" />
+    <fragment
+        android:id="@+id/nav_trobore"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.TroboreFragment"
+        android:label="Trobore"
+        tools:layout="@layout/fragment_trobore" />
+    <fragment
+        android:id="@+id/nav_dvobore"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.DvoboreFragment"
+        android:label="Drobore"
+        tools:layout="@layout/fragment_dvobore" />
+    <fragment
+        android:id="@+id/nav_gimlega"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.GimLegaFragment"
+        android:label="GimLega"
+        tools:layout="@layout/fragment_gimlega" />
+    <fragment
+        android:id="@+id/nav_tagast"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.TagaStFragment"
+        android:label="TagaSt"
+        tools:layout="@layout/fragment_tagast" />
+    <fragment
+        android:id="@+id/nav_nargim"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.HarGimFragment"
+        android:label="HarGim"
+        tools:layout="@layout/fragment_nargim" />
+    <fragment
+        android:id="@+id/nav_gimlegaodnosl"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.GimLegaOdnoslFragment"
+        android:label="GimLegaOdnosl"
+        tools:layout="@layout/fragment_gimlegaodnosl" />
+    <fragment
+        android:id="@+id/nav_gimlegamnogsl"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.GimLegaMnogslFragment"
+        android:label="GimLegaMnogsl"
+        tools:layout="@layout/fragment_gimlegamnogsl" />
+    <fragment
+        android:id="@+id/nav_gimlegamnogopet"
+        android:name="com.example.diplom_final.ui.Normativi.VseNormativi.GimLegaMnogopetFragment"
+        android:label="GimLegaMnogopet"
+        tools:layout="@layout/fragment_gimlegamnogopet" />
+    <fragment
+        android:id="@+id/sportNutritionFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.SportNutritionFragment"
+        android:label="Спортивное питание">
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_proteinFragment"
+                app:destination="@id/proteinFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_geinerFragment"
+                app:destination="@id/geinerFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_kreatinFragment"
+                app:destination="@id/kreatinFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_aminoFragment"
+                app:destination="@id/aminoFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_girosgigatFragment"
+                app:destination="@id/girosgigatFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_lKarnitFragment"
+                app:destination="@id/lKarnitFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_vitaminiFragment"
+                app:destination="@id/vitaminiFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_specprepFragment"
+                app:destination="@id/specprepFragment" />
+            <action
+                android:id="@+id/action_sportNutritionFragment_to_systaviFragment"
+                app:destination="@id/systaviFragment" />
+        </fragment>
+
+    <fragment
+        android:id="@+id/foodTableFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.FoodTableFragment"
+        android:label="Калорийность продуктов"/>
+
+    <fragment
+        android:id="@+id/pharmacologyFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.PharmacologyFragment"
+        android:label="Фармакология">
+        <action
+            android:id="@+id/action_pharmacologyFragment_to_gormonFragment"
+            app:destination="@id/gormonFragment" />
+        <action
+            android:id="@+id/action_pharmacologyFragment_to_peptidFragment"
+            app:destination="@id/peptidFragment" />
+        <action
+            android:id="@+id/action_pharmacologyFragment_to_ineksiaFragment"
+            app:destination="@id/ineksiaFragment" />
+        <action
+            android:id="@+id/action_pharmacologyFragment_to_oralpreparatFragment"
+            app:destination="@id/oralpreparatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gormonFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Pharm.gormon"
+        android:label="Гормоны"
+        tools:layout="@layout/fragment_gormon" />
+
+    <fragment
+        android:id="@+id/peptidFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Pharm.peptid"
+        android:label="Пептиды"
+        tools:layout="@layout/fragment_peptid" />
+
+    <fragment
+        android:id="@+id/ineksiaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Pharm.ineksia"
+        android:label="Инъекции"
+        tools:layout="@layout/fragment_ineksia" />
+
+    <fragment
+        android:id="@+id/oralpreparatFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Pharm.oralpreparat"
+        android:label="Оральные препараты"
+        tools:layout="@layout/fragment_oralpreparat" />
+
+    <fragment
+        android:id="@+id/encyclopediaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.EncyclopediaFragment"
+        android:label="Энциклопедия">
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_bazaFragment"
+        app:destination="@id/bazaFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_vremaFragment"
+        app:destination="@id/vremaFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_rastagFragment"
+        app:destination="@id/rastagFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_nabmishFragment"
+        app:destination="@id/nabmishFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_tiptelaFragment"
+        app:destination="@id/tiptelaFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_zastoiFragment"
+        app:destination="@id/zastoiFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_izoyprFragment"
+        app:destination="@id/izoyprFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_intervalFragment"
+        app:destination="@id/intervalFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_zameriFragment"
+        app:destination="@id/zameriFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_svvstrenFragment"
+        app:destination="@id/svvstrenFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_mishkorFragment"
+        app:destination="@id/mishkorFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_negfazFragment"
+        app:destination="@id/negfazFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_vodaFragment"
+        app:destination="@id/vodaFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_bodidildingFragment"
+        app:destination="@id/bodidildingFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_powerliftFragment"
+        app:destination="@id/powerliftFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_bolFragment"
+        app:destination="@id/bolFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_raznvesFragment"
+        app:destination="@id/raznvesFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_dishiFragment"
+        app:destination="@id/dishiFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_massagFragment"
+        app:destination="@id/massagFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_boleznFragment"
+        app:destination="@id/boleznFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_saynaFragment"
+        app:destination="@id/saynaFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_ocevaaFragment"
+        app:destination="@id/ocevaaFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_dovvszalFragment"
+        app:destination="@id/dovvszalFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_protvsgenFragment"
+        app:destination="@id/protvsgenFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_hccFragment"
+        app:destination="@id/hccFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_anabolFragment"
+        app:destination="@id/anabolFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_anabolikiFragment"
+        app:destination="@id/anabolikiFragment" />
+        <action
+        android:id="@+id/action_encyclopediaFragment_to_androgenFragment"
+        app:destination="@id/androgenFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_glicogenFragment"
+            app:destination="@id/glicogenFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_dropsetFragment"
+            app:destination="@id/dropsetFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_krygFragment"
+            app:destination="@id/krygFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_pampingFragment"
+            app:destination="@id/pampingFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_ygliFragment"
+            app:destination="@id/ygliFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_syperFragment"
+            app:destination="@id/syperFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_sypersetFragment"
+            app:destination="@id/sypersetFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_sypinasiaFragment"
+            app:destination="@id/sypinasiaFragment" />
+        <action
+            android:id="@+id/action_encyclopediaFragment_to_cihingFragment"
+            app:destination="@id/cihingFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/proteinFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.protein"
+        android:label="Протеин"
+        tools:layout="@layout/fragment_protein" >
+        <action
+            android:id="@+id/action_proteinFragment_to_sivorFragment"
+            app:destination="@id/sivorFragment" />
+        <action
+            android:id="@+id/action_proteinFragment_to_govagFragment"
+            app:destination="@id/govagFragment" />
+        <action
+            android:id="@+id/action_proteinFragment_to_kazeinFragment"
+            app:destination="@id/kazeinFragment" />
+        <action
+            android:id="@+id/action_proteinFragment_to_komplecsFragment"
+            app:destination="@id/komplecsFragment" />
+        <action
+            android:id="@+id/action_proteinFragment_to_matrixFragment"
+            app:destination="@id/matrixFragment" />
+        <action
+            android:id="@+id/action_proteinFragment_to_soeviFragment"
+            app:destination="@id/soeviFragment" />
+        <action
+            android:id="@+id/action_proteinFragment_to_izolatFragment"
+            app:destination="@id/izolatFragment" />
+        <action
+            android:id="@+id/action_proteinFragment_to_aihniFragment"
+            app:destination="@id/aihniFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sivorFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.sivor"
+        android:label="Сывороточный протеин"
+        tools:layout="@layout/fragment_sivor" />
+    <fragment
+        android:id="@+id/govagFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.govag"
+        android:label="Говяжий"
+        tools:layout="@layout/fragment_govag" />
+    <fragment
+        android:id="@+id/kazeinFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.kazein"
+        android:label="Казеиновый"
+        tools:layout="@layout/fragment_kazein" />
+    <fragment
+        android:id="@+id/komplecsFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.komplecs"
+        android:label="Комплексный"
+        tools:layout="@layout/fragment_komplecs" />
+    <fragment
+        android:id="@+id/matrixFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.matrix"
+        android:label="Матричный"
+        tools:layout="@layout/fragment_matrix" />
+    <fragment
+        android:id="@+id/soeviFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.soevi"
+        android:label="Соевый"
+        tools:layout="@layout/fragment_soevi" />
+    <fragment
+        android:id="@+id/izolatFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.izolat"
+        android:label="Сывороточный изолят"
+        tools:layout="@layout/fragment_izolat" />
+    <fragment
+        android:id="@+id/aihniFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Protein.aihni"
+        android:label="Яичный"
+        tools:layout="@layout/fragment_aihni" />
+
+    <fragment
+        android:id="@+id/geinerFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.geiner"
+        android:label="Гейнер"
+        tools:layout="@layout/fragment_geiner" />
+
+    <fragment
+        android:id="@+id/kreatinFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.kreatin"
+        android:label="Креатин"
+        tools:layout="@layout/fragment_kreatin" />
+
+    <fragment
+        android:id="@+id/aminoFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.amino"
+        android:label="Аминокислоты"
+        tools:layout="@layout/fragment_amino" />
+
+    <fragment
+        android:id="@+id/girosgigatFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.girosgigat"
+        android:label="Гиросгигат"
+        tools:layout="@layout/fragment_girosgigat" />
+
+    <fragment
+        android:id="@+id/lKarnitFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.lkarnit"
+        android:label="L-Карнитин"
+        tools:layout="@layout/fragment_lkarnit" />
+
+    <fragment
+        android:id="@+id/vitaminiFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.vitamini"
+        android:label="Витамины"
+        tools:layout="@layout/fragment_vitamini" />
+
+    <fragment
+        android:id="@+id/specprepFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.specprep"
+        android:label="Спецпрепы"
+        tools:layout="@layout/fragment_specprep" />
+
+    <fragment
+        android:id="@+id/systaviFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.systavi"
+        android:label="Системы"
+        tools:layout="@layout/fragment_systavi" />
+    <fragment
+        android:id="@+id/bazaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.baza"
+        android:label="Базовые упражнения"
+        tools:layout="@layout/fragment_baza" />
+    <fragment
+        android:id="@+id/vremaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.vrema"
+        android:label="В какое время дня лучше заниматься?"
+        tools:layout="@layout/fragment_vrema" />
+    <fragment
+        android:id="@+id/rastagFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.rastag"
+        android:label="В чем польза растяжки?"
+        tools:layout="@layout/fragment_rastag" />
+    <fragment
+        android:id="@+id/nabmishFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.nabmish"
+        android:label="Важные составляющие набора мышечной массы"
+        tools:layout="@layout/fragment_nabmish" />
+    <fragment
+        android:id="@+id/tiptelaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.tiptela"
+        android:label="Ваш тип тела — Эктоморф, Мезоморф, Эндоморф?"
+        tools:layout="@layout/fragment_tiptela" />
+    <fragment
+        android:id="@+id/zastoiFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.zastoi"
+        android:label="Застой в тренировках и от чего он возникает?"
+        tools:layout="@layout/fragment_zastoi" />
+    <fragment
+        android:id="@+id/izoyprFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.izoypr"
+        android:label="Изолирующие упражнения"
+        tools:layout="@layout/fragment_izoypr" />
+    <fragment
+        android:id="@+id/intervalFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.interval"
+        android:label="Интервал между подходами"
+        tools:layout="@layout/fragment_interval" />
+    <fragment
+        android:id="@+id/zameriFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.zameri"
+        android:label="Как правильно делать замеры тела?"
+        tools:layout="@layout/fragment_zameri" />
+    <fragment
+        android:id="@+id/svvstrenFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.svvstren"
+        android:label="Какие лучше делать упражнения: со свободными весами или в тренажерах?"
+        tools:layout="@layout/fragment_svvstren" />
+    <fragment
+        android:id="@+id/mishkorFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.mishkor"
+        android:label="Мышцы кора"
+        tools:layout="@layout/fragment_mishkor" />
+    <fragment
+        android:id="@+id/negfazFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.negfaz"
+        android:label="Негативная фаза"
+        tools:layout="@layout/fragment_negfaz" />
+    <fragment
+        android:id="@+id/vodaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.voda"
+        android:label="Нужно ли пить воду во время тренировки?"
+        tools:layout="@layout/fragment_voda" />
+    <fragment
+        android:id="@+id/bodidildingFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.bodidilding"
+        android:label="Понятие бодибилдинг"
+        tools:layout="@layout/fragment_bodidilding" />
+    <fragment
+        android:id="@+id/powerliftFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.powerlift"
+        android:label="Понятие пауэрлифтинг"
+        tools:layout="@layout/fragment_powerlift" />
+    <fragment
+        android:id="@+id/bolFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.bol"
+        android:label="Почему болят мышцы после тренировки и означает ли это, что тренировка была удачной?"
+        tools:layout="@layout/fragment_bol" />
+    <fragment
+        android:id="@+id/raznvesFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.raznves"
+        android:label="Почему от тренировки к тренировке играет вес при взвешивании?"
+        tools:layout="@layout/fragment_raznves" />
+    <fragment
+        android:id="@+id/dishiFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.dishi"
+        android:label="Правильное дыхание"
+        tools:layout="@layout/fragment_dishi" />
+    <fragment
+        android:id="@+id/massagFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.massag"
+        android:label="Спортивный массаж"
+        tools:layout="@layout/fragment_massag" />
+    <fragment
+        android:id="@+id/boleznFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.bolezn"
+        android:label="Стоит ли заниматься во время болезни?"
+        tools:layout="@layout/fragment_bolezn" />
+    <fragment
+        android:id="@+id/saynaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.sayna"
+        android:label="Стоит ли ходить в сауну после тренировки?"
+        tools:layout="@layout/fragment_sayna" />
+    <fragment
+        android:id="@+id/ocevaaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.ocevaa"
+        android:label="Упражнения с осевой нагрузкой на позвоночник"
+        tools:layout="@layout/fragment_ocevaa" />
+    <fragment
+        android:id="@+id/dovvszalFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.dovvszal"
+        android:label="Что выбрать - занятия дома или в тренажерном зале?"
+        tools:layout="@layout/fragment_dovvszal" />
+    <fragment
+        android:id="@+id/protvsgenFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.protvsgen"
+        android:label="Что лучше принимать: протеин или гейнер?"
+        tools:layout="@layout/fragment_protvsgen" />
+    <fragment
+        android:id="@+id/hccFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.hcc"
+        android:label="Что такое ЧСС (частота сердечных сокращений) и как рассчитать свою целевую зону пульса?"
+        tools:layout="@layout/fragment_hcc" />
+    <fragment
+        android:id="@+id/anabolFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.anabol"
+        android:label="Что такое анаболизм, катаболизм, метаболизм?"
+        tools:layout="@layout/fragment_anabol" />
+    <fragment
+        android:id="@+id/anabolikiFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.anaboliki"
+        android:label="Что такое анаболики?"
+        tools:layout="@layout/fragment_anaboliki" />
+    <fragment
+        android:id="@+id/androgenFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.androgen"
+        android:label="Что такое андрогены?"
+        tools:layout="@layout/fragment_androgen" />
+    <fragment
+        android:id="@+id/glicogenFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.glicogen"
+        android:label="Что такое гликоген, где вырабатывается и на что влияет?"
+        tools:layout="@layout/fragment_glicogen" />
+    <fragment
+        android:id="@+id/dropsetFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.dropset"
+        android:label="Что такое дроп-сет?"
+        tools:layout="@layout/fragment_dropset" />
+    <fragment
+        android:id="@+id/krygFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.kryg"
+        android:label="Что такое круговая тренировка?"
+        tools:layout="@layout/fragment_kryg" />
+    <fragment
+        android:id="@+id/pampingFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.pamping"
+        android:label="Что такое пампинг?"
+        tools:layout="@layout/fragment_pamping" />
+    <fragment
+        android:id="@+id/ygliFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.ygli"
+        android:label="Что такое простые углеводы и сложные углеводы?"
+        tools:layout="@layout/fragment_ygli" />
+    <fragment
+        android:id="@+id/syperFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.syper"
+        android:label="Что такое супер-тренировка?"
+        tools:layout="@layout/fragment_syper" />
+    <fragment
+        android:id="@+id/sypersetFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.syperset"
+        android:label="Что такое суперсет (суперсерия)?"
+        tools:layout="@layout/fragment_syperset" />
+    <fragment
+        android:id="@+id/sypinasiaFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.sypinasia"
+        android:label="Что такое супинация?"
+        tools:layout="@layout/fragment_sypinasia" />
+    <fragment
+        android:id="@+id/cihingFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Encyc.cihing"
+        android:label="Что такое читинг?"
+        tools:layout="@layout/fragment_cihing" />
+
+    <fragment
+        android:id="@+id/nav_chest_exercise_detail"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ChestExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_chest_exercise_detail">
+        <argument
+            android:name="exerciseTitle"
+            app:argType="string" />
+        <argument
+            android:name="exerciseDescription"
+            app:argType="string" />
+        <argument
+            android:name="exerciseImage"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_chest_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ChestExercisesFragment"
+        android:label="Грудные мышцы"
+        tools:layout="@layout/fragment_chest_exercises">
+        
+        <action
+            android:id="@+id/action_chest_exercises_to_detail"
+            app:destination="@id/nav_chest_exercise_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_back_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.BackExercisesFragment"
+        android:label="Упражнения для спины"
+        tools:layout="@layout/fragment_back">
+        
+        <action
+            android:id="@+id/action_nav_back_exercises_to_nav_back_exercise_detail"
+            app:destination="@id/nav_back_exercise_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_back_exercise_detail"
+        android:name="com.example.diplom_final.ui.Ypragnenia.BackExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_back_detail" />
+
+    <fragment
+        android:id="@+id/nav_leg_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.LegExerciseFragment"
+        android:label="Упражнения для ног"
+        tools:layout="@layout/fragment_leg_exercise">
+        
+        <action
+            android:id="@+id/action_legExerciseFragment_to_legExerciseDetailFragment"
+            app:destination="@id/nav_leg_exercise_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_leg_exercise_detail"
+        android:name="com.example.diplom_final.ui.Ypragnenia.LegExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_leg_exercise_detail">
+        
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="imageResourceId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_shoulder_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ShoulderExercisesFragment"
+        android:label="Плечи"
+        tools:layout="@layout/fragment_shoulder_exercises">
+        
+        <action
+            android:id="@+id/action_nav_shoulder_exercises_to_shoulderExerciseDetailFragment"
+            app:destination="@id/shoulderExerciseDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shoulderExerciseDetailFragment"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ShoulderExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_shoulder_exercise_detail">
+        
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_arm_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ArmsExercisesFragment"
+        android:label="Руки"
+        tools:layout="@layout/fragment_arms_exercises">
+        <action
+            android:id="@+id/action_nav_arms_exercises_to_armsExerciseDetailFragment"
+            app:destination="@id/nav_arms_exercise_detail">
+            <argument
+                android:name="title"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_abs_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExercisesFragment"
+        android:label="Пресс"
+        tools:layout="@layout/fragment_abs_exercises">
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_forearm_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExercisesFragment"
+        android:label="Предплечье"
+        tools:layout="@layout/fragment_forearm_exercises">
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_arms_exercise_detail"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ArmsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_arms_exercise_detail">
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_glutes_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.GlutesExercisesFragment"
+        android:label="Ягодицы"
+        tools:layout="@layout/fragment_glutes_exercises">
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+</navigation>
