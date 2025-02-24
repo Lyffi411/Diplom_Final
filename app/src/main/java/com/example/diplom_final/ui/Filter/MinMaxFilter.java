@@ -7,19 +7,22 @@ import android.text.Editable;
 import android.widget.EditText;
 import android.os.Handler;
 import android.os.Looper;
+import java.util.Locale;
 
 public class MinMaxFilter implements InputFilter {
-    private int intMin;
-    private int intMax;
+    private double min;
+    private double max;
     private EditText editText;
     private Handler handler;
     private boolean isValidating = false;
+    private boolean isStrict; // флаг для определения режима работы
 
-    public MinMaxFilter(int minValue, int maxValue, EditText editText) {
-        this.intMin = minValue;
-        this.intMax = maxValue;
+    public MinMaxFilter(double minValue, double maxValue, EditText editText, boolean strict) {
+        this.min = minValue;
+        this.max = maxValue;
         this.editText = editText;
         this.handler = new Handler(Looper.getMainLooper());
+        this.isStrict = strict;
         setupValidation();
     }
 
@@ -46,12 +49,6 @@ public class MinMaxFilter implements InputFilter {
                 validateValue();
             }
         });
-
-        editText.setOnEditorActionListener((v, actionId, event) -> {
-            handler.removeCallbacksAndMessages(null);
-            validateValue();
-            return false;
-        });
     }
 
     private void validateValue() {
@@ -62,17 +59,29 @@ public class MinMaxFilter implements InputFilter {
         
         if (!text.isEmpty()) {
             try {
-                int value = Integer.parseInt(text);
-                if (value < intMin) {
-                    editText.setText(String.valueOf(intMin));
-                    editText.setSelection(editText.length());
-                } else if (value > intMax) {
-                    editText.setText(String.valueOf(intMax));
-                    editText.setSelection(editText.length());
+                double value = Double.parseDouble(text);
+                if (isStrict) {
+                    // Строгий режим - устанавливаем минимальные значения
+                    if (value < min) {
+                        editText.setText(String.format(Locale.US, "%.1f", min));
+                        editText.setSelection(editText.length());
+                    } else if (value > max) {
+                        editText.setText(String.format(Locale.US, "%.1f", max));
+                        editText.setSelection(editText.length());
+                    }
+                } else {
+                    // Мягкий режим - только проверяем максимальные значения
+                    if (value > max) {
+                        editText.setText(String.format(Locale.US, "%.1f", max));
+                        editText.setSelection(editText.length());
+                    }
                 }
             } catch (NumberFormatException e) {
-                editText.setText(String.valueOf(intMin));
-                editText.setSelection(editText.length());
+                if (isStrict) {
+                    // В строгом режиме устанавливаем минимальное значение
+                    editText.setText(String.format(Locale.US, "%.1f", min));
+                    editText.setSelection(editText.length());
+                }
             }
         }
         
@@ -86,28 +95,28 @@ public class MinMaxFilter implements InputFilter {
 
     @Override
     public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dStart, int dEnd) {
+        String newVal = dest.toString().substring(0, dStart) + 
+                       source.toString().substring(start, end) + 
+                       dest.toString().substring(dEnd);
+        
+        if (newVal.isEmpty() || newVal.equals(".")) {
+            return null;
+        }
+
         try {
-            String newVal = dest.toString().substring(0, dStart) + 
-                          source.toString().substring(start, end) + 
-                          dest.toString().substring(dEnd);
-            
-            if (newVal.equals("")) {
+            double input = Double.parseDouble(newVal);
+            if (input <= max) {
                 return null;
             }
-
-            if (newVal.length() <= String.valueOf(intMax).length()) {
-                int input = Integer.parseInt(newVal);
-                if (input <= intMax) {
-                    return null;
-                }
-            }
         } catch (NumberFormatException e) {
-            // Игнорируем ошибку
+            if (newVal.matches("\\d*\\.?\\d*")) {
+                return null;
+            }
         }
         return "";
     }
 
-    public int getMinValue() {
-        return intMin;
+    public double getMinValue() {
+        return min;
     }
 }

@@ -15,34 +15,31 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.diplom_final.R;
-import com.example.diplom_final.adapters.ArmsExerciseAdapter;
+import com.example.diplom_final.ui.Ypragnenia.ArmExerciseAdapter;
 import com.example.diplom_final.databinding.FragmentArmsExercisesBinding;
-import com.example.diplom_final.models.ArmsExerciseItem;
+import com.example.diplom_final.ui.Ypragnenia.ArmExerciseItem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class ArmsExercisesFragment extends Fragment {
     private FragmentArmsExercisesBinding binding;
     private RecyclerView recyclerView;
-    private ArmsExerciseAdapter adapter;
-    private List<ArmsExerciseItem> allExercises;
-    private EditText searchEditText;
+    private ArmExerciseAdapter adapter;
+    private List<ArmExerciseItem> exerciseList;
+    private List<ArmExerciseItem> exerciseListFull;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArmsExercisesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        allExercises = getArmsExercises();
-        setupRecyclerView();
-        setupSearchView();
-
-        return root;
-    }
-
-    private void setupSearchView() {
-        searchEditText = binding.searchEditText;
+        recyclerView = binding.recyclerViewArmExercises;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        
+        EditText searchEditText = binding.searchEditText;
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -52,245 +49,761 @@ public class ArmsExercisesFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                filterExercises(s.toString());
+                filter(s.toString());
             }
         });
+
+        initializeExerciseList();
+        setupAdapter();
+
+        return root;
     }
 
-    private void filterExercises(String query) {
-        List<ArmsExerciseItem> filteredList = new ArrayList<>();
-        for (ArmsExerciseItem exercise : allExercises) {
-            if (exercise.getTitle().toLowerCase().contains(query.toLowerCase())) {
-                filteredList.add(exercise);
+    private void initializeExerciseList() {
+        exerciseList = new ArrayList<>();
+
+        // Упражнения для бицепса
+        addExercise(
+            1,
+            "Поочередное сгибание рук с гантелями",
+            "Базовое упражнение для развития бицепсов с поочередной работой рук",
+            "1. Встаньте прямо, гантели в руках\n" +
+            "2. Поочередно сгибайте руки к плечам\n" +
+            "3. В верхней точке разверните кисть\n" +
+            "4. Медленно опускайте гантель\n" +
+            "5. Повторите другой рукой",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса\n" +
+            "• Боли в плечах",
+            Arrays.asList(
+                "Одновременные сгибания с гантелями",
+                "Сгибания на скамье Скотта",
+                "Сгибания с канатом",
+                "Сгибания на блоке"
+            ),
+            "https://example.com/video1",
+            R.drawable.arms_alternate_dumbbell_curl
+        );
+
+        addExercise(
+            2,
+            "Сгибание рук со штангой",
+            "Базовое упражнение для набора массы бицепсов",
+            "1. Возьмите штангу нижним хватом\n" +
+            "2. Встаньте прямо, локти прижаты к корпусу\n" +
+            "3. Поднимите штангу к плечам\n" +
+            "4. Задержитесь на секунду\n" +
+            "5. Медленно опустите штангу",
+            "3-4 подхода по 8-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Боли в пояснице\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Сгибания с гантелями",
+                "Сгибания на скамье Скотта",
+                "Сгибания с EZ-грифом",
+                "Сгибания в блоке"
+            ),
+            "https://example.com/video2",
+            R.drawable.arms_barbell_curl
+        );
+
+        addExercise(
+            3,
+            "Молотки с гантелями",
+            "Упражнение для развития брахиалиса и бицепса",
+            "1. Встаньте прямо с гантелями\n" +
+            "2. Держите гантели параллельно друг другу\n" +
+            "3. Сгибайте руки к плечам\n" +
+            "4. Удерживайте положение гантелей\n" +
+            "5. Медленно опускайте вниз",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит\n" +
+            "• Боли в предплечьях",
+            Arrays.asList(
+                "Сгибания на скамье Скотта",
+                "Сгибания с канатом",
+                "Концентрированные сгибания",
+                "Сгибания на блоке"
+            ),
+            "https://example.com/video3",
+            R.drawable.arms_seated_dumbbell_curl
+        );
+
+        addExercise(
+            4,
+            "Французский жим лежа",
+            "Базовое упражнение для развития трицепса",
+            "1. Лягте на скамью\n" +
+            "2. Возьмите штангу прямым хватом\n" +
+            "3. Опустите штангу за голову\n" +
+            "4. Разогните руки\n" +
+            "5. Вернитесь в исходное положение",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с плечами\n" +
+            "• Нестабильность плечевого пояса",
+            Arrays.asList(
+                "Разгибания в блоке",
+                "Отжимания на брусьях",
+                "Жим узким хватом",
+                "Разгибания с гантелями"
+            ),
+            "https://example.com/video4",
+            R.drawable.arms_lying_db_extension
+        );
+
+        addExercise(
+            5,
+            "Разгибание рук в блоке",
+            "Изолирующее упражнение для трицепса",
+            "1. Встаньте перед верхним блоком\n" +
+            "2. Возьмите рукоять прямым хватом\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Разогните руки вниз\n" +
+            "5. Медленно вернитесь вверх",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтей\n" +
+            "• Проблемы с плечами\n" +
+            "• Тендинит трицепса",
+            Arrays.asList(
+                "Разгибания с канатом",
+                "Французский жим",
+                "Отжимания на брусьях",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video5",
+            R.drawable.arms_triceps_pushdown
+        );
+
+        addExercise(
+            6,
+            "Поочередное сгибание рук с разворотом сидя",
+            "Изолирующее упражнение для бицепса с акцентом на супинацию",
+            "1. Сядьте на скамью\n" +
+            "2. Возьмите гантели нейтральным хватом\n" +
+            "3. Сгибайте руку, разворачивая кисть наружу\n" +
+            "4. Достигните полного сокращения\n" +
+            "5. Медленно опустите вниз",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Классические сгибания с гантелями",
+                "Сгибания на скамье Скотта",
+                "Сгибания с канатом",
+                "Концентрированные сгибания"
+            ),
+            "https://example.com/video6",
+            R.drawable.arms_seated_alternate_curl
+        );
+
+        addExercise(
+            7,
+            "Сгибание на скамье Скотта на блоке с канатной рукоятью",
+            "Изолирующее упражнение для бицепса с постоянным напряжением",
+            "1. Сядьте на скамью Скотта\n" +
+            "2. Возьмите канатную рукоять\n" +
+            "3. Прижмите локти к скамье\n" +
+            "4. Сгибайте руки к плечам\n" +
+            "5. Медленно опускайте вниз",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Тендинит бицепса\n" +
+            "• Проблемы с запястьями",
+            Arrays.asList(
+                "Сгибания со штангой на скамье Скотта",
+                "Сгибания с гантелями",
+                "Сгибания с прямой рукоятью",
+                "Концентрированные сгибания"
+            ),
+            "https://example.com/video7",
+            R.drawable.arms_scott_cable_rope
+        );
+
+        addExercise(
+            8,
+            "Сгибание одной руки на скамье",
+            "Изолирующее упражнение для проработки каждого бицепса отдельно",
+            "1. Сядьте на скамью, рука с гантелью опущена\n" +
+            "2. Прижмите локоть к внутренней части бедра\n" +
+            "3. Медленно поднимите гантель к плечу\n" +
+            "4. Задержитесь на секунду в верхней точке\n" +
+            "5. Плавно опустите гантель",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Концентрированные сгибания",
+                "Сгибания на скамье Скотта",
+                "Сгибания с канатом",
+                "Изолированные сгибания в блоке"
+            ),
+            "https://example.com/video8",
+            R.drawable.arms_single_arm_bench_curl
+        );
+
+        addExercise(
+            9,
+            "Сгибание одной руки на скамье Скотта",
+            "Изолирующее упражнение для максимальной концентрации на бицепсе",
+            "1. Сядьте на скамью Скотта\n" +
+            "2. Возьмите гантель одной рукой\n" +
+            "3. Прижмите локоть к подушке\n" +
+            "4. Выполните сгибание до плеча\n" +
+            "5. Медленно опустите вниз",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Тендинит бицепса\n" +
+            "• Проблемы с запястьями",
+            Arrays.asList(
+                "Сгибания со штангой на скамье Скотта",
+                "Концентрированные сгибания",
+                "Сгибания в блоке",
+                "Сгибания с гантелями стоя"
+            ),
+            "https://example.com/video9",
+            R.drawable.arms_single_scott_curl
+        );
+
+        addExercise(
+            10,
+            "Сгибание одной руки от колена",
+            "Концентрированное сгибание для максимальной изоляции бицепса",
+            "1. Сядьте на скамью, наклонитесь вперед\n" +
+            "2. Упритесь локтем во внутреннюю часть бедра\n" +
+            "3. Выполните сгибание руки\n" +
+            "4. Задержитесь в верхней точке\n" +
+            "5. Медленно опустите вниз",
+            "3 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Боли в пояснице",
+            Arrays.asList(
+                "Сгибания на скамье Скотта",
+                "Изолированные сгибания в блоке",
+                "Сгибания с гантелями стоя",
+                "Сгибания на наклонной скамье"
+            ),
+            "https://example.com/video10",
+            R.drawable.arms_concentration_curl
+        );
+
+        addExercise(
+            11,
+            "Сгибание одной рукой в блоке с тросом",
+            "Изолирующее упражнение с постоянным напряжением",
+            "1. Встаньте сбоку от нижнего блока\n" +
+            "2. Возьмите рукоять одной рукой\n" +
+            "3. Прижмите локоть к корпусу\n" +
+            "4. Выполните сгибание руки\n" +
+            "5. Медленно вернитесь в исходное положение",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Сгибания с гантелями",
+                "Сгибания на скамье Скотта",
+                "Концентрированные сгибания",
+                "Сгибания с канатом"
+            ),
+            "https://example.com/video11",
+            R.drawable.arms_single_cable_curl
+        );
+
+        addExercise(
+            12,
+            "Сгибание одной рукой на скамье Скотта в блоке",
+            "Комбинация изоляции и постоянного напряжения",
+            "1. Установите скамью Скотта у блока\n" +
+            "2. Возьмите рукоять одной рукой\n" +
+            "3. Прижмите локоть к подушке\n" +
+            "4. Выполните сгибание\n" +
+            "5. Контролируемо опустите вниз",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Тендинит бицепса\n" +
+            "• Проблемы с запястьями",
+            Arrays.asList(
+                "Сгибания с гантелей на скамье Скотта",
+                "Сгибания в блоке стоя",
+                "Концентрированные сгибания",
+                "Сгибания с канатом"
+            ),
+            "https://example.com/video12",
+            R.drawable.arms_scott_single_cable
+        );
+
+        addExercise(
+            13,
+            "Сгибание рук в блоке",
+            "Базовое упражнение с постоянным напряжением",
+            "1. Встаньте перед нижним блоком\n" +
+            "2. Возьмите прямую рукоять\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Выполните сгибание рук\n" +
+            "5. Медленно опустите вниз",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Сгибания со штангой",
+                "Сгибания с гантелями",
+                "Сгибания с канатом",
+                "Сгибания на скамье Скотта"
+            ),
+            "https://example.com/video13",
+            R.drawable.arms_cable_curl
+        );
+
+        addExercise(
+            14,
+            "Сгибание рук в блоке сидя на корточках",
+            "Вариация сгибаний в блоке с другим углом нагрузки",
+            "1. Сядьте на корточки перед блоком\n" +
+            "2. Возьмите рукоять прямым хватом\n" +
+            "3. Прижмите локти к бедрам\n" +
+            "4. Выполните сгибание рук\n" +
+            "5. Медленно опустите вниз",
+            "3 подхода по 12-15 повторений",
+            "• Травмы коленей\n" +
+            "• Проблемы с локтями\n" +
+            "• Боли в пояснице",
+            Arrays.asList(
+                "Стандартные сгибания в блоке",
+                "Сгибания с канатом",
+                "Сгибания на скамье Скотта",
+                "Сгибания с гантелями"
+            ),
+            "https://example.com/video14",
+            R.drawable.arms_squat_cable_curl
+        );
+
+        addExercise(
+            15,
+            "Сгибание рук в тренажере",
+            "Изолирующее упражнение с фиксированной траекторией",
+            "1. Отрегулируйте сиденье тренажера\n" +
+            "2. Прижмите локти к подушкам\n" +
+            "3. Возьмитесь за рукояти\n" +
+            "4. Выполните сгибание рук\n" +
+            "5. Медленно опустите вниз",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Сгибания со штангой",
+                "Сгибания с гантелями",
+                "Сгибания в блоке",
+                "Сгибания на скамье Скотта"
+            ),
+            "https://example.com/video15",
+            R.drawable.arms_machine_curl
+        );
+
+        addExercise(
+            16,
+            "Сгибание рук с гантелями сидя",
+            "Изолирующее упражнение для бицепсов",
+            "1. Сядьте на скамью\n" +
+            "2. Возьмите гантели нижним хватом\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Выполните сгибание рук\n" +
+            "5. Медленно опустите вниз",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Сгибания со штангой",
+                "Сгибания на скамье Скотта",
+                "Сгибания в блоке",
+                "Концентрированные сгибания"
+            ),
+            "https://example.com/video16",
+            R.drawable.arms_seated_dumbbell_curl
+        );
+
+        addExercise(
+            17,
+            "Сгибание рук со штангой прямым хватом",
+            "Упражнение для развития брахиалиса и брахиорадиалиса",
+            "1. Возьмите штангу прямым хватом\n" +
+            "2. Встаньте прямо\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Выполните сгибание рук\n" +
+            "5. Медленно опустите штангу",
+            "3 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит",
+            Arrays.asList(
+                "Сгибания с гантелями прямым хватом",
+                "Молотки",
+                "Сгибания в блоке прямым хватом",
+                "Сгибания на скамье Скотта"
+            ),
+            "https://example.com/video17",
+            R.drawable.arms_reverse_curl
+        );
+
+        addExercise(
+            18,
+            "Сгибание рук со штангой с кривым грифом параллельным хватом",
+            "Упражнение для бицепса с комфортным положением запястий",
+            "1. Возьмите EZ-штангу параллельным хватом\n" +
+            "2. Встаньте прямо\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Выполните сгибание рук\n" +
+            "5. Медленно опустите вниз",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Сгибания со стандартной штангой",
+                "Сгибания с гантелями",
+                "Сгибания на скамье Скотта",
+                "Сгибания в блоке"
+            ),
+            "https://example.com/video18",
+            R.drawable.arms_ez_bar_curl
+        );
+
+        addExercise(
+            19,
+            "Сгибание рук со штангой сидя",
+            "Изолирующее упражнение для бицепсов",
+            "1. Сядьте на скамью\n" +
+            "2. Возьмите штангу нижним хватом\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Выполните сгибание рук\n" +
+            "5. Медленно опустите штангу",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит бицепса",
+            Arrays.asList(
+                "Сгибания с гантелями сидя",
+                "Сгибания на скамье Скотта",
+                "Сгибания в блоке",
+                "Концентрированные сгибания"
+            ),
+            "https://example.com/video19",
+            R.drawable.arms_seated_barbell_curl
+        );
+
+        addExercise(
+            20,
+            "Жим лежа узким хватом",
+            "Базовое упражнение для развития трицепса",
+            "1. Лягте на скамью\n" +
+            "2. Возьмите штангу узким хватом\n" +
+            "3. Опустите штангу к груди\n" +
+            "4. Выжмите штангу вверх\n" +
+            "5. Держите локти близко к корпусу",
+            "3-4 подхода по 8-12 повторений",
+            "• Травмы плечевых суставов\n" +
+            "• Проблемы с локтями\n" +
+            "• Боли в запястьях",
+            Arrays.asList(
+                "Отжимания на брусьях",
+                "Французский жим",
+                "Разгибания в блоке",
+                "Жим гантелей узким хватом"
+            ),
+            "https://example.com/video20",
+            R.drawable.arms_close_grip_bench
+        );
+
+        addExercise(
+            21,
+            "Обратные отжимания от скамьи",
+            "Базовое упражнение для трицепса с собственным весом",
+            "1. Упритесь руками в скамью за спиной\n" +
+            "2. Выпрямите ноги или согните колени\n" +
+            "3. Опуститесь, сгибая локти\n" +
+            "4. Отожмитесь вверх\n" +
+            "5. Держите локти близко к телу",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы запястий\n" +
+            "• Проблемы с локтями\n" +
+            "• Боли в плечах",
+            Arrays.asList(
+                "Отжимания на брусьях",
+                "Разгибания в блоке",
+                "Французский жим",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video21",
+            R.drawable.arms_bench_dips
+        );
+
+        addExercise(
+            22,
+            "Отжимания на брусьях",
+            "Базовое упражнение для развития трицепса и груди",
+            "1. Возьмитесь за брусья\n" +
+            "2. Примите вертикальное положение\n" +
+            "3. Опуститесь, сгибая локти\n" +
+            "4. Отожмитесь вверх\n" +
+            "5. Держите корпус прямо",
+            "3-4 подхода по 8-12 повторений",
+            "• Травмы плечевых суставов\n" +
+            "• Проблемы с локтями\n" +
+            "• Нестабильность плечевого пояса",
+            Arrays.asList(
+                "Жим узким хватом",
+                "Французский жим",
+                "Разгибания в блоке",
+                "Обратные отжимания"
+            ),
+            "https://example.com/video22",
+            R.drawable.arms_dips
+        );
+
+        addExercise(
+            23,
+            "Разгибание в трицепс-машине",
+            "Изолирующее упражнение для трицепса",
+            "1. Отрегулируйте сиденье\n" +
+            "2. Возьмитесь за рукояти\n" +
+            "3. Разогните руки\n" +
+            "4. Задержитесь на секунду\n" +
+            "5. Медленно вернитесь назад",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с плечами\n" +
+            "• Тендинит трицепса",
+            Arrays.asList(
+                "Разгибания в блоке",
+                "Французский жим",
+                "Жим узким хватом",
+                "Отжимания на брусьях"
+            ),
+            "https://example.com/video23",
+            R.drawable.arms_triceps_machine
+        );
+
+        addExercise(
+            24,
+            "Разгибание из-за головы кривой штанги параллельным хватом",
+            "Изолирующее упражнение для трицепса",
+            "1. Возьмите EZ-штангу за голову\n" +
+            "2. Держите локти вертикально\n" +
+            "3. Разогните руки вверх\n" +
+            "4. Задержитесь на секунду\n" +
+            "5. Медленно опустите вниз",
+            "3-4 подхода по 10-12 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с плечами\n" +
+            "• Нестабильность плечевого пояса",
+            Arrays.asList(
+                "Французский жим лежа",
+                "Разгибания в блоке",
+                "Разгибания с гантелями",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video24",
+            R.drawable.arms_ez_bar_overhead
+        );
+
+        addExercise(
+            25,
+            "Разгибание одной руки из-за головы с гантелью",
+            "Изолирующее упражнение для каждого трицепса",
+            "1. Поднимите гантель за голову\n" +
+            "2. Зафиксируйте локоть вертикально\n" +
+            "3. Разогните руку вверх\n" +
+            "4. Задержитесь на секунду\n" +
+            "5. Медленно опустите вниз",
+            "3 подхода по 12-15 повторений на каждую руку",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с плечами\n" +
+            "• Нестабильность плечевого пояса",
+            Arrays.asList(
+                "Французский жим с гантелями",
+                "Разгибания в блоке",
+                "Разгибания с канатом",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video25",
+            R.drawable.arms_single_overhead
+        );
+
+        addExercise(
+            26,
+            "Разгибание одной руки из-за головы с гантелью сидя",
+            "Изолирующее упражнение для трицепса с опорой на спину",
+            "1. Сядьте на скамью со спинкой\n" +
+            "2. Поднимите гантель за голову\n" +
+            "3. Зафиксируйте локоть\n" +
+            "4. Разогните руку вверх\n" +
+            "5. Медленно опустите вниз",
+            "3 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с плечами\n" +
+            "• Боли в шее",
+            Arrays.asList(
+                "Французский жим лежа",
+                "Разгибания в блоке",
+                "Разгибания стоя",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video26",
+            R.drawable.arms_seated_overhead
+        );
+
+        addExercise(
+            27,
+            "Разгибание одной руки с гантелью в наклоне",
+            "Изолирующее упражнение для трицепса под другим углом",
+            "1. Наклонитесь вперед\n" +
+            "2. Поднимите локоть параллельно полу\n" +
+            "3. Разогните руку назад\n" +
+            "4. Задержитесь на секунду\n" +
+            "5. Медленно согните руку",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с поясницей\n" +
+            "• Боли в плечах",
+            Arrays.asList(
+                "Разгибания в блоке",
+                "Французский жим",
+                "Разгибания из-за головы",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video27",
+            R.drawable.arms_bent_extension
+        );
+
+        addExercise(
+            28,
+            "Разгибание рук в блоке обратным хватом",
+            "Вариация разгибаний для акцента на внешней головке трицепса",
+            "1. Встаньте перед верхним блоком\n" +
+            "2. Возьмите рукоять обратным хватом\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Разогните руки вниз\n" +
+            "5. Медленно вернитесь вверх",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит трицепса",
+            Arrays.asList(
+                "Разгибания прямым хватом",
+                "Разгибания с канатом",
+                "Французский жим",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video28",
+            R.drawable.arms_reverse_pushdown
+        );
+
+        addExercise(
+            29,
+            "Разгибание рук в блоке с V-рукоятью",
+            "Комфортный вариант разгибаний в блоке",
+            "1. Встаньте перед верхним блоком\n" +
+            "2. Возьмите V-образную рукоять\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Разогните руки вниз\n" +
+            "5. Медленно поднимите вверх",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит трицепса",
+            Arrays.asList(
+                "Разгибания с прямой рукоятью",
+                "Разгибания с канатом",
+                "Французский жим",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video29",
+            R.drawable.arms_v_bar_pushdown
+        );
+
+        addExercise(
+            30,
+            "Разгибание рук в блоке с канатом",
+            "Упражнение для трицепса с акцентом на пронацию",
+            "1. Встаньте перед верхним блоком\n" +
+            "2. Возьмите концы каната\n" +
+            "3. Прижмите локти к корпусу\n" +
+            "4. Разогните руки и разведите концы\n" +
+            "5. Медленно вернитесь вверх",
+            "3-4 подхода по 12-15 повторений",
+            "• Травмы локтевых суставов\n" +
+            "• Проблемы с запястьями\n" +
+            "• Тендинит трицепса",
+            Arrays.asList(
+                "Разгибания с прямой рукоятью",
+                "Разгибания с V-рукоятью",
+                "Французский жим",
+                "Жим узким хватом"
+            ),
+            "https://example.com/video30",
+            R.drawable.arms_rope_pushdown
+        );
+
+        exerciseListFull = new ArrayList<>(exerciseList);
+    }
+
+    private void setupAdapter() {
+        adapter = new ArmExerciseAdapter(exerciseList, exercise -> {
+            Bundle args = exercise.getExtraData();
+            if (args != null) {
+                Navigation.findNavController(requireView())
+                    .navigate(getNavigationAction(exercise.getId()), args);
             }
-        }
-        adapter.updateList(filteredList);
-    }
-
-    private void setupRecyclerView() {
-        recyclerView = binding.recyclerViewArmsExercises;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        
-        adapter = new ArmsExerciseAdapter(allExercises, item -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", item.getTitle());
-            Navigation.findNavController(requireView())
-                     .navigate(R.id.action_nav_arms_exercises_to_armsExerciseDetailFragment, bundle);
         });
-        
         recyclerView.setAdapter(adapter);
     }
 
-    private List<ArmsExerciseItem> getArmsExercises() {
-        List<ArmsExerciseItem> list = new ArrayList<>();
-        
-        // Упражнения на бицепс
-        list.add(new ArmsExerciseItem(
-                "Поочередное сгибание рук с гантелями",
-                "Базовое упражнение для бицепсов",
-                R.drawable.arms_alternate_dumbbell_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Поочередное сгибание рук с разворотом сидя",
-                "Изолирующее упражнение для бицепсов с супинацией",
-                R.drawable.arms_seated_alternate_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание на скамье Скотта на блоке с канатной рукоятью",
-                "Изолированное упражнение для бицепсов",
-                R.drawable.arms_scott_cable_rope));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание одной руки на скамье",
-                "Изолирующее упражнение для бицепса одной руки",
-                R.drawable.arms_single_arm_bench_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание одной руки на скамье Скотта",
-                "Строгое изолирующее упражнение для бицепса",
-                R.drawable.arms_single_scott_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание одной руки от колена",
-                "Концентрированное сгибание для пикового сокращения",
-                R.drawable.arms_concentration_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание одной рукой в блоке с тросом",
-                "Изолированное упражнение с постоянным напряжением",
-                R.drawable.arms_single_cable_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание одной рукой на скамье Скотта в блоке",
-                "Комбинированное изолирующее упражнение",
-                R.drawable.arms_scott_single_cable));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук в блоке",
-                "Базовое упражнение с постоянным сопротивлением",
-                R.drawable.arms_cable_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук в блоке сидя на корточках",
-                "Вариация для максимального сокращения бицепса",
-                R.drawable.arms_squat_cable_curl));
+    private void addExercise(int id, String title, String description, String technique,
+                            String sets, String contraindications, List<String> alternatives,
+                            String videoUrl, int imageResourceId) {
+        Bundle exerciseData = new Bundle();
+        exerciseData.putString("exerciseTitle", title);
+        exerciseData.putString("exerciseDescription", description);
+        exerciseData.putString("technique", technique);
+        exerciseData.putString("sets", sets);
+        exerciseData.putString("contraindications", contraindications);
+        exerciseData.putStringArrayList("alternatives", new ArrayList<>(alternatives));
+        exerciseData.putString("videoUrl", videoUrl);
+        exerciseData.putInt("exerciseImage", imageResourceId);
 
-        // Упражнения на бицепс (продолжение)
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук в тренажере",
-                "Изолированное упражнение с фиксированной траекторией",
-                R.drawable.arms_machine_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук с гантелями сидя",
-                "Классическое упражнение для бицепсов",
-                R.drawable.arms_seated_dumbbell_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук с разворотом сидя на наклонной скамье",
-                "Упражнение для бицепсов с акцентом на супинацию",
-                R.drawable.arms_incline_twist_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук со штангой",
-                "Базовое упражнение для массы бицепсов",
-                R.drawable.arms_barbell_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук со штангой на скамье Скотта",
-                "Строгое упражнение для бицепсов",
-                R.drawable.arms_scott_barbell));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук со штангой прямым хватом",
-                "Вариация для акцента на брахиалис",
-                R.drawable.arms_reverse_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук со штангой с кривым грифом параллельным хватом",
-                "Упражнение для комфортной работы запястий",
-                R.drawable.arms_ez_bar_curl));
-                
-        list.add(new ArmsExerciseItem(
-                "Сгибание рук со штангой сидя",
-                "Строгое упражнение с исключением читинга",
-                R.drawable.arms_seated_barbell_curl));
+        ArmExerciseItem exercise = new ArmExerciseItem(id, title, description, technique,
+                sets, contraindications, alternatives, videoUrl, imageResourceId);
+        exercise.setExtraData(exerciseData);
+        exerciseList.add(exercise);
+    }
 
-        // Упражнения на трицепс
-        list.add(new ArmsExerciseItem(
-                "Жим лежа узким хватом",
-                "Базовое упражнение для массы трицепсов",
-                R.drawable.arms_close_grip_bench));
-                
-        list.add(new ArmsExerciseItem(
-                "Обратные отжимания от скамьи",
-                "Упражнение с собственным весом для трицепсов",
-                R.drawable.arms_bench_dips));
-                
-        list.add(new ArmsExerciseItem(
-                "Отжимания на брусьях",
-                "Эффективное упражнение для трицепсов",
-                R.drawable.arms_dips));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание в трицепс-машине",
-                "Изолированное упражнение с фиксированной траекторией",
-                R.drawable.arms_triceps_machine));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание из-за головы кривой штанги параллельным хватом",
-                "Упражнение для всех головок трицепса",
-                R.drawable.arms_ez_bar_overhead));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание одной руки из-за головы с гантелью",
-                "Изолированное упражнение для одной руки",
-                R.drawable.arms_single_overhead));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание одной руки из-за головы с гантелью сидя",
-                "Строгое изолирующее упражнение",
-                R.drawable.arms_seated_overhead));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание одной руки с гантелью в наклоне",
-                "Упражнение для трицепса в другом угле",
-                R.drawable.arms_bent_extension));
+    private int getNavigationAction(int exerciseId) {
+        return R.id.action_nav_arms_exercises_to_armsExerciseDetailFragment;
+    }
 
-        // Продолжить со списком?
+    private void filter(String text) {
+        List<ArmExerciseItem> filteredList = new ArrayList<>();
         
-        // Продолжение упражнений на трицепс
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук в блоке",
-                "Базовое изолирующее упражнение для трицепсов",
-                R.drawable.arms_triceps_pushdown));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук в блоке обратным хватом",
-                "Вариация для акцента на внутреннюю головку",
-                R.drawable.arms_reverse_pushdown));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук в блоке с V-рукоятью",
-                "Комфортная вариация для запястий",
-                R.drawable.arms_v_bar_pushdown));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук в блоке с веревками",
-                "Упражнение с дополнительной ротацией",
-                R.drawable.arms_rope_pushdown));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук в тренажере",
-                "Изолированное упражнение с фиксированной траекторией",
-                R.drawable.arms_machine_extension));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук из-за головы в верхнем блоке",
-                "Упражнение для растяжения трицепса",
-                R.drawable.arms_overhead_extension));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук из-за головы в верхнем блоке с канатом",
-                "Вариация с комфортным хватом",
-                R.drawable.arms_overhead_rope));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание рук из-за головы с гантелью сидя",
-                "Изолирующее упражнение для трицепсов",
-                R.drawable.arms_seated_db_overhead));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание штанги из-за головы обратным хватом стоя",
-                "Сложное упражнение для опытных",
-                R.drawable.arms_standing_reverse_extension));
-                
-        list.add(new ArmsExerciseItem(
-                "Разгибание штанги из-за головы стоя",
-                "Классическое упражнение для трицепсов",
-                R.drawable.arms_standing_overhead));
-                
-        list.add(new ArmsExerciseItem(
-                "Французский жим в блоке",
-                "Вариация с постоянным сопротивлением",
-                R.drawable.arms_cable_french_press));
-                
-        list.add(new ArmsExerciseItem(
-                "Французский жим на наклонной скамье",
-                "Упражнение под другим углом",
-                R.drawable.arms_incline_french_press));
-                
-        list.add(new ArmsExerciseItem(
-                "Французский жим с гантелями лежа",
-                "Раздельная работа для каждой руки",
-                R.drawable.arms_lying_db_extension));
-                
-        list.add(new ArmsExerciseItem(
-                "Французский жим со штангой лежа",
-                "Классическое упражнение для трицепсов",
-                R.drawable.arms_lying_french_press));
+        for (ArmExerciseItem item : exerciseListFull) {
+            if (item.getTitle().toLowerCase(Locale.getDefault())
+                    .contains(text.toLowerCase(Locale.getDefault()))) {
+                filteredList.add(item);
+            }
+        }
         
-        return list;
+        adapter.filterList(filteredList);
     }
 
     @Override

@@ -73,8 +73,8 @@ public class PrisadFragment extends Fragment {
         btnSaveResult.setVisibility(View.GONE);
 
         // Фильтры ввода
-           editTextWeight.setFilters(new InputFilter[]{new MinMaxFilter(15, 400, editTextWeight)});
-          editTextReps.setFilters(new InputFilter[]{new MinMaxFilter(2, 20, editTextReps)});
+           editTextWeight.setFilters(new InputFilter[]{new MinMaxFilter(15, 400, editTextWeight, true)});
+          editTextReps.setFilters(new InputFilter[]{new MinMaxFilter(2, 20, editTextReps, true)});
 
         // Получаем максимальный присед из профиля
         profilViewModel.getProfile().observe(getViewLifecycleOwner(), profile -> {

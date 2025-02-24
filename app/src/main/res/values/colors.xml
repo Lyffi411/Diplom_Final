@@ -31,4 +31,34 @@
     <color name="background_color">#121212</color>
     <color name="card_background">#1E1E1E</color>
     <color name="text_secondary">#B3FFFFFF</color>
+
+    <!-- Основная палитра из изображения -->
+    <color name="background">#1A1A1D</color>      <!-- Темный фон -->
+    <color name="surface">#4E4E50</color>         <!-- Серый для карточек -->
+    <color name="primary">#C3073F</color>         <!-- Основной розовый -->
+    <color name="secondary">#950740</color>       <!-- Темно-розовый -->
+    <color name="accent">#6F2232</color>          <!-- Бордовый акцент -->
+    
+    <!-- Дополнительные оттенки -->
+    <color name="dark_surface">#2D2D30</color>    <!-- Темно-серый для элементов -->
+    <color name="light_surface">#6F6F74</color>   <!-- Светло-серый для неактивных элементов -->
+    
+    <!-- Текстовые цвета -->
+    <color name="on_background">#FFFFFF</color>   <!-- Белый текст на фоне -->
+    <color name="on_surface">#CCCCCC</color>      <!-- Светло-серый текст -->
+    <color name="on_primary">#FFFFFF</color>      <!-- Белый текст на primary -->
+    
+    <!-- Акцентные цвета -->
+    <color name="error">#C3073F</color>           <!-- Красный для ошибок -->
+    <color name="success">#950740</color>         <!-- Темно-розовый для успеха -->
+    
+    <!-- Градации розового -->
+    <color name="pink_100">#C3073F</color>        <!-- #C3073F -->
+    <color name="pink_200">#950740</color>        <!-- #950740 -->
+    <color name="pink_300">#6F2232</color>        <!-- #6F2232 -->
+    
+    <!-- Градации серого -->
+    <color name="gray_100">#4E4E50</color>        <!-- #4E4E50 -->
+    <color name="gray_200">#2D2D30</color>        <!-- Темнее -->
+    <color name="gray_300">#1A1A1D</color>        <!-- Самый темный -->
 </resources>

@@ -59,13 +59,13 @@ public class Profil extends Fragment {
         deadliftInput.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         squatInput.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
-        // Создаем фильтры с сохранением ссылок
-        ageFilter = new MinMaxFilter(10, 100, ageInput);
-        heightFilter = new MinMaxFilter(40, 250, heightInput);
-        weightFilter = new MinMaxFilter(30, 250, weightInput);
-        benchFilter = new MinMaxFilter(15, 400, benchPressInput);
-        deadliftFilter = new MinMaxFilter(15, 500, deadliftInput);
-        squatFilter = new MinMaxFilter(15, 500, squatInput);
+        // Создаем фильтры с мягким режимом для профиля
+        ageFilter = new MinMaxFilter(10, 100, ageInput, false);
+        heightFilter = new MinMaxFilter(40, 250, heightInput, false);
+        weightFilter = new MinMaxFilter(30, 250, weightInput, false);
+        benchFilter = new MinMaxFilter(15, 400, benchPressInput, false);
+        deadliftFilter = new MinMaxFilter(15, 500, deadliftInput, false);
+        squatFilter = new MinMaxFilter(15, 500, squatInput, false);
 
         // Применяем фильтры
         ageInput.setFilters(new InputFilter[]{ageFilter});

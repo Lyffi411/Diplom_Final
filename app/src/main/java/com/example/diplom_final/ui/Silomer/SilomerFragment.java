@@ -20,32 +20,27 @@ public class SilomerFragment extends Fragment {
 
     private FragmentSilomerBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        SilomerViewModel silomerViewModel =
-                new ViewModelProvider(this).get(SilomerViewModel.class);
-
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSilomerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        // Инициализация кнопки перехода
-        ImageButton goToGimButton = binding.getRoot().findViewById(R.id.imageButton_gim);
-        goToGimButton.setOnClickListener(v -> {
-            // Переход к фрагменту Gim
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+
+        // Настраиваем клики для всех кнопок
+        binding.imageButtonGim.setOnClickListener(view -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
             navController.navigate(R.id.nav_gim);
         });
-        ImageButton goToTagaButton = binding.getRoot().findViewById(R.id.imageButton_taga);
-        goToTagaButton.setOnClickListener(v -> {
-            // Переход к фрагменту Taga
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+
+        binding.imageButtonTaga.setOnClickListener(view -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
             navController.navigate(R.id.nav_taga);
         });
-        ImageButton goToPrisadButton = binding.getRoot().findViewById(R.id.imageButton_prisad);
-        goToPrisadButton.setOnClickListener(v -> {
-            // Переход к фрагменту Taga
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+
+        binding.imageButtonPrisad.setOnClickListener(view -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
             navController.navigate(R.id.nav_prisad);
         });
+
         return root;
     }
 

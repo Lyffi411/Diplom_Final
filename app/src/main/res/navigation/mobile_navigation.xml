@@ -95,7 +95,7 @@
             
         <action
             android:id="@+id/action_nav_ypragnenia_to_glutes_exercises"
-            app:destination="@id/nav_glutes_exercises" />
+            app:destination="@id/nav_butt_exercises" />
     </fragment>
 
     <fragment
@@ -782,32 +782,175 @@
         tools:layout="@layout/fragment_arms_exercises">
         <action
             android:id="@+id/action_nav_arms_exercises_to_armsExerciseDetailFragment"
-            app:destination="@id/nav_arms_exercise_detail">
-            <argument
-                android:name="title"
-                app:argType="string" />
-        </action>
+            app:destination="@id/armsExerciseDetailFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/armsExerciseDetailFragment"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ArmsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_arms_exercise_detail" />
 
     <fragment
         android:id="@+id/nav_abs_exercises"
         android:name="com.example.diplom_final.ui.Ypragnenia.AbsExercisesFragment"
-        android:label="Пресс"
+        android:label="Упражнения для пресса"
         tools:layout="@layout/fragment_abs_exercises">
-        <argument
-            android:name="title"
-            app:argType="string" />
+        
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment1"
+            app:destination="@id/absExerciseDetailFragment1" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment2"
+            app:destination="@id/absExerciseDetailFragment2" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment3"
+            app:destination="@id/absExerciseDetailFragment3" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment4"
+            app:destination="@id/absExerciseDetailFragment4" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment5"
+            app:destination="@id/absExerciseDetailFragment5" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment6"
+            app:destination="@id/absExerciseDetailFragment6" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment7"
+            app:destination="@id/absExerciseDetailFragment7" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment8"
+            app:destination="@id/absExerciseDetailFragment8" />
+        <action
+            android:id="@+id/action_nav_abs_exercises_to_absExerciseDetailFragment9"
+            app:destination="@id/absExerciseDetailFragment9" />
     </fragment>
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment1"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment2"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment3"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment4"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment5"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment6"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment7"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment8"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
+
+    <fragment
+        android:id="@+id/absExerciseDetailFragment9"
+        android:name="com.example.diplom_final.ui.Ypragnenia.AbsExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_abs_exercise_detail" />
 
     <fragment
         android:id="@+id/nav_forearm_exercises"
         android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExercisesFragment"
         android:label="Предплечье"
         tools:layout="@layout/fragment_forearm_exercises">
-        <argument
-            android:name="title"
-            app:argType="string" />
+        
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment1"
+            app:destination="@id/forearmExerciseDetailFragment1" />
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment2"
+            app:destination="@id/forearmExerciseDetailFragment2" />
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment3"
+            app:destination="@id/forearmExerciseDetailFragment3" />
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment4"
+            app:destination="@id/forearmExerciseDetailFragment4" />
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment5"
+            app:destination="@id/forearmExerciseDetailFragment5" />
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment6"
+            app:destination="@id/forearmExerciseDetailFragment6" />
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment7"
+            app:destination="@id/forearmExerciseDetailFragment7" />
+        <action
+            android:id="@+id/action_nav_forearm_exercises_to_forearmExerciseDetailFragment8"
+            app:destination="@id/forearmExerciseDetailFragment8" />
     </fragment>
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment1"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Подъём груза на вращающейся балке (разгибатели)"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment2"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Подъём груза на вращающейся балке (сгибатели)"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment3"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Разгибание кисти в кроссовере стоя"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment4"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Разгибание кисти в нижнем блоке"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment5"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Разгибание кисти с гантелью в упоре"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment6"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Сгибание кистей со штангой в упоре"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment7"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Сгибание кистей со штангой за спиной стоя"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
+    <fragment
+        android:id="@+id/forearmExerciseDetailFragment8"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ForearmExerciseDetailFragment"
+        android:label="Сгибание кисти с гантелью в упоре"
+        tools:layout="@layout/fragment_forearm_exercise_detail" />
     <fragment
         android:id="@+id/nav_arms_exercise_detail"
         android:name="com.example.diplom_final.ui.Ypragnenia.ArmsExerciseDetailFragment"
@@ -818,12 +961,163 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/nav_glutes_exercises"
-        android:name="com.example.diplom_final.ui.Ypragnenia.GlutesExercisesFragment"
-        android:label="Ягодицы"
-        tools:layout="@layout/fragment_glutes_exercises">
-        <argument
-            android:name="title"
-            app:argType="string" />
+        android:id="@+id/nav_butt_exercises"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExercisesFragment"
+        android:label="Упражнения для ягодиц"
+        tools:layout="@layout/fragment_butt_exercises">
+        
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment1"
+            app:destination="@id/buttExerciseDetailFragment1" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment2"
+            app:destination="@id/buttExerciseDetailFragment2" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment3"
+            app:destination="@id/buttExerciseDetailFragment3" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment4"
+            app:destination="@id/buttExerciseDetailFragment4" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment5"
+            app:destination="@id/buttExerciseDetailFragment5" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment6"
+            app:destination="@id/buttExerciseDetailFragment6" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment7"
+            app:destination="@id/buttExerciseDetailFragment7" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment8"
+            app:destination="@id/buttExerciseDetailFragment8" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment9"
+            app:destination="@id/buttExerciseDetailFragment9" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment10"
+            app:destination="@id/buttExerciseDetailFragment10" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment11"
+            app:destination="@id/buttExerciseDetailFragment11" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment12"
+            app:destination="@id/buttExerciseDetailFragment12" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment13"
+            app:destination="@id/buttExerciseDetailFragment13" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment14"
+            app:destination="@id/buttExerciseDetailFragment14" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment15"
+            app:destination="@id/buttExerciseDetailFragment15" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment16"
+            app:destination="@id/buttExerciseDetailFragment16" />
+        <action
+            android:id="@+id/action_nav_butt_exercises_to_buttExerciseDetailFragment17"
+            app:destination="@id/buttExerciseDetailFragment17" />
     </fragment>
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment1"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment2"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment3"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment4"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment5"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment6"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment7"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment8"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment9"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment10"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment11"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment12"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment13"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment14"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment15"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment16"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/buttExerciseDetailFragment17"
+        android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
+        android:label="Детали упражнения"
+        tools:layout="@layout/fragment_butt_exercise_detail" />
 </navigation>

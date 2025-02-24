@@ -30,32 +30,31 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarMain.toolbar);
+        // Используем toolbar напрямую
+        setSupportActionBar(binding.toolbar);
         
         // Скрываем FAB
-        if (binding.appBarMain.fab != null) {
-            binding.appBarMain.fab.setVisibility(View.GONE);
-        }
+
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        
+
         // Настраиваем навигацию
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_silomer, R.id.nav_normativi, R.id.nav_ypragnenia, 
-                R.id.nav_zdorove, R.id.nav_spravochnik, R.id.nav_settings, 
+                R.id.nav_silomer, R.id.nav_normativi, R.id.nav_ypragnenia,
+                R.id.nav_zdorove, R.id.nav_spravochnik, R.id.nav_settings,
                 R.id.nav_stata, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

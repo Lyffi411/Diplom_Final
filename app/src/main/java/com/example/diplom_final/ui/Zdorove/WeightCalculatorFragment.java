@@ -46,8 +46,8 @@ public class WeightCalculatorFragment extends Fragment {
     }
 
     private void setupInputFilters() {
-        weightFilter = new MinMaxFilter(30, 250, editTextWeight);
-        heightFilter = new MinMaxFilter(40, 250, editTextHeight);
+        weightFilter = new MinMaxFilter(30, 250, editTextWeight, true);
+        heightFilter = new MinMaxFilter(40, 250, editTextHeight, true);
 
         editTextWeight.setFilters(new InputFilter[]{weightFilter});
         editTextHeight.setFilters(new InputFilter[]{heightFilter});

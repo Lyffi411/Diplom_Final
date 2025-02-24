@@ -75,8 +75,8 @@ public class GimFragment extends Fragment {
         btnSaveResult.setVisibility(View.GONE);
 
         // Создаем фильтры с сохранением ссылок
-        weightFilter = new MinMaxFilter(15, 400, editTextWeight);
-        repsFilter = new MinMaxFilter(2, 20, editTextReps);
+        weightFilter = new MinMaxFilter(15, 400, editTextWeight, true);
+        repsFilter = new MinMaxFilter(2, 20, editTextReps, true);
         
         // Устанавливаем фильтры
         editTextWeight.setFilters(new InputFilter[]{weightFilter});

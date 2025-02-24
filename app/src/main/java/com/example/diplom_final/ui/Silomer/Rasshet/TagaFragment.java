@@ -80,8 +80,8 @@ public class TagaFragment extends Fragment {
         btnSaveResult.setVisibility(View.GONE);
 
         // Фильтры ввода
-            weightInput.setFilters(new InputFilter[]{new MinMaxFilter(15, 400, weightInput)});
-           repsInput.setFilters(new InputFilter[]{new MinMaxFilter(2, 20, repsInput)});
+            weightInput.setFilters(new InputFilter[]{new MinMaxFilter(15, 400, weightInput, true)});
+           repsInput.setFilters(new InputFilter[]{new MinMaxFilter(2, 20, repsInput, true)});
 
         // Получаем максимальную тягу из профиля
         profilViewModel.getProfile().observe(getViewLifecycleOwner(), profile -> {
