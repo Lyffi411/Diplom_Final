@@ -1931,7 +1931,7 @@ public class ArmsExerciseDetailFragment extends Fragment {
             "• Проблемы с плечами\n" +
             "• Боли в шее\n" +
             "• Нестабильность плечевого пояса");
-
+//hfghjg
         binding.textViewAlternatives.setText(
             "• Французский жим со штангой\n" +
             "• Разгибания в блоке\n" +
