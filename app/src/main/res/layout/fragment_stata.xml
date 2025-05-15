@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".ui.Stata.Stata">
 
     <!-- Панель вкладок -->
@@ -11,11 +12,14 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/surface"
         app:tabMode="fixed"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/teal_700"
-        app:tabTextColor="@color/gray1"
-        app:tabSelectedTextColor="@color/purple_200"
+        app:tabIndicatorColor="@color/primary"
+        app:tabTextColor="@color/secondary_text"
+        app:tabSelectedTextColor="@color/primary"
+        app:tabIndicatorHeight="3dp"
+        app:tabRippleColor="@color/primary_dark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- ViewPager2 для отображения содержимого вкладок -->

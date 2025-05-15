@@ -5,58 +5,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1E1E1E"
+    android:padding="16dp"
     tools:context=".ui.Silomer.Rasshet.GimFragment">
 
     <!-- Поле ввода веса штанги -->
-    <EditText
-        android:id="@+id/editWheit"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutWeight"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_bg"
-        android:ems="10"
-        android:hint="Введите вес штанги"
-        android:inputType="numberDecimal"
-        android:padding="16dp"
+        android:layout_marginTop="24dp"
+        android:hint="Введите вес штанги (кг)"
+        android:textColorHint="#9AA0A6"
+        app:boxStrokeColor="#FFAB00"
+        app:hintTextColor="#FFAB00"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editWheit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textColor="#E8EAED"
+            android:backgroundTint="#2C2D30"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Поле ввода повторений -->
-    <EditText
-        android:id="@+id/editKolvo"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutReps"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:background="@drawable/edittext_bg"
-        android:ems="10"
+        android:layout_marginTop="16dp"
         android:hint="Введите количество повторений"
-        android:inputType="numberDecimal"
-        android:padding="16dp"
+        android:textColorHint="#9AA0A6"
+        app:boxStrokeColor="#FFAB00"
+        app:hintTextColor="#FFAB00"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutWeight">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editKolvo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:textColor="#E8EAED"
+            android:backgroundTint="#2C2D30"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Кнопка "Рассчитать" -->
     <Button
         android:id="@+id/button_rasshet"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_505"
-        android:elevation="8dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#FFAB00"
         android:padding="16dp"
         android:text="Рассчитать"
-        android:textColor="@android:color/white"
-        app:cornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#1E1E1E"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editWheit"
-        app:layout_constraintVertical_bias="0.309" />
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutReps" />
 
     <!-- Прогресс-круг -->
     <com.example.diplom_final.ui.Silomer.Rasshet.ProgressCircleView
@@ -67,45 +83,58 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_rasshet" />
+        app:layout_constraintTop_toBottomOf="@id/button_rasshet"
+        tools:visibility="visible" />
 
     <!-- Текст результата -->
     <TextView
         android:id="@+id/textRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="0 кг"
-        android:textColor="#FFA500"
-        android:textSize="24sp"
+        android:text="Результат: 0 кг"
+        android:textColor="@color/app_primary_orange"
+        android:textSize="28sp"
+        android:textStyle="bold"
         android:visibility="gone"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/progressCircle"
         app:layout_constraintEnd_toEndOf="@id/progressCircle"
-        app:layout_constraintStart_toStartOf="@id/progressCircle" />
+        app:layout_constraintStart_toStartOf="@id/progressCircle"
+        tools:visibility="visible"/>
 
-    <!-- Кнопка "Показать варианты" теперь привязана к textRes -->
+    <!-- Кнопка "Показать варианты" -->
     <Button
         android:id="@+id/btnShowPercentages"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Доп рассчеты"
+        android:textColor="#1E1E1E"
+        app:strokeColor="#FFAB00"
+        app:cornerRadius="12dp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textRes" />
+        app:layout_constraintTop_toBottomOf="@id/textRes"
+        tools:visibility="visible"/>
 
-    <!-- Добавьте перед закрывающим тегом ConstraintLayout -->
+    <!-- Кнопка "Сохранить результат" -->
     <Button
         android:id="@+id/btnSaveResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" 
         android:text="Сохранить результат"
+        android:backgroundTint="#FFAB00"
+        android:textColor="#1E1E1E"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
         android:visibility="gone"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btnShowPercentages"
+        app:layout_constraintTop_toBottomOf="@id/btnShowPercentages" 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

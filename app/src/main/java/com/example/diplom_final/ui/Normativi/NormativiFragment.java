@@ -85,21 +85,21 @@ public class NormativiFragment extends Fragment {
         items.add(new NormativItem(
             "Троеборье",
             "Силовое троеборье включает в себя три упражнения: приседания со штангой, жим лежа и становую тягу",
-            R.drawable.troee,
+            R.drawable.trorborie_p,
             R.id.nav_trobore
         ));
         
         items.add(new NormativItem(
             "Двоеборье",
             "Силовое двоеборье состоит из жима лежа и становой тяги",
-            R.drawable.dvoee,
+                R.drawable.dvoeborie,
             R.id.nav_dvobore
         ));
         
         items.add(new NormativItem(
             "Жим лёжа",
             "Базовое упражнение для развития грудных мышц, трицепсов и передних дельт",
-            R.drawable.gim_g,
+            R.drawable.giiiiim,
             R.id.nav_gimlega
         ));
         

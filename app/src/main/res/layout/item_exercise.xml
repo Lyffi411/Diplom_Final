@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:textColor="@color/primary"
+                android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textSize="14sp"
-                android:textColor="@color/on_surface"
+                android:textColor="@color/light_gray"
                 android:maxLines="2"
                 android:ellipsize="end"/>
 

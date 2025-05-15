@@ -1,53 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScroll"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <ScrollView
-            android:id="@+id/verticalScroll"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
+        <!-- 1. Техника выполнения (Становая тяга) -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
             <LinearLayout
-                android:id="@+id/zoomContainer"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <!-- Мужчины -->
+                android:padding="16dp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Мужчины"
+                    android:text="Техника выполнения (Становая тяга)"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="1. Исходное положение"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Ноги на ширине плеч\n• Гриф располагается над серединой стопы\n• Спина прямая"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="2. Захват и тяга"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Наклониться и взять гриф смешанным или прямым хватом\n• Поднять штангу плавным движением, начиная с ног\n• Держать спину прямой"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="3. Фиксация"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Полностью выпрямить ноги и спину\n• Зафиксировать положение на 1-2 секунды"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Основные моменты (Становая тяга)"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Держите спину прямой на протяжении всего движения\n• Движение начинается с ног, не со спины\n• Гриф должен двигаться вертикально близко к ногам"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"/>
+
+                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Техника безопасности"
+                    android:textColor="@color/on_background"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:padding="16dp"/>
+                    android:textStyle="bold"/>
+                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="⚠️ Всегда выполняйте разминку\n⚠️ Начинайте с легких весов для отработки техники\n⚠️ Не округляйте спину при подъеме\n⚠️ Не делайте рывков\n⚠️ Используйте атлетический пояс при тяжелых весах"
+                    android:textColor="@color/warning"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TableLayout
-                        android:id="@+id/tableMen"
+        <!-- 2. Калькулятор нормативов -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Рассчет норматива (Становая тяга)"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    style="@style/Widget.App.TextInputLayout"
+                    android:hint="Ваш вес (кг)">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/weightInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:stretchColumns="*"
-                        android:shrinkColumns="*"
-                        android:background="#FFFFFF">
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/on_surface"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/calculateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Рассчитать"
+                    style="@style/Widget.App.Button"/>
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/on_surface"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Заголовок -->
+        <!-- 3. Статистика по возрастным группам -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Статистика по возрастным группам (Становая тяга)"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ageStatsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 4. Рекомендации по тренировкам -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Программы тренировок (Становая тяга)"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/trainingTipsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 5. График прогресса -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ваш прогресс (Становая тяга)"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/progressTrackingChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 6. Цели и прогресс -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Цели и прогресс (Становая тяга)"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/targetInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/on_surface"/>
+                <Button
+                    android:id="@+id/addProgressButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Добавить результат"
+                    style="@style/Widget.App.Button"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 7. Таблицы нормативов -->
+        <LinearLayout
+            android:id="@+id/zoomContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Мужчины -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Мужчины - Нормативы становой тяги"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:textColor="@color/primary"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableLayout
+                    android:id="@+id/tableMen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*">
                         <TableRow android:background="@drawable/header_border">
                             <TextView style="@style/TableHeader" android:text="Весовая" />
                             <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
@@ -59,8 +315,7 @@
                             <TextView style="@style/TableHeader" android:text="II" />
                             <TextView style="@style/TableHeader" android:text="III" />
                         </TableRow>
-
-                        <!-- Данные для мужчин -->
+                    <!-- Данные для мужчин (Становая тяга) -->
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="60" />
                             <TextView style="@style/TableCell" android:text="202.5" />
@@ -72,7 +327,6 @@
                             <TextView style="@style/TableCell" android:text="150" />
                             <TextView style="@style/TableCell" android:text="127.5" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="67.5" />
                             <TextView style="@style/TableCell" android:text="222.5" />
@@ -84,7 +338,6 @@
                             <TextView style="@style/TableCell" android:text="162.5" />
                             <TextView style="@style/TableCell" android:text="140" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="75" />
                             <TextView style="@style/TableCell" android:text="237.5" />
@@ -96,7 +349,6 @@
                             <TextView style="@style/TableCell" android:text="175" />
                             <TextView style="@style/TableCell" android:text="150" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="82.5" />
                             <TextView style="@style/TableCell" android:text="250" />
@@ -108,7 +360,6 @@
                             <TextView style="@style/TableCell" android:text="182.5" />
                             <TextView style="@style/TableCell" android:text="157.5" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="90" />
                             <TextView style="@style/TableCell" android:text="262.5" />
@@ -120,7 +371,6 @@
                             <TextView style="@style/TableCell" android:text="190" />
                             <TextView style="@style/TableCell" android:text="165" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="100" />
                             <TextView style="@style/TableCell" android:text="275" />
@@ -132,7 +382,6 @@
                             <TextView style="@style/TableCell" android:text="197.5" />
                             <TextView style="@style/TableCell" android:text="170" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="110" />
                             <TextView style="@style/TableCell" android:text="282.5" />
@@ -144,7 +393,6 @@
                             <TextView style="@style/TableCell" android:text="205" />
                             <TextView style="@style/TableCell" android:text="177.5" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="125" />
                             <TextView style="@style/TableCell" android:text="295" />
@@ -156,7 +404,6 @@
                             <TextView style="@style/TableCell" android:text="212.5" />
                             <TextView style="@style/TableCell" android:text="182.5" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="св.125" />
                             <TextView style="@style/TableCell" android:text="310" />
@@ -175,25 +422,22 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Женщины"
+                android:text="Женщины - Нормативы становой тяги"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:padding="16dp"
-                    android:layout_marginTop="24dp"/>
+                android:layout_marginTop="24dp"
+                android:textColor="@color/primary"/>
 
                 <HorizontalScrollView
-                    android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                     <TableLayout
                         android:id="@+id/tableWeMen"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_border"
                         android:stretchColumns="*">
-
-                        <!-- Заголовок -->
                         <TableRow android:background="@drawable/header_border">
                             <TextView style="@style/TableHeader" android:text="Весовая" />
                             <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
@@ -205,8 +449,7 @@
                             <TextView style="@style/TableHeader" android:text="II" />
                             <TextView style="@style/TableHeader" android:text="III" />
                         </TableRow>
-
-                        <!-- Данные для женщин -->
+                    <!-- Данные для женщин (Становая тяга) -->
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="44" />
                             <TextView style="@style/TableCell" android:text="115" />
@@ -218,7 +461,6 @@
                             <TextView style="@style/TableCell" android:text="82.5" />
                             <TextView style="@style/TableCell" android:text="70" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="48" />
                             <TextView style="@style/TableCell" android:text="127.5" />
@@ -230,7 +472,6 @@
                             <TextView style="@style/TableCell" android:text="87.5" />
                             <TextView style="@style/TableCell" android:text="75" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="52" />
                             <TextView style="@style/TableCell" android:text="135" />
@@ -242,7 +483,6 @@
                             <TextView style="@style/TableCell" android:text="95" />
                             <TextView style="@style/TableCell" android:text="80" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="56" />
                             <TextView style="@style/TableCell" android:text="145" />
@@ -254,7 +494,6 @@
                             <TextView style="@style/TableCell" android:text="100" />
                             <TextView style="@style/TableCell" android:text="85" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="60" />
                             <TextView style="@style/TableCell" android:text="150" />
@@ -266,7 +505,6 @@
                             <TextView style="@style/TableCell" android:text="105" />
                             <TextView style="@style/TableCell" android:text="90" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="67.5" />
                             <TextView style="@style/TableCell" android:text="160" />
@@ -278,7 +516,6 @@
                             <TextView style="@style/TableCell" android:text="112.5" />
                             <TextView style="@style/TableCell" android:text="95" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
                             <TextView style="@style/TableCell" android:text="75" />
                             <TextView style="@style/TableCell" android:text="170" />
@@ -290,33 +527,30 @@
                             <TextView style="@style/TableCell" android:text="117.5" />
                             <TextView style="@style/TableCell" android:text="100" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowEven">
                             <TextView style="@style/TableCell" android:text="82.5" />
-                            <TextView style="@style/TableCell" android:text="175" />
+                        <TextView style="@style/TableCell" android:text="177.5" />
                             <TextView style="@style/TableCell" android:text="155" />
-                            <TextView style="@style/TableCell" android:text="200" />
+                        <TextView style="@style/TableCell" android:text="202.5" />
                             <TextView style="@style/TableCell" android:text="175" />
-                            <TextView style="@style/TableCell" android:text="152.5" />
-                            <TextView style="@style/TableCell" android:text="135" />
+                        <TextView style="@style/TableCell" android:text="150" />
+                        <TextView style="@style/TableCell" android:text="137.5" />
                             <TextView style="@style/TableCell" android:text="122.5" />
                             <TextView style="@style/TableCell" android:text="105" />
                         </TableRow>
-
                         <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="св.82,5" />
+                        <TextView style="@style/TableCell" android:text="св.82.5" />
+                        <TextView style="@style/TableCell" android:text="190" />
+                        <TextView style="@style/TableCell" android:text="165" />
+                        <TextView style="@style/TableCell" android:text="215" />
                             <TextView style="@style/TableCell" android:text="187.5" />
-                            <TextView style="@style/TableCell" android:text="162.5" />
-                            <TextView style="@style/TableCell" android:text="210" />
-                            <TextView style="@style/TableCell" android:text="182.5" />
                             <TextView style="@style/TableCell" android:text="160" />
-                            <TextView style="@style/TableCell" android:text="142.5" />
-                            <TextView style="@style/TableCell" android:text="127.5" />
+                        <TextView style="@style/TableCell" android:text="145" />
+                        <TextView style="@style/TableCell" android:text="130" />
                             <TextView style="@style/TableCell" android:text="110" />
                         </TableRow>
                     </TableLayout>
                 </HorizontalScrollView>
+        </LinearLayout>
             </LinearLayout>
         </ScrollView>
-    </HorizontalScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>

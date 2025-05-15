@@ -76,7 +76,7 @@
         android:layout_width="270dp"
         android:layout_height="298dp"
         android:layout_marginTop="4dp"
-        android:src="@drawable/kazein"
+        android:src="@drawable/kazeinnn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.403"
         app:layout_constraintStart_toStartOf="parent"

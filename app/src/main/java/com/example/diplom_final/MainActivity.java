@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_silomer, R.id.nav_normativi, R.id.nav_ypragnenia,
                 R.id.nav_zdorove, R.id.nav_spravochnik, R.id.nav_settings,
-                R.id.nav_stata, R.id.nav_settings)
+                R.id.nav_stata)
                 .setOpenableLayout(drawer)
                 .build();
 

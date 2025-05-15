@@ -48,6 +48,12 @@ public class NormativAdapter extends RecyclerView.Adapter<NormativAdapter.ViewHo
                 
         holder.titleTextView.setText(item.getType());
         holder.descriptionTextView.setText(item.getDescription());
+
+        holder.imageButton.setOnClickListener(v -> {
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position);
+            }
+        });
     }
 
     @Override

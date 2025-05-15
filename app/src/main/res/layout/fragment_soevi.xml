@@ -29,7 +29,7 @@
             android:layout_width="356dp"
             android:layout_height="298dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/soevi"
+            android:src="@drawable/soeviii"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.403"
             app:layout_constraintStart_toStartOf="parent"

@@ -126,16 +126,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupForwardLungesWithWeight() {
         binding.textViewExerciseTitle.setText("Выпады вперед с отягощением");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.leg_lunges_weight);
         
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для развития квадрицепсов, ягодиц и улучшения баланса");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Бицепс бедра\n" +
-            "• Икроножные мышцы");
+
 
         binding.textViewTechnique.setText(
             "1. Возьмите гантели в руки\n\n" +
@@ -145,17 +141,8 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Вернитесь в исходное положение\n\n" +
             "6. Повторите другой ногой");
 
-        binding.textViewCommonMistakes.setText(
-            "• Наклон корпуса вперед\n" +
-            "• Недостаточная глубина выпада\n" +
-            "• Колено передней ноги заходит за носок\n" +
-            "• Потеря баланса");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 10-12 повторений\n" +
-            "• Держите спину прямо\n" +
-            "• Следите за техникой");
+
 
         binding.textViewContraindications.setText(
             "• Травмы коленных суставов\n" +
@@ -172,17 +159,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupForwardLungesWithWeightAndReturn() {
         binding.textViewExerciseTitle.setText("Выпады вперед с отягощением и приставлением ноги");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.leg_lunges_weight_return);
         
         binding.textViewExerciseDescription.setText(
             "Вариация выпадов для лучшей проработки мышц ног");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Бицепс бедра\n" +
-            "• Икроножные мышцы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Возьмите гантели в руки\n\n" +
@@ -192,17 +174,9 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Вернитесь в исходное положение, приставляя ногу\n\n" +
             "6. Повторите другой ногой");
 
-        binding.textViewCommonMistakes.setText(
-            "• Наклон корпуса вперед\n" +
-            "• Неполное приставление ноги\n" +
-            "• Потеря равновесия\n" +
-            "• Недостаточная глубина выпада");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с малого веса\n" +
-            "• 3 подхода по 12-15 повторений\n" +
-            "• Контролируйте движение\n" +
-            "• Держите корпус прямо");
+
+
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -219,16 +193,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupLegPressNarrow() {
         binding.textViewExerciseTitle.setText("Жим ногами (узкая постановка ног)");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.leg_press_narrow);
         
         binding.textViewExerciseDescription.setText(
             "Акцент на внешнюю часть квадрицепса");
 
-        binding.textViewTargetMuscles.setText(
-            "• Внешняя часть квадрицепса\n" +
-            "• Прямая мышца бедра\n" +
-            "• Икроножные мышцы\n" +
-            "• Ягодичные мышцы");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте в тренажер\n\n" +
@@ -238,17 +208,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Выжмите вес обратно\n\n" +
             "6. Не выпрямляйте колени полностью");
 
-        binding.textViewCommonMistakes.setText(
-            "• Полное выпрямление коленей\n" +
-            "• Отрыв поясницы от сиденья\n" +
-            "• Слишком быстрое выполнение\n" +
-            "• Неправильная глубина движения");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с умеренного веса\n" +
-            "• 3-4 подхода по 12-15 повторений\n" +
-            "• Следите за положением спины\n" +
-            "• Выполняйте движения плавно");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -265,16 +225,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupLegPressWide() {
         binding.textViewExerciseTitle.setText("Жим ногами (широкая постановка ног)");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.leg_press_wide);
         
         binding.textViewExerciseDescription.setText(
             "Акцент на внутреннюю часть бедра и ягодицы");
 
-        binding.textViewTargetMuscles.setText(
-            "• Внутренняя часть бедра\n" +
-            "• Ягодичные мышцы\n" +
-            "• Квадрицепсы\n" +
-            "• Приводящие мышцы");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте в тренажер\n\n" +
@@ -283,18 +239,6 @@ public class LegExerciseDetailFragment extends Fragment {
             "4. Опустите вес, сгибая колени\n\n" +
             "5. Выжмите вес обратно\n\n" +
             "6. Контролируйте движение");
-
-        binding.textViewCommonMistakes.setText(
-            "• Сведение коленей внутрь\n" +
-            "• Отрыв таза от сиденья\n" +
-            "• Чрезмерная нагрузка на колени\n" +
-            "• Неконтролируемые движения");
-
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 12-15 повторений\n" +
-            "• Следите за положением коленей\n" +
-            "• Держите спину прижатой");
 
         binding.textViewContraindications.setText(
             "• Травмы коленных суставов\n" +
@@ -311,16 +255,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupStepUpsWithDumbbells() {
         binding.textViewExerciseTitle.setText("Зашагивания на тумбу с гантелями");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.step_ups_dumbbells);
         
         binding.textViewExerciseDescription.setText(
             "Упражнение для развития силы ног и координации");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Икроножные мышцы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Возьмите гантели в руки\n\n" +
@@ -330,17 +270,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Опуститесь контролируемо\n\n" +
             "6. Чередуйте ноги");
 
-        binding.textViewCommonMistakes.setText(
-            "• Наклон корпуса вперед\n" +
-            "• Толчок второй ногой\n" +
-            "• Потеря равновесия\n" +
-            "• Неконтролируемое опускание");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с низкой тумбы\n" +
-            "• 3 подхода по 12-15 повторений\n" +
-            "• Держите спину прямо\n" +
-            "• Увеличивайте вес постепенно");
 
         binding.textViewContraindications.setText(
             "• Проблемы с коленями\n" +
@@ -357,16 +287,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupReverseHackSquats() {
         binding.textViewExerciseTitle.setText("Обратные гакк-приседания");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.reverse_hack_squat);
         
         binding.textViewExerciseDescription.setText(
             "Изолированная работа на квадрицепсы");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Приводящие мышцы\n" +
-            "• Икроножные мышцы");
+
 
         binding.textViewTechnique.setText(
             "1. Встаньте в тренажер лицом к упору\n\n" +
@@ -376,17 +302,8 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимитесь, выпрямляя ноги\n\n" +
             "6. Не блокируйте колени");
 
-        binding.textViewCommonMistakes.setText(
-            "• Неполная амплитуда\n" +
-            "• Сведение коленей\n" +
-            "• Отрыв пяток\n" +
-            "• Блокировка коленей");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 10-12 повторений\n" +
-            "• Следите за положением спины\n" +
-            "• Выполняйте движения плавно");
+
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -403,15 +320,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupSeatedCalfRaise() {
         binding.textViewExerciseTitle.setText("Подъем на носки в тренажере сидя");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.seated_calf_raise);
         
         binding.textViewExerciseDescription.setText(
             "Изолированная работа на камбаловидные мышцы");
 
-        binding.textViewTargetMuscles.setText(
-            "• Камбаловидные мышцы\n" +
-            "• Икроножные мышцы\n" +
-            "• Задняя большеберцовая мышца");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте в тренажер\n\n" +
@@ -421,17 +335,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Задержитесь в верхней точке\n\n" +
             "6. Медленно опуститесь");
 
-        binding.textViewCommonMistakes.setText(
-            "• Неполная амплитуда\n" +
-            "• Слишком быстрый темп\n" +
-            "• Раскачивания\n" +
-            "• Неправильная постановка стоп");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с малого веса\n" +
-            "• 3-4 подхода по 15-20 повторений\n" +
-            "• Выполняйте в медленном темпе\n" +
-            "• Делайте паузу вверху");
 
         binding.textViewContraindications.setText(
             "• Травмы голеностопа\n" +
@@ -448,15 +352,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupStandingCalfRaiseMachine() {
         binding.textViewExerciseTitle.setText("Подъем на носки в тренажере стоя");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.standing_calf_raise_machine);
         
         binding.textViewExerciseDescription.setText(
             "Упражнение для развития икроножных мышц");
 
-        binding.textViewTargetMuscles.setText(
-            "• Икроножные мышцы\n" +
-            "• Камбаловидные мышцы\n" +
-            "• Мышцы-стабилизаторы голени");
+
 
         binding.textViewTechnique.setText(
             "1. Встаньте в тренажер\n\n" +
@@ -466,17 +367,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимитесь на носки\n\n" +
             "6. Медленно опуститесь");
 
-        binding.textViewCommonMistakes.setText(
-            "• Сгибание в коленях\n" +
-            "• Неполное опускание пяток\n" +
-            "• Быстрое выполнение\n" +
-            "• Слишком большой вес");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с умеренного веса\n" +
-            "• 3-4 подхода по 15-20 повторений\n" +
-            "• Держите колени прямыми\n" +
-            "• Контролируйте движение");
 
         binding.textViewContraindications.setText(
             "• Травмы голеностопа\n" +
@@ -493,16 +384,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupStandingCalfRaiseBarbell() {
         binding.textViewExerciseTitle.setText("Подъем на носки стоя со штангой");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.standing_calf_raise_barbell);
         
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для икроножных мышц");
 
-        binding.textViewTargetMuscles.setText(
-            "• Икроножные мышцы\n" +
-            "• Камбаловидные мышцы\n" +
-            "• Мышцы-стабилизаторы\n" +
-            "• Мышцы стопы");
+
 
         binding.textViewTechnique.setText(
             "1. Встаньте на платформу\n\n" +
@@ -512,17 +399,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Задержитесь в верхней точке\n\n" +
             "6. Медленно опуститесь");
 
-        binding.textViewCommonMistakes.setText(
-            "• Сгибание коленей\n" +
-            "• Неполная амплитуда\n" +
-            "• Потеря равновесия\n" +
-            "• Раскачивания со штангой");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 15-20 повторений\n" +
-            "• Держите спину прямо\n" +
-            "• Выполняйте плавно");
 
         binding.textViewContraindications.setText(
             "• Травмы голеностопа\n" +
@@ -539,16 +416,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupHackSquat() {
         binding.textViewExerciseTitle.setText("Приседания в Гакк-машине");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.hack_squat_narrow);
         
         binding.textViewExerciseDescription.setText(
             "Безопасная альтернатива приседаниям со штангой");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Бицепс бедра\n" +
-            "• Приводящие мышцы");
+
 
         binding.textViewTechnique.setText(
             "1. Установите спинку под углом\n\n" +
@@ -558,17 +431,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимитесь, выпрямляя ноги\n\n" +
             "6. Не блокируйте колени");
 
-        binding.textViewCommonMistakes.setText(
-            "• Отрыв пяток от платформы\n" +
-            "• Сведение коленей\n" +
-            "• Неполная амплитуда\n" +
-            "• Слишком быстрый темп");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с малого веса\n" +
-            "• 3-4 подхода по 10-12 повторений\n" +
-            "• Следите за техникой\n" +
-            "• Дышите равномерно");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -585,16 +448,11 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupHackSquatNarrow() {
         binding.textViewExerciseTitle.setText("Приседания в Гакк-машине с узкой постановкой ног");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.hack_squat_narrow);
         
         binding.textViewExerciseDescription.setText(
             "Акцент на внешнюю часть квадрицепса");
 
-        binding.textViewTargetMuscles.setText(
-            "• Внешняя часть квадрицепса\n" +
-            "• Прямая мышца бедра\n" +
-            "• Ягодичные мышцы\n" +
-            "• Икроножные мышцы");
 
         binding.textViewTechnique.setText(
             "1. Установите спинку под углом\n\n" +
@@ -604,17 +462,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимитесь, выпрямляя ноги\n\n" +
             "6. Контролируйте движение");
 
-        binding.textViewCommonMistakes.setText(
-            "• Сведение коленей\n" +
-            "• Отрыв пяток\n" +
-            "• Неполная амплитуда\n" +
-            "• Слишком большой вес");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 10-12 повторений\n" +
-            "• Следите за коленями\n" +
-            "• Выполняйте плавно");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -631,16 +479,11 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupHackSquatWide() {
         binding.textViewExerciseTitle.setText("Приседания в Гакк-машине с широкой постановкой ног");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.hack_squat_wide);
         
         binding.textViewExerciseDescription.setText(
             "Акцент на внутреннюю часть бедра");
 
-        binding.textViewTargetMuscles.setText(
-            "• Внутренняя часть бедра\n" +
-            "• Ягодичные мышцы\n" +
-            "• Приводящие мышцы\n" +
-            "• Квадрицепсы");
 
         binding.textViewTechnique.setText(
             "1. Установите спинку под углом\n\n" +
@@ -650,17 +493,6 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимитесь, выпрямляя ноги\n\n" +
             "6. Следите за коленями");
 
-        binding.textViewCommonMistakes.setText(
-            "• Заваливание коленей внутрь\n" +
-            "• Отрыв пяток\n" +
-            "• Неполная амплитуда\n" +
-            "• Потеря баланса");
-
-        binding.textViewRecommendations.setText(
-            "• Начинайте с малого веса\n" +
-            "• 3-4 подхода по 10-12 повторений\n" +
-            "• Держите колени над носками\n" +
-            "• Контролируйте движение");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -677,16 +509,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupSumoSquatDumbbell() {
         binding.textViewExerciseTitle.setText("Приседания плие с гантелью на груди");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.sumo_squat_dumbbell);
         
         binding.textViewExerciseDescription.setText(
             "Упражнение для внутренней поверхности бедра");
 
-        binding.textViewTargetMuscles.setText(
-            "• Приводящие мышцы бедра\n" +
-            "• Ягодичные мышцы\n" +
-            "• Квадрицепсы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Возьмите гантель к груди\n\n" +
@@ -696,17 +524,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Держите спину прямо\n\n" +
             "6. Поднимитесь, выпрямляя ноги");
 
-        binding.textViewCommonMistakes.setText(
-            "• Сведение коленей внутрь\n" +
-            "• Наклон корпуса вперед\n" +
-            "• Отрыв пяток\n" +
-            "• Недостаточная глубина");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкой гантели\n" +
-            "• 3-4 подхода по 12-15 повторений\n" +
-            "• Следите за положением коленей\n" +
-            "• Дышите равномерно");
 
         binding.textViewContraindications.setText(
             "• Травмы тазобедренных суставов\n" +
@@ -723,17 +541,11 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupDumbbellSquats() {
         binding.textViewExerciseTitle.setText("Приседания с гантелями");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.dumbbell_squats);
         
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для всех мышц ног");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Бицепс бедра\n" +
-            "• Икроножные мышцы\n" +
-            "• Мышцы кора");
 
         binding.textViewTechnique.setText(
             "1. Возьмите гантели в руки\n\n" +
@@ -743,17 +555,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Держите спину прямо\n\n" +
             "6. Поднимитесь в исходное положение");
 
-        binding.textViewCommonMistakes.setText(
-            "• Наклон корпуса вперед\n" +
-            "• Сведение коленей\n" +
-            "• Отрыв пяток\n" +
-            "• Неполная амплитуда");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легких гантелей\n" +
-            "• 3-4 подхода по 10-12 повторений\n" +
-            "• Следите за техникой\n" +
-            "• Увеличивайте вес постепенно");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -770,16 +572,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupBandSquats() {
         binding.textViewExerciseTitle.setText("Приседания с резинкой");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.band_squats);
         
         binding.textViewExerciseDescription.setText(
             "Упражнение для начинающих и разминки");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Приводящие мышцы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Встаньте на резинку\n\n" +
@@ -789,17 +587,6 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Следите за осанкой\n\n" +
             "6. Вернитесь в исходное положение");
 
-        binding.textViewCommonMistakes.setText(
-            "• Наклон корпуса вперед\n" +
-            "• Сведение коленей\n" +
-            "• Подъем на носки\n" +
-            "• Неравномерное натяжение резинки");
-
-        binding.textViewRecommendations.setText(
-            "• Выбирайте подходящее сопротивление\n" +
-            "• 3 подхода по 15-20 повторений\n" +
-            "• Выполняйте плавно\n" +
-            "• Следите за дыханием");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -816,17 +603,11 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupBarbellSquats() {
         binding.textViewExerciseTitle.setText("Приседания со штангой");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.barbell_squats);
         
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для развития силы ног");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Бицепс бедра\n" +
-            "• Мышцы спины\n" +
-            "• Мышцы кора");
 
         binding.textViewTechnique.setText(
             "1. Установите штангу на стойки\n\n" +
@@ -836,17 +617,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Следите за техникой\n\n" +
             "6. Поднимитесь, выпрямляя ноги");
 
-        binding.textViewCommonMistakes.setText(
-            "• Округление спины\n" +
-            "• Подъем на носки\n" +
-            "• Сведение коленей\n" +
-            "• Недостаточная глубина");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с пустого грифа\n" +
-            "• 3-4 подхода по 8-12 повторений\n" +
-            "• Используйте страховку\n" +
-            "• Увеличивайте вес постепенно");
 
         binding.textViewContraindications.setText(
             "• Травмы позвоночника\n" +
@@ -863,17 +634,10 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupFrontSquats() {
         binding.textViewExerciseTitle.setText("Приседания со штангой на груди");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.front_squats);
         
         binding.textViewExerciseDescription.setText(
             "Вариация приседаний с акцентом на переднюю часть бедра");
-
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Мышцы кора\n" +
-            "• Мышцы спины\n" +
-            "• Дельтовидные мышцы");
 
         binding.textViewTechnique.setText(
             "1. Установите штангу на груди\n\n" +
@@ -883,17 +647,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Держите корпус прямо\n\n" +
             "6. Поднимитесь в исходное положение");
 
-        binding.textViewCommonMistakes.setText(
-            "• Опускание локтей\n" +
-            "• Наклон вперед\n" +
-            "• Потеря баланса\n" +
-            "• Неправильное положение штанги");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 8-10 повторений\n" +
-            "• Работайте над гибкостью\n" +
-            "• Следите за положением локтей");
 
         binding.textViewContraindications.setText(
             "• Травмы плеч\n" +
@@ -910,17 +664,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupBoxSquats() {
         binding.textViewExerciseTitle.setText("Приседания со штангой на скамью");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.box_squats);
         
         binding.textViewExerciseDescription.setText(
             "Контролируемые приседания для начинающих");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Бицепс бедра\n" +
-            "• Мышцы кора\n" +
-            "• Мышцы спины");
+
 
         binding.textViewTechnique.setText(
             "1. Установите скамью позади\n\n" +
@@ -930,17 +679,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимитесь вверх\n\n" +
             "6. Сохраняйте контроль движения");
 
-        binding.textViewCommonMistakes.setText(
-            "• Падение на скамью\n" +
-            "• Смещение коленей внутрь\n" +
-            "• Потеря баланса\n" +
-            "• Неправильная высота скамьи");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с пустого грифа\n" +
-            "• 3-4 подхода по 8-12 повторений\n" +
-            "• Подберите правильную высоту\n" +
-            "• Не расслабляйтесь на скамье");
 
         binding.textViewContraindications.setText(
             "• Травмы спины\n" +
@@ -957,16 +696,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupLegExtension() {
         binding.textViewExerciseTitle.setText("Разгибание ног сидя");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.leg_extension);
         
         binding.textViewExerciseDescription.setText(
             "Изолированное упражнение для квадрицепсов");
 
-        binding.textViewTargetMuscles.setText(
-            "• Квадрицепсы\n" +
-            "• Прямая мышца бедра\n" +
-            "• Внутренняя мышца бедра\n" +
-            "• Внешняя мышца бедра");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте в тренажер\n\n" +
@@ -976,17 +711,6 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Задержитесь в верхней точке\n\n" +
             "6. Медленно опустите вес");
 
-        binding.textViewCommonMistakes.setText(
-            "• Рывковые движения\n" +
-            "• Неполная амплитуда\n" +
-            "• Отрыв таза от сиденья\n" +
-            "• Слишком большой вес");
-
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 12-15 повторений\n" +
-            "• Выполняйте плавно\n" +
-            "• Фокусируйтесь на сокращении");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -1003,16 +727,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupSeatedLegAdduction() {
         binding.textViewExerciseTitle.setText("Сведение ног сидя");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.seated_leg_adduction);
         
         binding.textViewExerciseDescription.setText(
             "Упражнение для приводящих мышц бедра");
 
-        binding.textViewTargetMuscles.setText(
-            "• Приводящие мышцы бедра\n" +
-            "• Внутренняя поверхность бедра\n" +
-            "• Тазовые мышцы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте в тренажер\n\n" +
@@ -1022,17 +742,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Задержитесь в конечной точке\n\n" +
             "6. Медленно вернитесь");
 
-        binding.textViewCommonMistakes.setText(
-            "• Рывковые движения\n" +
-            "• Неполное сведение\n" +
-            "• Отрыв таза\n" +
-            "• Задержка дыхания");
 
-        binding.textViewRecommendations.setText(
-            "• Используйте умеренный вес\n" +
-            "• 3 подхода по 15-20 повторений\n" +
-            "• Выполняйте плавно\n" +
-            "• Следите за положением таза");
 
         binding.textViewContraindications.setText(
             "• Травмы паховой области\n" +
@@ -1049,16 +759,11 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupSingleLegCurl() {
         binding.textViewExerciseTitle.setText("Сгибание лежа по одной ноге");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.single_leg_curl);
         
         binding.textViewExerciseDescription.setText(
             "Изолированная работа на бицепс бедра");
 
-        binding.textViewTargetMuscles.setText(
-            "• Бицепс бедра\n" +
-            "• Икроножные мышцы\n" +
-            "• Подколенные сухожилия\n" +
-            "• Ягодичные мышцы");
 
         binding.textViewTechnique.setText(
             "1. Лягте на тренажер\n\n" +
@@ -1068,17 +773,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Задержитесь наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Рывковые движения\n" +
-            "• Подъем таза\n" +
-            "• Неполная амплитуда\n" +
-            "• Слишком большой вес");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с малого веса\n" +
-            "• 3 подхода по 12-15 повторений\n" +
-            "• Выполняйте плавно\n" +
-            "• Чередуйте ноги");
 
         binding.textViewContraindications.setText(
             "• Травмы колена\n" +
@@ -1095,16 +790,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupLyingLegCurl() {
         binding.textViewExerciseTitle.setText("Сгибание ног лежа");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.lying_leg_curl);
         
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для бицепса бедра");
 
-        binding.textViewTargetMuscles.setText(
-            "• Бицепс бедра\n" +
-            "• Икроножные мышцы\n" +
-            "• Подколенные сухожилия\n" +
-            "• Ягодичные мышцы");
+
 
         binding.textViewTechnique.setText(
             "1. Лягте на тренажер\n\n" +
@@ -1114,17 +805,6 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Задержитесь в верхней точке\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Рывковые движения\n" +
-            "• Отрыв бедер от скамьи\n" +
-            "• Неполная амплитуда\n" +
-            "• Работа спиной");
-
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 12-15 повторений\n" +
-            "• Выполняйте плавно\n" +
-            "• Контролируйте движение");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -1141,16 +821,11 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupSeatedLegCurl() {
         binding.textViewExerciseTitle.setText("Сгибание ног сидя");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.seated_leg_curl);
         
         binding.textViewExerciseDescription.setText(
             "Альтернативное упражнение для бицепса бедра");
 
-        binding.textViewTargetMuscles.setText(
-            "• Бицепс бедра\n" +
-            "• Подколенные сухожилия\n" +
-            "• Икроножные мышцы\n" +
-            "• Мышцы-стабилизаторы");
 
         binding.textViewTechnique.setText(
             "1. Сядьте в тренажер\n\n" +
@@ -1160,17 +835,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Задержитесь в верхней точке\n\n" +
             "6. Медленно вернитесь");
 
-        binding.textViewCommonMistakes.setText(
-            "• Рывковые движения\n" +
-            "• Отрыв от сиденья\n" +
-            "• Неполная амплитуда\n" +
-            "• Слишком большой вес");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с малого веса\n" +
-            "• 3-4 подхода по 12-15 повторений\n" +
-            "• Выполняйте плавно\n" +
-            "• Следите за техникой");
 
         binding.textViewContraindications.setText(
             "• Травмы коленей\n" +
@@ -1187,16 +852,11 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupStandingLegCurl() {
         binding.textViewExerciseTitle.setText("Сгибание ноги стоя в блоке");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.standing_leg_curl);
         
         binding.textViewExerciseDescription.setText(
             "Изолированное упражнение для бицепса бедра");
 
-        binding.textViewTargetMuscles.setText(
-            "• Бицепс бедра\n" +
-            "• Подколенные сухожилия\n" +
-            "• Икроножные мышцы\n" +
-            "• Мышцы-стабилизаторы");
 
         binding.textViewTechnique.setText(
             "1. Встаньте у тренажера\n\n" +
@@ -1205,18 +865,6 @@ public class LegExerciseDetailFragment extends Fragment {
             "4. Согните ногу\n\n" +
             "5. Задержитесь наверху\n\n" +
             "6. Медленно опустите");
-
-        binding.textViewCommonMistakes.setText(
-            "• Раскачивания корпуса\n" +
-            "• Неполная амплитуда\n" +
-            "• Рывковые движения\n" +
-            "• Потеря равновесия");
-
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3 подхода по 12-15 повторений\n" +
-            "• Держитесь за опору\n" +
-            "• Чередуйте ноги");
 
         binding.textViewContraindications.setText(
             "• Травмы колена\n" +
@@ -1233,17 +881,10 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupDeadlift() {
         binding.textViewExerciseTitle.setText("Становая тяга");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.deadlift_f);
         
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для всего тела");
-
-        binding.textViewTargetMuscles.setText(
-            "• Бицепс бедра\n" +
-            "• Ягодичные мышцы\n" +
-            "• Мышцы спины\n" +
-            "• Квадрицепсы\n" +
-            "• Мышцы кора");
 
         binding.textViewTechnique.setText(
             "1. Подойдите к штанге\n\n" +
@@ -1253,23 +894,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимите штангу\n\n" +
             "6. Опустите контролируемо");
 
-        binding.textViewCommonMistakes.setText(
-            "• Округление спины\n" +
-            "• Подъем плечами\n" +
-            "• Неправильная траектория\n" +
-            "• Рывковые движения");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с легкого веса\n" +
-            "• 3-4 подхода по 8-12 повторений\n" +
-            "• Разминайтесь перед подходами\n" +
-            "• Следите за техникой");
-
-        binding.textViewContraindications.setText(
-            "• Травмы спины\n" +
-            "• Грыжи позвоночника\n" +
-            "• Высокое давление\n" +
-            "• Острые боли в суставах");
 
         binding.textViewAlternatives.setText(
             "• Румынская становая тяга\n" +
@@ -1280,17 +905,12 @@ public class LegExerciseDetailFragment extends Fragment {
 
     private void setupSumoDeadlift() {
         binding.textViewExerciseTitle.setText("Становая тяга 'сумо'");
-        binding.imageViewExercise.setImageResource(R.drawable.back_dumbbell_shrugs);
+        binding.imageViewExercise.setImageResource(R.drawable.sumo_deadlift);
         
         binding.textViewExerciseDescription.setText(
             "Вариация становой тяги с широкой постановкой ног");
 
-        binding.textViewTargetMuscles.setText(
-            "• Приводящие мышцы\n" +
-            "• Квадрицепсы\n" +
-            "• Ягодичные мышцы\n" +
-            "• Мышцы спины\n" +
-            "• Бицепс бедра");
+
 
         binding.textViewTechnique.setText(
             "1. Встаньте широко\n\n" +
@@ -1300,17 +920,7 @@ public class LegExerciseDetailFragment extends Fragment {
             "5. Поднимите штангу\n\n" +
             "6. Опустите контролируемо");
 
-        binding.textViewCommonMistakes.setText(
-            "• Слишком узкая стойка\n" +
-            "• Округление спины\n" +
-            "• Колени внутрь\n" +
-            "• Подъем таза раньше времени");
 
-        binding.textViewRecommendations.setText(
-            "• Начинайте с техники\n" +
-            "• 3-4 подхода по 8-12 повторений\n" +
-            "• Следите за коленями\n" +
-            "• Держите грудь поднятой");
 
         binding.textViewContraindications.setText(
             "• Травмы тазобедренных суставов\n" +

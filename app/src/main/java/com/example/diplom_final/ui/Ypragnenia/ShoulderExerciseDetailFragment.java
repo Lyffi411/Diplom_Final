@@ -102,12 +102,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для развития всех трех пучков дельтовидных мышц");
 
-        binding.textViewTargetMuscles.setText(
-            "• Передний пучок дельтовидной мышцы\n" +
-            "• Средний пучок дельтовидной мышцы\n" +
-            "• Задний пучок дельтовидной мышцы\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Трицепсы");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте на скамью со спинкой\n\n" +
@@ -117,13 +112,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Медленно опустите гантели\n\n" +
             "6. Повторите движение");
 
-        binding.textViewCommonMistakes.setText(
-            "• Прогиб в пояснице\n" +
-            "• Отбив гантелей от плеч\n" +
-            "• Неполная амплитуда\n" +
-            "• Раскачивания корпуса");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Начинайте с легких гантелей\n" +
             "• 3-4 подхода по 10-12 повторений\n" +
             "• Держите спину прямо\n" +
@@ -149,12 +140,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Мощное базовое упражнение для развития плеч");
 
-        binding.textViewTargetMuscles.setText(
-            "• Дельтовидные мышцы\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Трицепсы\n" +
-            "• Передняя зубчатая мышца\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте на скамью\n\n" +
@@ -164,13 +150,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Сильный прогиб спины\n" +
-            "• Неправильный хват\n" +
-            "• Движение по дуге\n" +
-            "• Опускание локтей");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Начинайте с пустого грифа\n" +
             "• 3-4 подхода по 8-12 повторений\n" +
             "• Используйте страховку\n" +
@@ -196,11 +178,6 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Изолированное упражнение для средней дельты");
 
-        binding.textViewTargetMuscles.setText(
-            "• Средний пучок дельтовидной мышцы\n" +
-            "• Передний пучок дельтовидной мышцы\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Мышцы-стабилизаторы");
 
         binding.textViewTechnique.setText(
             "1. Встаньте прямо\n\n" +
@@ -210,13 +187,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Опустите медленно\n\n" +
             "6. Контролируйте движение");
 
-        binding.textViewCommonMistakes.setText(
-            "• Раскачивания корпуса\n" +
-            "• Слишком тяжелый вес\n" +
-            "• Подъем выше плеч\n" +
-            "• Полностью прямые руки");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Используйте легкие веса\n" +
             "• 3-4 подхода по 12-15 повторений\n" +
             "• Выполняйте плавно\n" +
@@ -242,12 +215,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Классическое базовое упражнение для развития силы и массы плеч");
 
-        binding.textViewTargetMuscles.setText(
-            "• Передние дельты\n" +
-            "• Средние дельты\n" +
-            "• Задние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Трицепсы");
+
 
         binding.textViewTechnique.setText(
             "1. Возьмите штангу со стоек на грудь\n\n" +
@@ -257,13 +225,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте в верхней точке\n\n" +
             "6. Медленно опустите на грудь");
 
-        binding.textViewCommonMistakes.setText(
-            "• Прогиб в пояснице\n" +
-            "• Отклонение корпуса назад\n" +
-            "• Неполное выпрямление рук\n" +
-            "• Опускание локтей");
 
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Начинайте с легкого веса\n" +
             "• 3-4 подхода по 8-12 повторений\n" +
             "• Держите корпус прямо\n" +
@@ -289,12 +252,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Продвинутый вариант армейского жима с акцентом на задние дельты");
 
-        binding.textViewTargetMuscles.setText(
-            "• Задние дельты\n" +
-            "• Средние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Трицепсы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Возьмите штангу со стоек за голову\n\n" +
@@ -304,13 +262,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте наверху\n\n" +
             "6. Опустите за голову");
 
-        binding.textViewCommonMistakes.setText(
-            "• Слишком близкий хват\n" +
-            "• Касание штангой шеи\n" +
-            "• Наклон головы вперед\n" +
-            "• Чрезмерный прогиб спины");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Используйте легкий вес\n" +
             "• 3 подхода по 10-12 повторений\n" +
             "• Разомните плечи перед выполнением\n" +
@@ -336,12 +290,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Реабилитационное упражнение для укрепления ротаторной манжеты плеча");
 
-        binding.textViewTargetMuscles.setText(
-            "• Внешние ротаторы плеча\n" +
-            "• Задние дельты\n" +
-            "• Подостная мышца\n" +
-            "• Малая круглая мышца\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Закрепите резинку на уровне локтя\n\n" +
@@ -351,13 +300,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Задержитесь на 1-2 секунды\n\n" +
             "6. Медленно вернитесь");
 
-        binding.textViewCommonMistakes.setText(
-            "• Отведение локтя от тела\n" +
-            "• Слишком сильное сопротивление\n" +
-            "• Рывковые движения\n" +
-            "• Вращение корпусом");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Выбирайте легкое сопротивление\n" +
             "• 3 подхода по 15-20 повторений\n" +
             "• Выполняйте плавно\n" +
@@ -383,12 +328,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Комплексное упражнение для всестороннего развития дельтовидных мышц");
 
-        binding.textViewTargetMuscles.setText(
-            "• Передние дельты\n" +
-            "• Средние дельты\n" +
-            "• Задние дельты\n" +
-            "• Трицепсы\n" +
-            "• Передняя зубчатая мышца");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте на скамью со спинкой\n\n" +
@@ -398,13 +338,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Полностью выпрямите руки\n\n" +
             "6. Вернитесь с поворотом");
 
-        binding.textViewCommonMistakes.setText(
-            "• Неполный поворот рук\n" +
-            "• Слишком тяжелый вес\n" +
-            "• Прогиб в спине\n" +
-            "• Асинхронные движения");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Начинайте с легких гантелей\n" +
             "• 3-4 подхода по 10-12 повторений\n" +
             "• Выполняйте плавно\n" +
@@ -430,12 +366,6 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Безопасное упражнение для развития передних дельт с фиксированной траекторией");
 
-        binding.textViewTargetMuscles.setText(
-            "• Передние дельты\n" +
-            "• Средние дельты\n" +
-            "• Трицепсы\n" +
-            "• Верхняя часть груди\n" +
-            "• Передняя зубчатая мышца");
 
         binding.textViewTechnique.setText(
             "1. Отрегулируйте сиденье\n\n" +
@@ -445,13 +375,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Отрыв спины от спинки\n" +
-            "• Неполная амплитуда\n" +
-            "• Рывковые движения\n" +
-            "• Задержка дыхания");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Подберите правильный вес\n" +
             "• 3-4 подхода по 12-15 повторений\n" +
             "• Контролируйте движение\n" +
@@ -477,12 +403,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Одностороннее упражнение для развития силы и баланса плеч");
 
-        binding.textViewTargetMuscles.setText(
-            "• Передние дельты\n" +
-            "• Средние дельты\n" +
-            "• Трицепс\n" +
-            "• Мышцы кора\n" +
-            "• Стабилизаторы плеча");
+
 
         binding.textViewTechnique.setText(
             "1. Встаньте у Т-грифа\n\n" +
@@ -492,13 +413,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте положение\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Наклон в сторону\n" +
-            "• Раскачивание корпуса\n" +
-            "• Неполная амплитуда\n" +
-            "• Потеря баланса");
 
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Начинайте с легкого веса\n" +
             "• 3 подхода по 10-12 повторений\n" +
             "• Чередуйте руки\n" +
@@ -524,12 +440,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Продвинутое упражнение для развития всех головок дельтовидной мышцы");
 
-        binding.textViewTargetMuscles.setText(
-            "• Задние дельты\n" +
-            "• Средние дельты\n" +
-            "• Передние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Трицепсы");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте на скамью со спинкой\n\n" +
@@ -539,13 +450,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте наверху\n\n" +
             "6. Опустите за голову");
 
-        binding.textViewCommonMistakes.setText(
-            "• Удар штангой по шее\n" +
-            "• Слишком узкий хват\n" +
-            "• Наклон головы вперед\n" +
-            "• Отрыв от спинки");
 
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Используйте умеренный вес\n" +
             "• 3-4 подхода по 8-12 повторений\n" +
             "• Хорошо разомнитесь\n" +
@@ -571,12 +477,6 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для развития силы и массы плеч");
 
-        binding.textViewTargetMuscles.setText(
-            "• Передние дельты\n" +
-            "• Средние дельты\n" +
-            "• Трицепсы\n" +
-            "• Верхняя часть груди\n" +
-            "• Передняя зубчатая мышца");
 
         binding.textViewTechnique.setText(
             "1. Сядьте на скамью со спинкой\n\n" +
@@ -586,13 +486,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте наверху\n\n" +
             "6. Плавно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Прогиб в пояснице\n" +
-            "• Отбив от груди\n" +
-            "• Неполное выпрямление рук\n" +
-            "• Раскачивание корпуса");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Начинайте с легкого веса\n" +
             "• 3-4 подхода по 8-12 повторений\n" +
             "• Используйте страховку\n" +
@@ -618,12 +514,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Изолированное упражнение для средних дельт с фиксированной траекторией");
 
-        binding.textViewTargetMuscles.setText(
-            "• Средние дельты\n" +
-            "• Передние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Надостная мышца\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Отрегулируйте сиденье\n\n" +
@@ -633,13 +524,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Задержитесь наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Использование инерции\n" +
-            "• Слишком большой вес\n" +
-            "• Неполная амплитуда\n" +
-            "• Подъем плеч");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Выбирайте умеренный вес\n" +
             "• 3-4 подхода по 12-15 повторений\n" +
             "• Выполняйте плавно\n" +
@@ -665,12 +552,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Изолирующее упражнение для задних дельт и верхней части спины");
 
-        binding.textViewTargetMuscles.setText(
-            "• Задние дельты\n" +
-            "• Средние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Ромбовидные мышцы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Наклонитесь вперед\n\n" +
@@ -680,13 +562,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Задержитесь наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Округление спины\n" +
-            "• Слишком тяжелый вес\n" +
-            "• Махи с инерцией\n" +
-            "• Недостаточный наклон");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Используйте легкие веса\n" +
             "• 3-4 подхода по 12-15 повторений\n" +
             "• Держите спину прямой\n" +
@@ -712,12 +590,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Изолированное упражнение для задних дельт с опорой на скамью");
 
-        binding.textViewTargetMuscles.setText(
-            "• Задние дельты\n" +
-            "• Средние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Ромбовидные мышцы\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Лягте на наклонную скамью\n\n" +
@@ -727,13 +600,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Сведите лопатки\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Рывковые движения\n" +
-            "• Слишком большой вес\n" +
-            "• Неполная амплитуда\n" +
-            "• Работа спиной");
 
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Используйте легкие гантели\n" +
             "• 3 подхода по 12-15 повторений\n" +
             "• Выполняйте плавно\n" +
@@ -759,12 +627,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Изолированное упражнение для средних дельт с исключением читинга");
 
-        binding.textViewTargetMuscles.setText(
-            "• Средние дельты\n" +
-            "• Передние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Надостная мышца\n" +
-            "• Мышцы-стабилизаторы");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте на скамью\n\n" +
@@ -774,13 +637,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте на секунду\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Использование инерции\n" +
-            "• Подъём выше уровня плеч\n" +
-            "• Полностью прямые руки\n" +
-            "• Наклоны корпуса");
 
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Используйте легкие веса\n" +
             "• 3-4 подхода по 12-15 повторений\n" +
             "• Держите спину прямо\n" +
@@ -806,12 +664,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Изолированное упражнение для средних дельт с постоянным сопротивлением");
 
-        binding.textViewTargetMuscles.setText(
-            "• Средние дельты\n" +
-            "• Передние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Мышцы-стабилизаторы\n" +
-            "• Ротаторная манжета");
+
 
         binding.textViewTechnique.setText(
             "1. Встаньте боком к блоку\n\n" +
@@ -821,13 +674,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Наклоны корпуса\n" +
-            "• Рывковые движения\n" +
-            "• Слишком большой вес\n" +
-            "• Сгибание руки");
 
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Начинайте с малого веса\n" +
             "• 3 подхода по 12-15 повторений\n" +
             "• Контролируйте движение\n" +
@@ -853,12 +701,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Комплексное упражнение для развития силы и мощности плеч");
 
-        binding.textViewTargetMuscles.setText(
-            "• Дельтовидные мышцы\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Трицепсы\n" +
-            "• Бицепсы\n" +
-            "• Мышцы кора");
+
 
         binding.textViewTechnique.setText(
             "1. Сядьте на скамью\n\n" +
@@ -868,13 +711,9 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Зафиксируйте\n\n" +
             "6. Опустите к плечам и вниз");
 
-        binding.textViewCommonMistakes.setText(
-            "• Использование спины\n" +
-            "• Неконтролируемые движения\n" +
-            "• Слишком тяжелый вес\n" +
-            "• Потеря баланса");
 
-        binding.textViewRecommendations.setText(
+
+        binding.textViewSets.setText(
             "• Начинайте с легких гантелей\n" +
             "• 3-4 подхода по 8-12 повторений\n" +
             "• Соблюдайте технику\n" +
@@ -900,12 +739,6 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Упражнение для развития верха плеч и трапециевидных мышц");
 
-        binding.textViewTargetMuscles.setText(
-            "• Дельтовидные мышцы\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Бицепсы\n" +
-            "• Передние зубчатые мышцы\n" +
-            "• Ротаторная манжета");
 
         binding.textViewTechnique.setText(
             "1. Встаньте прямо\n\n" +
@@ -915,13 +748,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Задержитесь наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Раскачивание корпуса\n" +
-            "• Опускание локтей\n" +
-            "• Слишком тяжелый вес\n" +
-            "• Неполная амплитуда");
 
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Используйте средний вес\n" +
             "• 3 подхода по 12-15 повторений\n" +
             "• Держите локти выше кистей\n" +
@@ -947,13 +775,6 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Базовое упражнение для развития задних дельт и верха спины");
 
-        binding.textViewTargetMuscles.setText(
-            "• Задние дельты\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Ромбовидные мышцы\n" +
-            "• Широчайшие мышцы\n" +
-            "• Бицепсы");
-
         binding.textViewTechnique.setText(
             "1. Наклонитесь вперед\n\n" +
             "2. Возьмите штангу\n\n" +
@@ -962,13 +783,7 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Сведите лопатки\n\n" +
             "6. Плавно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Округление спины\n" +
-            "• Недостаточный наклон\n" +
-            "• Рывковые движения\n" +
-            "• Работа только руками");
-
-        binding.textViewRecommendations.setText(
+        binding.textViewSets.setText(
             "• Начинайте с легкого веса\n" +
             "• 3-4 подхода по 10-12 повторений\n" +
             "• Держите спину прямой\n" +
@@ -979,12 +794,6 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "• Грыжи позвоночника\n" +
             "• Проблемы с поясницей\n" +
             "• Головокружения");
-
-        binding.textViewAlternatives.setText(
-            "• Тяга гантелей\n" +
-            "• Тяга в тренажере\n" +
-            "• Махи в наклоне\n" +
-            "• Обратные разведения");
     }
 
     private void setupBarbellUprightRow() {
@@ -994,12 +803,6 @@ public class ShoulderExerciseDetailFragment extends Fragment {
         binding.textViewExerciseDescription.setText(
             "Комплексное упражнение для развития плеч и трапеций");
 
-        binding.textViewTargetMuscles.setText(
-            "• Дельтовидные мышцы\n" +
-            "• Трапециевидные мышцы\n" +
-            "• Бицепсы\n" +
-            "• Предплечья\n" +
-            "• Верхняя часть спины");
 
         binding.textViewTechnique.setText(
             "1. Встаньте прямо\n\n" +
@@ -1009,13 +812,8 @@ public class ShoulderExerciseDetailFragment extends Fragment {
             "5. Задержитесь наверху\n\n" +
             "6. Медленно опустите");
 
-        binding.textViewCommonMistakes.setText(
-            "• Слишком широкий хват\n" +
-            "• Раскачивание корпуса\n" +
-            "• Опускание локтей\n" +
-            "• Неполная амплитуда");
-
-        binding.textViewRecommendations.setText(
+       
+        binding.textViewSets.setText(
             "• Используйте умеренный вес\n" +
             "• 3-4 подхода по 10-12 повторений\n" +
             "• Держите локти выше грифа\n" +

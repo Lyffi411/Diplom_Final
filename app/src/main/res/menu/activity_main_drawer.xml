@@ -6,32 +6,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_silomer"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/strength"
             android:title="Силомер" />
         <item
             android:id="@+id/nav_normativi"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/table_list_svgrepo_com"
             android:title="Нормативы" />
         <item
             android:id="@+id/nav_ypragnenia"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/weightlifting_svgrepo_com"
             android:title="Упражнения" />
         <item
             android:id="@+id/nav_zdorove"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/calculator_svgrepo_com"
             android:title="Здоровье" />
         <item
             android:id="@+id/nav_spravochnik"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/book_2_svgrepo_com"
             android:title="Справочник" />
         <item
             android:id="@+id/nav_stata"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/statistics_graph_svgrepo_com"
             android:title="Статистика" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Настройки" />
 
     </group>
 </menu>

@@ -22,6 +22,8 @@ public class SportNutritionAdapter extends RecyclerView.Adapter<SportNutritionAd
 
     public interface OnItemClickListener {
         void onItemClick(int position);
+
+        void onItemClick(int actionId, View view);
     }
 
     public SportNutritionAdapter(List<SportNutritionItem> items, OnItemClickListener listener) {

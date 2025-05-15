@@ -187,7 +187,7 @@ public class GimFragment extends Fragment {
             float progress = (float) animation.getAnimatedValue();
             progressCircle1.setProgress(progress);
             progressCircle1.setProgressText(String.format("%.0f%%", progress));
-            textRes.setText(String.format("%.1f kg", currentResult));
+            textRes.setText(String.format("Результат: %.1f кг", currentResult));
         });
 
         animator.addListener(new AnimatorListenerAdapter() {

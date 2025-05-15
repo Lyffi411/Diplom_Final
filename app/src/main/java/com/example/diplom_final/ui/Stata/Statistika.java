@@ -41,77 +41,121 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 import android.widget.DatePicker;
 import java.util.Calendar;
 import android.app.DatePickerDialog;
+import android.widget.AutoCompleteTextView;
+import androidx.core.content.ContextCompat;
+import androidx.annotation.Nullable;
 
 public class Statistika extends Fragment {
     private static final String TAG = "Statistika";
     private LineChart chart;
-    private Spinner exerciseTypeSpinner;
+    private AutoCompleteTextView exerciseTypeSpinner;
     private Button startDateButton;
     private Button endDateButton;
     private AppDatabase db;
     private long startDate = -1;
     private long endDate = -1;
-    private String selectedExerciseType = "all";
     private Button clearButton;
-    private Button dateRangeButton;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_statistika, container, false);
-
-        // Инициализация views
-        startDateButton = root.findViewById(R.id.startDateButton);
-        endDateButton = root.findViewById(R.id.endDateButton);
-        exerciseTypeSpinner = root.findViewById(R.id.exerciseTypeSpinner);
-        chart = root.findViewById(R.id.lineChart);
-        clearButton = root.findViewById(R.id.clearButton);
-
-        setupSpinner();
-        setupDateButtons();
-        setupChart();
-        
-        db = AppDatabase.getDatabase(requireContext());
-        
-        // Инициализируем кнопку очистки
-        clearButton.setOnClickListener(v -> showClearConfirmationDialog());
-        
+        db = AppDatabase.getDatabase(requireContext()); // Инициализация DB
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Инициализация View
+        chart = view.findViewById(R.id.lineChart);
+        exerciseTypeSpinner = view.findViewById(R.id.exerciseTypeSpinner);
+        startDateButton = view.findViewById(R.id.startDateButton);
+        endDateButton = view.findViewById(R.id.endDateButton);
+        clearButton = view.findViewById(R.id.clearButton);
+
+        // Первичная установка адаптера и слушателя
+        ArrayAdapter<String> adapter = createSpinnerAdapter();
+        exerciseTypeSpinner.setAdapter(adapter);
+        exerciseTypeSpinner.setOnItemClickListener((parent, v, position, id) -> {
+            String selectedExercise = (String) parent.getItemAtPosition(position);
+            String exerciseType = convertToDbFormat(selectedExercise);
+            Log.d(TAG, "Выбрано упражнение: " + exerciseType);
+            // Загружаем данные только если даты выбраны
+            if (startDate != -1 && endDate != -1) {
+                loadData(exerciseType);
+            } else {
+                // Можно добавить Toast или просто не загружать
+                Toast.makeText(requireContext(), "Сначала выберите даты", Toast.LENGTH_SHORT).show();
+                // Очищаем выбор в спиннере, чтобы не было путаницы
+                exerciseTypeSpinner.setText("", false);
+            }
+        });
+
+        // Настройка остальных компонентов
+        setupChart();
+        setupDateButtons();
+        setupClearButton();
+
+        // Устанавливаем начальное состояние (спиннер выключен, текст графика)
+        checkDatesAndEnableSpinner();
+        if (chart != null) {
+            chart.setNoDataText("Выберите даты и упражнение для отображения статистики");
+            chart.invalidate();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume вызван");
-        // Загружаем данные для текущего выбранного упражнения
-        if (exerciseTypeSpinner != null && exerciseTypeSpinner.getSelectedItem() != null) {
-            String selectedExercise = exerciseTypeSpinner.getSelectedItem().toString();
-            loadData(selectedExercise);
-        } else {
-            Log.d(TAG, "Спиннер не инициализирован или не выбрано значение");
+        // Принудительно сбрасываем и переустанавливаем адаптер спиннера
+        // чтобы гарантировать полный список при возврате
+        if (exerciseTypeSpinner != null) {
+            ArrayAdapter<String> adapter = createSpinnerAdapter();
+            exerciseTypeSpinner.setAdapter(adapter); // Переустановка адаптера
+            exerciseTypeSpinner.setText("", false); // Очищаем выбор
+            checkDatesAndEnableSpinner(); // Восстанавливаем enabled/hint
+        }
+        // Не загружаем данные здесь
+    }
+
+    // Добавляем реализацию метода настройки кнопки Очистить
+    private void setupClearButton() {
+        if (clearButton != null) {
+            clearButton.setOnClickListener(v -> showClearConfirmationDialog());
         }
     }
 
-    private void setupSpinner() {
-        String[] exercises = new String[]{"deadlift", "bench_press", "squat"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-            requireContext(),
-            android.R.layout.simple_spinner_item,
-            exercises
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        exerciseTypeSpinner.setAdapter(adapter);
-        
-        exerciseTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedExercise = exercises[position];
-                Log.d(TAG, "Выбрано упражнение: " + selectedExercise);
-                loadData(selectedExercise);
-            }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        resetFilters(); // Очищаем состояние перед уходом
+        chart = null;
+        exerciseTypeSpinner = null;
+        startDateButton = null;
+        endDateButton = null;
+        clearButton = null;
+        // db = null; // Не надо, если это синглтон
+    }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        });
+    // Метод для создания адаптера вынесен отдельно
+    private ArrayAdapter<String> createSpinnerAdapter() {
+        String[] exercises = new String[]{"Становая тяга", "Жим лежа", "Присед"};
+        // Используйте свой layout dropdown_item
+        return new ArrayAdapter<>(
+                requireContext(),
+                R.layout.dropdown_item, // Или android.R.layout.simple_dropdown_item_1line
+                exercises
+        );
+    }
+
+    private String convertToDbFormat(String displayName) {
+        switch (displayName) {
+            case "Становая тяга": return "deadlift";
+            case "Жим лежа": return "bench_press";
+            case "Присед": return "squat";
+            default: return displayName;
+        }
     }
 
     private void setupDateButtons() {
@@ -146,12 +190,15 @@ public class Statistika extends Fragment {
                         .format(new Date(endDate)));
                 }
                 
-                if (startDate != -1 && endDate != -1) {
-                    String selectedExercise = exerciseTypeSpinner.getSelectedItem() != null ? 
-                        exerciseTypeSpinner.getSelectedItem().toString() : null;
-                    if (selectedExercise != null) {
-                        loadData(selectedExercise);
-                    }
+                // Проверяем, выбраны ли обе даты
+                checkDatesAndEnableSpinner();
+                
+                // Если выбрано упражнение и обе даты, загружаем данные
+                if (startDate != -1 && endDate != -1 && exerciseTypeSpinner.getText() != null 
+                        && !exerciseTypeSpinner.getText().toString().isEmpty()) {
+                    String selectedExercise = exerciseTypeSpinner.getText().toString();
+                    String exerciseType = convertToDbFormat(selectedExercise);
+                    loadData(exerciseType);
                 }
             },
             calendar.get(Calendar.YEAR),
@@ -159,6 +206,55 @@ public class Statistika extends Fragment {
             calendar.get(Calendar.DAY_OF_MONTH)
         );
         datePickerDialog.show();
+    }
+
+    // Новый метод для проверки дат и включения спиннера
+    private void checkDatesAndEnableSpinner() {
+        if (startDate != -1 && endDate != -1) {
+            // Обе даты выбраны, включаем спиннер
+            exerciseTypeSpinner.setEnabled(true);
+            exerciseTypeSpinner.setHint("Выберите упражнение");
+            
+            // Проверяем, что начальная дата не больше конечной
+            if (startDate > endDate) {
+                Toast.makeText(requireContext(), 
+                    "Начальная дата должна быть раньше конечной", 
+                    Toast.LENGTH_LONG).show();
+                
+                // Сбрасываем даты
+                startDate = -1;
+                endDate = -1;
+                startDateButton.setText("Начальная дата");
+                endDateButton.setText("Конечная дата");
+                exerciseTypeSpinner.setEnabled(false);
+                exerciseTypeSpinner.setHint("Сначала выберите даты");
+            }
+        }
+    }
+
+    // Дополнительный метод для сброса всех фильтров
+    private void resetFilters() {
+        if (chart != null) {
+            chart.clear(); // Добавляем очистку графика
+            chart.invalidate(); // Обновляем пустой график
+        }
+        if (exerciseTypeSpinner != null) {
+            exerciseTypeSpinner.setText("", false); // Очищаем текст без вызова слушателя
+            exerciseTypeSpinner.clearFocus();
+            // Можно также деактивировать спиннер, если нужно
+            // exerciseTypeSpinner.setEnabled(false); // Раскомментировать, если нужно
+        }
+        startDate = -1;
+        endDate = -1;
+        if (startDateButton != null) {
+            startDateButton.setText("Начальная дата");
+        }
+        if (endDateButton != null) {
+            endDateButton.setText("Конечная дата");
+        }
+        // Перезагрузка данных (возможно, с пустыми фильтрами или по умолчанию)
+        // loadData(null); // Или loadData("default_type") - зависит от логики
+        // Пока просто очистим график, а загрузка произойдет при выборе нового упражнения
     }
 
     private void showClearConfirmationDialog() {
@@ -206,22 +302,30 @@ public class Statistika extends Fragment {
         chart.setDrawGridBackground(false);
         chart.setBackgroundColor(Color.TRANSPARENT);
         
+        // Настройка осей
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setTextColor(Color.WHITE);
+        xAxis.setTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
         xAxis.setDrawGridLines(true);
+        xAxis.setGridColor(ContextCompat.getColor(requireContext(), R.color.gray_100));
         xAxis.setGranularity(1f);
         
         YAxis leftAxis = chart.getAxisLeft();
-        leftAxis.setTextColor(Color.WHITE);
+        leftAxis.setTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
         leftAxis.setDrawGridLines(true);
+        leftAxis.setGridColor(ContextCompat.getColor(requireContext(), R.color.gray_100));
         leftAxis.setAxisMinimum(0f);
         
         chart.getAxisRight().setEnabled(false);
         
+        // Настройка легенды
         Legend legend = chart.getLegend();
-        legend.setTextColor(Color.WHITE);
+        legend.setTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
         legend.setForm(Legend.LegendForm.LINE);
+        
+        // Настройка отсутствия данных
+        chart.setNoDataText("Нет данных");
+        chart.setNoDataTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
     }
 
     private void loadData(String exerciseType) {
@@ -233,28 +337,40 @@ public class Statistika extends Fragment {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             try {
-                List<ExerciseResult> results = db.exerciseResultDao().getAllResults(exerciseType);
-                Log.d(TAG, "Всего найдено результатов: " + results.size());
+                List<ExerciseResult> results;
                 
-                List<ExerciseResult> filteredResults;
-                
+                // Используем правильный запрос в зависимости от наличия дат
                 if (finalStartDate != -1 && finalEndDate != -1) {
-                    filteredResults = new ArrayList<>();
+                    Log.d(TAG, "Запрос с датами: " + finalStartDate + " - " + finalEndDate);
+                    // Используем прямой запрос с фильтрацией по типу и датам
+                    results = db.exerciseResultDao().getAllResults(exerciseType);
+                    
+                    // Фильтруем по датам
+                    List<ExerciseResult> filteredResults = new ArrayList<>();
                     for (ExerciseResult result : results) {
                         long timestamp = result.getTimestamp();
-                        if (timestamp >= finalStartDate && 
-                            timestamp <= finalEndDate) {
+                        if (timestamp >= finalStartDate && timestamp <= finalEndDate) {
                             filteredResults.add(result);
                         }
                     }
-                    Log.d(TAG, "Отфильтровано результатов: " + filteredResults.size());
+                    results = filteredResults;
+                    Log.d(TAG, "Отфильтровано результатов: " + results.size());
                 } else {
-                    filteredResults = results;
+                    Log.d(TAG, "Запрос без дат");
+                    // Просто получаем все результаты для типа упражнения
+                    results = db.exerciseResultDao().getAllResults(exerciseType);
+                    Log.d(TAG, "Всего результатов: " + results.size());
                 }
 
+                // Сортируем результаты по времени (от старых к новым для графика)
+                Collections.sort(results, (r1, r2) -> 
+                    Long.compare(r1.getTimestamp(), r2.getTimestamp()));
+                
+                final List<ExerciseResult> finalResults = results;
+                
                 requireActivity().runOnUiThread(() -> {
-                    if (!filteredResults.isEmpty()) {
-                        updateLineChart(filteredResults);
+                    if (!finalResults.isEmpty()) {
+                        updateLineChart(finalResults);
                     } else {
                         chart.clear();
                         chart.setNoDataText("Нет данных за выбранный период");
@@ -284,17 +400,16 @@ public class Statistika extends Fragment {
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "Вес (кг)");
-        dataSet.setColor(Color.BLUE);
-        dataSet.setCircleColor(Color.BLUE);
+        dataSet.setColor(ContextCompat.getColor(requireContext(), R.color.primary));
+        dataSet.setCircleColor(ContextCompat.getColor(requireContext(), R.color.secondary));
+        dataSet.setLineWidth(2f);
+        dataSet.setCircleRadius(4f);
+        dataSet.setDrawCircleHole(true);
+        dataSet.setCircleHoleColor(ContextCompat.getColor(requireContext(), R.color.surface));
+        dataSet.setValueTextColor(ContextCompat.getColor(requireContext(), R.color.on_background));
         dataSet.setValueTextSize(12f);
-        dataSet.setValueTextColor(Color.WHITE);
-        dataSet.setValueFormatter(new ValueFormatter() {
-            @Override
-            public String getFormattedValue(float value) {
-                return String.format(Locale.getDefault(), "%.1f", value);
-            }
-        });
-
+        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        
         LineData lineData = new LineData(dataSet);
         chart.setData(lineData);
 
@@ -302,7 +417,7 @@ public class Statistika extends Fragment {
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setGranularity(1f);
-        xAxis.setTextColor(Color.WHITE);
+        xAxis.setTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
         xAxis.setValueFormatter(new ValueFormatter() {
             @Override
             public String getFormattedValue(float value) {
@@ -317,7 +432,7 @@ public class Statistika extends Fragment {
 
         // Настройка оси Y
         YAxis leftAxis = chart.getAxisLeft();
-        leftAxis.setTextColor(Color.WHITE);
+        leftAxis.setTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
         
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setEnabled(false);
@@ -325,7 +440,7 @@ public class Statistika extends Fragment {
         // Дополнительные настройки графика
         chart.getDescription().setEnabled(false);
         chart.setExtraBottomOffset(20f);
-        chart.getLegend().setTextColor(Color.WHITE);
+        chart.getLegend().setTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
         chart.getLegend().setEnabled(true);
         chart.setGridBackgroundColor(Color.TRANSPARENT);
         chart.invalidate();

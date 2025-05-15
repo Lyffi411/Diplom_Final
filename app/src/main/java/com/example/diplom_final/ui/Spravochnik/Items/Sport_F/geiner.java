@@ -1,13 +1,11 @@
 package com.example.diplom_final.ui.Spravochnik.Items.Sport_F;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.TextView;
+import androidx.fragment.app.Fragment;
 import com.example.diplom_final.R;
 
 /**
@@ -25,6 +23,9 @@ public class geiner extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView benefitsTextView;
+    private TextView recommendationsTextView;
 
     public geiner() {
         // Required empty public constructor
@@ -59,8 +60,31 @@ public class geiner extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_geiner, container, false);
+                           Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_geiner, container, false);
+
+        benefitsTextView = view.findViewById(R.id.benefitsTextView);
+        recommendationsTextView = view.findViewById(R.id.recommendationsTextView);
+
+        benefitsTextView.setText(
+            "• Быстрое восполнение энергии\n" +
+            "• Ускорение набора мышечной массы\n" +
+            "• Высокая калорийность\n" +
+            "• Содержит комплекс витаминов и минералов\n" +
+            "• Удобство приема\n" +
+            "• Быстрое усвоение\n" +
+            "• Предотвращение катаболизма"
+        );
+
+        recommendationsTextView.setText(
+            "• Начинать с малых доз (30-50г)\n" +
+            "• Разводить в молоке или воде\n" +
+            "• Принимать через 30-40 минут после тренировки\n" +
+            "• Следить за реакцией организма\n" +
+            "• Не превышать рекомендуемую дозировку\n" +
+            "• Сочетать прием с интенсивными тренировками"
+        );
+
+        return view;
     }
 }

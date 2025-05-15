@@ -1,8 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="nav_header_vertical_spacing">25dp</dimen>
-    <dimen name="nav_header_height">176dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <!-- Отступы -->
+    <dimen name="spacing_xxsmall">2dp</dimen>
+    <dimen name="spacing_xsmall">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+    <dimen name="spacing_xxlarge">48dp</dimen>
+    
+    <!-- Размеры элементов UI -->
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    
+    <!-- Размеры текста -->
+    <dimen name="text_size_header">28sp</dimen>
+    <dimen name="text_size_title">22sp</dimen>
+    <dimen name="text_size_subtitle">18sp</dimen>
+    <dimen name="text_size_body">16sp</dimen>
+    <dimen name="text_size_caption">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    
+    <!-- Размеры радиусов -->
+    <dimen name="corner_radius_small">8dp</dimen>
+    <dimen name="corner_radius_medium">12dp</dimen>
+    <dimen name="corner_radius_large">16dp</dimen>
+    
+    <!-- Размеры элевации -->
+    <dimen name="elevation_none">0dp</dimen>
+    <dimen name="elevation_low">1dp</dimen>
+    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_high">8dp</dimen>
+    
+    <!-- Размеры иконок -->
+    <dimen name="icon_size_small">16dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="icon_size_xlarge">48dp</dimen>
+    
+    <!-- Размеры изображений -->
+    <dimen name="image_size_small">80dp</dimen>
+    <dimen name="image_size_medium">120dp</dimen>
+    <dimen name="image_size_large">180dp</dimen>
+    <dimen name="image_size_xlarge">240dp</dimen>
+    
+    <!-- Размеры разделителей -->
+    <dimen name="divider_size">1dp</dimen>
+    <dimen name="divider_margin">8dp</dimen>
+    
+    <!-- Размеры виджетов -->
+    <dimen name="card_content_padding">16dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="checkbox_padding">12dp</dimen>
+    <dimen name="button_text_size">16sp</dimen>
+    <dimen name="button_padding">16dp</dimen>
+    <dimen name="button_margin">8dp</dimen>
 </resources>

@@ -1,326 +1,334 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScroll"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <ScrollView
-            android:id="@+id/verticalScroll"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
+        <!-- Секция 1: Общая информация -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
             <LinearLayout
-                android:id="@+id/zoomContainer"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <!-- Мужчины -->
+                android:padding="16dp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Мужчины"
+                    android:text="Жим лёжа с однослойной экипировкой"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Особенности дивизиона"
+                    android:textColor="@color/primary"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:padding="16dp"/>
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="• Разрешается использовать однослойные софт-экипировки (однослойная майка)\n• Соревнования проводятся по версиям WPC и AWPC\n• Экипировка даёт преимущество в 5-15% по сравнению с RAW"
+                    android:textColor="@color/on_surface"/>
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Требования к экипировке"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="• Майка должна быть однослойной\n• Все швы и края должны быть фабричными\n• Не разрешается дополнительное усиление\n• Необходим допуск судьи для подтверждения соответствия"
+                    android:textColor="@color/on_surface"/>
 
-                    <TableLayout
-                        android:id="@+id/tableMen"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Техника жима с однослойной экипировкой"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="• Укладка на скамью такая же, как в обычном жиме\n• Траектория может быть немного изменена из-за экипировки\n• Важно нарабатывать технику с учетом особенностей майки\n• Может понадобиться помощь для правильного надевания"
+                    android:textColor="@color/on_surface"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Рекомендации"
+                    android:textColor="@color/warning"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="⚠️ Тренируйтесь периодически и без экипировки\n⚠️ Подбирайте размер майки в соответствии с рекомендациями производителя\n⚠️ Всегда имейте страховщиков при работе с весами в экипировке"
+                    android:textColor="@color/warning"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Секция 2: Калькулятор нормативов -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Рассчет норматива (жим в однослойной)"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    style="@style/Widget.App.TextInputLayout"
+                    android:hint="Ваш вес (кг)">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/weightInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:stretchColumns="*"
-                        android:shrinkColumns="*"
-                        android:background="#FFFFFF">
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/on_surface"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/calculateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Рассчитать"
+                    style="@style/Widget.App.Button"/>
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/on_surface"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Заголовок -->
-                        <TableRow android:background="@drawable/header_border">
-                            <TextView style="@style/TableHeader" android:text="Весовая" />
-                            <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
-                            <TextView style="@style/TableHeader" android:text="МС (ДК)" />
-                            <TextView style="@style/TableHeader" android:text="МСМК" />
-                            <TextView style="@style/TableHeader" android:text="МС" />
-                            <TextView style="@style/TableHeader" android:text="КМС" />
-                            <TextView style="@style/TableHeader" android:text="I" />
-                            <TextView style="@style/TableHeader" android:text="II" />
-                            <TextView style="@style/TableHeader" android:text="III" />
-                        </TableRow>
-
-                        <!-- Данные для мужчин -->
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="60" />
-                            <TextView style="@style/TableCell" android:text="142.5" />
-                            <TextView style="@style/TableCell" android:text="125" />
-                            <TextView style="@style/TableCell" android:text="167.5" />
-                            <TextView style="@style/TableCell" android:text="147.5" />
-                            <TextView style="@style/TableCell" android:text="127.5" />
-                            <TextView style="@style/TableCell" android:text="115" />
-                            <TextView style="@style/TableCell" android:text="105" />
-                            <TextView style="@style/TableCell" android:text="90" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="67.5" />
-                            <TextView style="@style/TableCell" android:text="157.5" />
-                            <TextView style="@style/TableCell" android:text="137.5" />
-                            <TextView style="@style/TableCell" android:text="185" />
-                            <TextView style="@style/TableCell" android:text="162.5" />
-                            <TextView style="@style/TableCell" android:text="142.5" />
-                            <TextView style="@style/TableCell" android:text="127.5" />
-                            <TextView style="@style/TableCell" android:text="115" />
-                            <TextView style="@style/TableCell" android:text="100" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="75" />
-                            <TextView style="@style/TableCell" android:text="180" />
-                            <TextView style="@style/TableCell" android:text="157.5" />
-                            <TextView style="@style/TableCell" android:text="210" />
-                            <TextView style="@style/TableCell" android:text="185" />
-                            <TextView style="@style/TableCell" android:text="162.5" />
-                            <TextView style="@style/TableCell" android:text="147.5" />
-                            <TextView style="@style/TableCell" android:text="132.5" />
-                            <TextView style="@style/TableCell" android:text="115" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="82.5" />
-                            <TextView style="@style/TableCell" android:text="197.5" />
-                            <TextView style="@style/TableCell" android:text="172.5" />
-                            <TextView style="@style/TableCell" android:text="230" />
-                            <TextView style="@style/TableCell" android:text="200" />
-                            <TextView style="@style/TableCell" android:text="175" />
-                            <TextView style="@style/TableCell" android:text="157.5" />
-                            <TextView style="@style/TableCell" android:text="142.5" />
-                            <TextView style="@style/TableCell" android:text="125" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="90" />
-                            <TextView style="@style/TableCell" android:text="210" />
-                            <TextView style="@style/TableCell" android:text="185" />
-                            <TextView style="@style/TableCell" android:text="245" />
-                            <TextView style="@style/TableCell" android:text="215" />
-                            <TextView style="@style/TableCell" android:text="187.5" />
-                            <TextView style="@style/TableCell" android:text="170" />
-                            <TextView style="@style/TableCell" android:text="152.5" />
-                            <TextView style="@style/TableCell" android:text="132.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="100" />
-                            <TextView style="@style/TableCell" android:text="225" />
-                            <TextView style="@style/TableCell" android:text="197.5" />
-                            <TextView style="@style/TableCell" android:text="262.5" />
-                            <TextView style="@style/TableCell" android:text="230" />
-                            <TextView style="@style/TableCell" android:text="202.5" />
-                            <TextView style="@style/TableCell" android:text="182.5" />
-                            <TextView style="@style/TableCell" android:text="165" />
-                            <TextView style="@style/TableCell" android:text="142.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="110" />
-                            <TextView style="@style/TableCell" android:text="242.5" />
-                            <TextView style="@style/TableCell" android:text="212.5" />
-                            <TextView style="@style/TableCell" android:text="282.5" />
-                            <TextView style="@style/TableCell" android:text="247.5" />
-                            <TextView style="@style/TableCell" android:text="217.5" />
-                            <TextView style="@style/TableCell" android:text="197.5" />
-                            <TextView style="@style/TableCell" android:text="177.5" />
-                            <TextView style="@style/TableCell" android:text="155" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="125" />
-                            <TextView style="@style/TableCell" android:text="257.5" />
-                            <TextView style="@style/TableCell" android:text="225" />
-                            <TextView style="@style/TableCell" android:text="300" />
-                            <TextView style="@style/TableCell" android:text="262.5" />
-                            <TextView style="@style/TableCell" android:text="230" />
-                            <TextView style="@style/TableCell" android:text="207.5" />
-                            <TextView style="@style/TableCell" android:text="187.5" />
-                            <TextView style="@style/TableCell" android:text="162.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="св.125" />
-                            <TextView style="@style/TableCell" android:text="277.5" />
-                            <TextView style="@style/TableCell" android:text="242.5" />
-                            <TextView style="@style/TableCell" android:text="322.5" />
-                            <TextView style="@style/TableCell" android:text="282.5" />
-                            <TextView style="@style/TableCell" android:text="247.5" />
-                            <TextView style="@style/TableCell" android:text="225" />
-                            <TextView style="@style/TableCell" android:text="202.5" />
-                            <TextView style="@style/TableCell" android:text="175" />
-                        </TableRow>
-
-
-                    </TableLayout>
-                </HorizontalScrollView>
-
-                <!-- Женщины -->
+        <!-- Секция 3: Сравнение результатов (между RAW и однослойной экипировкой) -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Женщины"
+                    android:text="Сравнение результатов"
+                    android:textColor="@color/primary"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:layout_marginTop="24dp"/>
-
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TableLayout
-                        android:id="@+id/tableWeMen"
-                        android:layout_width="wrap_content"
+                    android:textStyle="bold"/>
+                
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    style="@style/Widget.App.TextInputLayout"
+                    android:hint="Ваш результат в RAW (кг)">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/rawResultInput"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/table_border"
-                        android:stretchColumns="*">
-
-                        <!-- Заголовок -->
-                        <TableRow android:background="@drawable/header_border">
-                            <TextView style="@style/TableHeader" android:text="Весовая" />
-                            <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
-                            <TextView style="@style/TableHeader" android:text="МС (ДК)" />
-                            <TextView style="@style/TableHeader" android:text="МСМК" />
-                            <TextView style="@style/TableHeader" android:text="МС" />
-                            <TextView style="@style/TableHeader" android:text="КМС" />
-                            <TextView style="@style/TableHeader" android:text="I" />
-                            <TextView style="@style/TableHeader" android:text="II" />
-                            <TextView style="@style/TableHeader" android:text="III" />
-                        </TableRow>
-
-                        <!-- Данные для женщин -->
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="44" />
-                            <TextView style="@style/TableCell" android:text="62.5" />
-                            <TextView style="@style/TableCell" android:text="55" />
-                            <TextView style="@style/TableCell" android:text="72.5" />
-                            <TextView style="@style/TableCell" android:text="62.5" />
-                            <TextView style="@style/TableCell" android:text="55" />
-                            <TextView style="@style/TableCell" android:text="50" />
-                            <TextView style="@style/TableCell" android:text="45" />
-                            <TextView style="@style/TableCell" android:text="40" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="48" />
-                            <TextView style="@style/TableCell" android:text="67.5" />
-                            <TextView style="@style/TableCell" android:text="60" />
-                            <TextView style="@style/TableCell" android:text="30" />
-                            <TextView style="@style/TableCell" android:text="70" />
-                            <TextView style="@style/TableCell" android:text="62.5" />
-                            <TextView style="@style/TableCell" android:text="55" />
-                            <TextView style="@style/TableCell" android:text="50" />
-                            <TextView style="@style/TableCell" android:text="42.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="52" />
-                            <TextView style="@style/TableCell" android:text="75" />
-                            <TextView style="@style/TableCell" android:text="65" />
-                            <TextView style="@style/TableCell" android:text="37.5" />
-                            <TextView style="@style/TableCell" android:text="77.5" />
-                            <TextView style="@style/TableCell" android:text="67.5" />
-                            <TextView style="@style/TableCell" android:text="60" />
-                            <TextView style="@style/TableCell" android:text="55" />
-                            <TextView style="@style/TableCell" android:text="47.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="56" />
-                            <TextView style="@style/TableCell" android:text="85" />
-                            <TextView style="@style/TableCell" android:text="75" />
-                            <TextView style="@style/TableCell" android:text="67.5" />
-                            <TextView style="@style/TableCell" android:text="62.5" />
-                            <TextView style="@style/TableCell" android:text="55" />
-                            <TextView style="@style/TableCell" android:text="50" />
-                            <TextView style="@style/TableCell" android:text="45" />
-                            <TextView style="@style/TableCell" android:text="42.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="60" />
-                            <TextView style="@style/TableCell" android:text="90" />
-                            <TextView style="@style/TableCell" android:text="30" />
-                            <TextView style="@style/TableCell" android:text="105" />
-                            <TextView style="@style/TableCell" android:text="92.5" />
-                            <TextView style="@style/TableCell" android:text="80" />
-                            <TextView style="@style/TableCell" android:text="72.5" />
-                            <TextView style="@style/TableCell" android:text="65" />
-                            <TextView style="@style/TableCell" android:text="57.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="67.5" />
-                            <TextView style="@style/TableCell" android:text="100" />
-                            <TextView style="@style/TableCell" android:text="37.5" />
-                            <TextView style="@style/TableCell" android:text="117.5" />
-                            <TextView style="@style/TableCell" android:text="102.5" />
-                            <TextView style="@style/TableCell" android:text="90" />
-                            <TextView style="@style/TableCell" android:text="80" />
-                            <TextView style="@style/TableCell" android:text="72.5" />
-                            <TextView style="@style/TableCell" android:text="62.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="75" />
-                            <TextView style="@style/TableCell" android:text="107.5" />
-                            <TextView style="@style/TableCell" android:text="95" />
-                            <TextView style="@style/TableCell" android:text="127.5" />
-                            <TextView style="@style/TableCell" android:text="110" />
-                            <TextView style="@style/TableCell" android:text="97.5" />
-                            <TextView style="@style/TableCell" android:text="37.5" />
-                            <TextView style="@style/TableCell" android:text="80" />
-                            <TextView style="@style/TableCell" android:text="67.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowEven">
-                            <TextView style="@style/TableCell" android:text="82.5" />
-                            <TextView style="@style/TableCell" android:text="120" />
-                            <TextView style="@style/TableCell" android:text="107.5" />
-                            <TextView style="@style/TableCell" android:text="140" />
-                            <TextView style="@style/TableCell" android:text="122.5" />
-                            <TextView style="@style/TableCell" android:text="107.5" />
-                            <TextView style="@style/TableCell" android:text="97.5" />
-                            <TextView style="@style/TableCell" android:text="90" />
-                            <TextView style="@style/TableCell" android:text="77.5" />
-                        </TableRow>
-
-                        <TableRow style="@style/TableRowOdd">
-                            <TextView style="@style/TableCell" android:text="св.82,5" />
-                            <TextView style="@style/TableCell" android:text="130" />
-                            <TextView style="@style/TableCell" android:text="115" />
-                            <TextView style="@style/TableCell" android:text="155" />
-                            <TextView style="@style/TableCell" android:text="137.5" />
-                            <TextView style="@style/TableCell" android:text="122.5" />
-                            <TextView style="@style/TableCell" android:text="110" />
-                            <TextView style="@style/TableCell" android:text="100" />
-                            <TextView style="@style/TableCell" android:text="90" />
-                        </TableRow>
-
-
-                    </TableLayout>
-                </HorizontalScrollView>
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/on_surface"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                
+                <Button
+                    android:id="@+id/compareButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Сравнить"
+                    style="@style/Widget.App.Button"/>
+                
+                <TextView
+                    android:id="@+id/comparisonResultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/on_surface"
+                    android:textSize="16sp"/>
+                
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/comparisonChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"/>
             </LinearLayout>
-        </ScrollView>
-    </HorizontalScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Секция 4: Рекомендации по тренировкам -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Программы тренировок"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/trainingTipsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Секция 5: Рекомендуемые модели однослойных маек -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Рекомендуемая экипировка"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/equipmentRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Секция 6: Таблица нормативов (однослойная экипировка) -->
+        <LinearLayout
+            android:id="@+id/zoomContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Мужчины -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Мужчины - жим лёжа (однослойная)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:textColor="@color/primary"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableLayout
+                    android:id="@+id/tableMen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*">
+                    <TableRow android:background="@drawable/header_border">
+                        <TextView style="@style/TableHeader" android:text="Весовая" />
+                        <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
+                        <TextView style="@style/TableHeader" android:text="МС (ДК)" />
+                        <TextView style="@style/TableHeader" android:text="МСМК" />
+                        <TextView style="@style/TableHeader" android:text="МС" />
+                        <TextView style="@style/TableHeader" android:text="КМС" />
+                        <TextView style="@style/TableHeader" android:text="I" />
+                        <TextView style="@style/TableHeader" android:text="II" />
+                        <TextView style="@style/TableHeader" android:text="III" />
+                    </TableRow>
+                    <!-- Нормативы жима лежа с однослойной для мужчин будут добавлены динамически -->
+                </TableLayout>
+            </HorizontalScrollView>
+
+            <!-- Женщины -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Женщины - жим лёжа (однослойная)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/primary"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableLayout
+                    android:id="@+id/tableWomen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*">
+                    <TableRow android:background="@drawable/header_border">
+                        <TextView style="@style/TableHeader" android:text="Весовая" />
+                        <TextView style="@style/TableHeader" android:text="МСМК (ДК)" />
+                        <TextView style="@style/TableHeader" android:text="МС (ДК)" />
+                        <TextView style="@style/TableHeader" android:text="МСМК" />
+                        <TextView style="@style/TableHeader" android:text="МС" />
+                        <TextView style="@style/TableHeader" android:text="КМС" />
+                        <TextView style="@style/TableHeader" android:text="I" />
+                        <TextView style="@style/TableHeader" android:text="II" />
+                        <TextView style="@style/TableHeader" android:text="III" />
+                    </TableRow>
+                    <!-- Нормативы жима лежа с однослойной для женщин будут добавлены динамически -->
+                </TableLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

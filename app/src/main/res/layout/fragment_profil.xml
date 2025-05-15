@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray_300">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +16,12 @@
             android:layout_height="wrap_content"
             android:hint="Имя"
             android:inputType="textPersonName"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_100"
+            android:textColorHighlight="@color/pink_100"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"/>
 
         <EditText
             android:id="@+id/ageInput"
@@ -23,13 +29,20 @@
             android:layout_height="wrap_content"
             android:hint="Возраст"
             android:inputType="number"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_100"
+            android:textColorHighlight="@color/pink_100"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"/>
 
         <Spinner
             android:id="@+id/genderSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/spinner_background"
+            android:padding="12dp"/>
 
         <EditText
             android:id="@+id/heightInput"
@@ -37,7 +50,12 @@
             android:layout_height="wrap_content"
             android:hint="Рост (см)"
             android:inputType="number"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_100"
+            android:textColorHighlight="@color/pink_100"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"/>
 
         <EditText
             android:id="@+id/weightInput"
@@ -45,7 +63,12 @@
             android:layout_height="wrap_content"
             android:hint="Вес (кг)"
             android:inputType="numberDecimal"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_100"
+            android:textColorHighlight="@color/pink_100"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"/>
 
         <EditText
             android:id="@+id/benchPressInput"
@@ -53,7 +76,12 @@
             android:layout_height="wrap_content"
             android:hint="Жим лежа (кг)"
             android:inputType="numberDecimal"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_100"
+            android:textColorHighlight="@color/pink_100"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"/>
 
         <EditText
             android:id="@+id/deadliftInput"
@@ -61,7 +89,12 @@
             android:layout_height="wrap_content"
             android:hint="Становая тяга (кг)"
             android:inputType="numberDecimal"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_100"
+            android:textColorHighlight="@color/pink_100"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"/>
 
         <EditText
             android:id="@+id/squatInput"
@@ -69,20 +102,29 @@
             android:layout_height="wrap_content"
             android:hint="Присед (кг)"
             android:inputType="numberDecimal"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_100"
+            android:textColorHighlight="@color/pink_100"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"/>
 
         <Button
             android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сохранить"/>
+            android:text="Сохранить"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/button_text"/>
 
         <Button
             android:id="@+id/updateFromStatsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Обновить данные профиля"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/button_text"/>
 
     </LinearLayout>
 </ScrollView>

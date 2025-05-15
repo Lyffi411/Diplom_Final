@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.DiplomFinal" parent="Theme.MaterialComponents.NoActionBar">
+    <!-- Основная тема приложения -->
+    <style name="Theme.Diplom_Final" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Основные цвета -->
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/secondary</item>
-        <item name="colorSecondary">@color/accent</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorAccent">@color/primary</item>
         
         <!-- Фоны -->
         <item name="android:colorBackground">@color/background</item>
@@ -14,13 +15,13 @@
         <!-- Статус бар и навигация -->
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:navigationBarColor">@color/background</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         
         <!-- Цвета текста -->
         <item name="android:textColorPrimary">@color/on_background</item>
-        <item name="android:textColorSecondary">@color/on_surface</item>
-        <item name="colorOnPrimary">@color/on_primary</item>
-        <item name="colorOnSecondary">@color/on_primary</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="colorOnPrimary">@color/background</item>
+        <item name="colorOnSecondary">@color/background</item>
         <item name="colorOnBackground">@color/on_background</item>
         <item name="colorOnSurface">@color/on_surface</item>
         
@@ -28,85 +29,149 @@
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <item name="cardViewStyle">@style/Widget.App.CardView</item>
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
     </style>
 
+    <!-- Стиль без экшнбара -->
     <style name="Theme.Diplom_Final.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Стили для AppBar -->
     <style name="Theme.DiplomFinal.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
-        <item name="android:textColorPrimary">@color/primary</item>
-        <item name="android:textColorSecondary">@color/on_surface</item>
         <item name="android:background">@color/background</item>
+        <item name="titleTextColor">@color/primary</item>
     </style>
 
-    <style name="Theme.DiplomFinal.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+    <style name="Theme.DiplomFinal.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark">
         <item name="android:background">@color/surface</item>
         <item name="android:textColor">@color/on_surface</item>
     </style>
 
-    <!-- Стиль кнопок -->
+    <!-- Стиль для кнопок -->
     <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/primary</item>
-        <item name="android:textColor">@color/on_primary</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:backgroundTint">@color/button_background</item>
+        <item name="android:textColor">@color/button_text</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="cornerRadius">12dp</item>
     </style>
 
-    <!-- Стиль тулбара -->
-    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+    <!-- Стиль для контурной кнопки -->
+    <style name="Widget.App.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/primary</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="android:padding">16dp</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Стиль для тулбара -->
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">
         <item name="android:background">@color/background</item>
         <item name="titleTextColor">@color/primary</item>
-        <item name="subtitleTextColor">@color/on_surface</item>
+        <item name="subtitleTextColor">@color/secondary_text</item>
+        <item name="navigationIconTint">@color/on_background</item>
     </style>
 
-    <!-- Стиль карточек -->
+    <!-- Стиль для карточек -->
     <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/surface</item>
-        <item name="cardElevation">4dp</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="contentPadding">16dp</item>
     </style>
 
-    <!-- Стиль экшнбара -->
-    <style name="Widget.App.ActionBar" parent="Widget.MaterialComponents.ActionBar.Surface">
-        <item name="background">@color/background</item>
-        <item name="titleTextStyle">@style/TextAppearance.App.TitleLarge</item>
+    <!-- Стиль для текстовых полей -->
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="hintTextColor">@color/primary</item>
+        <item name="android:textColorHint">@color/input_hint</item>
+        <item name="boxBackgroundColor">@color/input_background</item>
+        <item name="endIconTint">@color/secondary_text</item>
+        <item name="startIconTint">@color/secondary_text</item>
     </style>
 
-    <!-- Стиль текста заголовка -->
-    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:textColor">@color/primary</item>
-        <item name="android:textSize">24sp</item>
+    <!-- Стили для текста -->
+    <style name="TextAppearance.App.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textColor">@color/on_background</item>
+        <item name="android:textSize">34sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:letterSpacing">0.05</item>
-        <item name="android:textAllCaps">true</item>
     </style>
 
-    <!-- Стиль для заголовков упражнений -->
-    <style name="TextAppearance.App.ExerciseTitle" parent="TextAppearance.MaterialComponents.Headline5">
+    <style name="TextAppearance.App.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textColor">@color/on_background</item>
         <item name="android:textSize">28sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/primary</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:letterSpacing">0.05</item>
-        <item name="android:layout_marginBottom">24dp</item>
     </style>
 
-    <!-- Стиль для подзаголовков в деталях упражнений -->
-    <style name="TextAppearance.App.ExerciseSubtitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+    <style name="TextAppearance.App.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/on_background</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/primary</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/primary</item>
-        <item name="android:layout_marginBottom">12dp</item>
     </style>
 
-    <!-- Стиль для текстовых блоков в деталях упражнений -->
-    <style name="TextAppearance.App.ExerciseText" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="TextAppearance.App.Subtitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.App.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/on_surface</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/on_background</item>
+    </style>
+
+    <style name="TextAppearance.App.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Стили для экранов упражнений -->
+    <style name="TextAppearance.App.ExerciseTitle" parent="TextAppearance.App.Headline2">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <style name="TextAppearance.App.ExerciseSubtitle" parent="TextAppearance.App.Subtitle">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="TextAppearance.App.ExerciseText" parent="TextAppearance.App.Body1">
+        <item name="android:layout_marginBottom">16dp</item>
         <item name="android:background">@color/surface</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Стили для RecyclerView -->
+    <style name="Widget.App.RecyclerView" parent="Widget.AppCompat.ListView">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:scrollbarThumbVertical">@color/primary</item>
+    </style>
+
+    <!-- Стили для диалогов -->
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button.Dialog</item>
+    </style>
+
+    <style name="Widget.App.Button.Dialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/primary</item>
     </style>
 </resources>

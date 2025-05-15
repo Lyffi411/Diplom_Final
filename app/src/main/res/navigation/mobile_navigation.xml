@@ -457,8 +457,28 @@
     <fragment
         android:id="@+id/kreatinFragment"
         android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.kreatin"
-        android:label="Креатин"
-        tools:layout="@layout/fragment_kreatin" />
+        android:label="Креатин">
+        
+        <action
+            android:id="@+id/action_kreatinFragment_to_creatineMonohydrateFragment"
+            app:destination="@id/creatineMonohydrateFragment" />
+            
+        <action
+            android:id="@+id/action_kreatinFragment_to_creatineTransportFragment"
+            app:destination="@id/creatineTransportFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/creatineMonohydrateFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Creatine.CreatineMonohydrate"
+        android:label="Креатин моногидрат"
+        tools:layout="@layout/fragment_creatine_detail" />
+
+    <fragment
+        android:id="@+id/creatineTransportFragment"
+        android:name="com.example.diplom_final.ui.Spravochnik.Items.Sport_F.Creatine.CreatineTransport"
+        android:label="Креатин с транспортной системой"
+        tools:layout="@layout/fragment_creatine_detail" />
 
     <fragment
         android:id="@+id/aminoFragment"

@@ -46,9 +46,17 @@ public class SportNutritionFragment extends Fragment {
 
         initializeItems();
 
-        adapter = new SportNutritionAdapter(items, position -> {
-            SportNutritionItem item = adapter.getFilteredItems().get(position);
-            Navigation.findNavController(requireView()).navigate(item.getNavigationId());
+        adapter = new SportNutritionAdapter(items, new SportNutritionAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                SportNutritionItem item = adapter.getFilteredItems().get(position);
+                Navigation.findNavController(requireView()).navigate(item.getNavigationId());
+            }
+
+            @Override
+            public void onItemClick(int actionId, View view) {
+
+            }
         });
 
         recyclerView.setAdapter(adapter);

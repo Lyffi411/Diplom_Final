@@ -10,6 +10,9 @@ public class BackExerciseItem {
     private String sets;
     private String contraindications;
     private List<String> alternatives;
+    private String targetMuscles;
+    private String commonMistakes;
+    private String recommendations;
 
     public BackExerciseItem(String title, String description, int imageResourceId,
                            String technique, String videoUrl, String sets,

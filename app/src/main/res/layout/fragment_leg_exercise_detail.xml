@@ -20,15 +20,16 @@
         <ImageView
             android:id="@+id/imageViewExercise"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="24dp"
-            android:background="@color/surface"/>
+            android:layout_height="250dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
+            android:text="Описание"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Описание"
             style="@style/TextAppearance.App.ExerciseSubtitle"/>
 
         <TextView
@@ -38,21 +39,9 @@
             style="@style/TextAppearance.App.ExerciseText"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Техника выполнения"
-            style="@style/TextAppearance.App.ExerciseSubtitle"/>
-
-        <TextView
-            android:id="@+id/textViewTechnique"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/TextAppearance.App.ExerciseText"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Целевые мышцы"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             style="@style/TextAppearance.App.ExerciseSubtitle"/>
 
         <TextView
@@ -62,9 +51,21 @@
             style="@style/TextAppearance.App.ExerciseText"/>
 
         <TextView
+            android:text="Техника выполнения"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.App.ExerciseSubtitle"/>
+
+        <TextView
+            android:id="@+id/textViewTechnique"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.App.ExerciseText"/>
+
+        <TextView
             android:text="Распространенные ошибки"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             style="@style/TextAppearance.App.ExerciseSubtitle"/>
 
         <TextView
@@ -74,9 +75,9 @@
             style="@style/TextAppearance.App.ExerciseText"/>
 
         <TextView
+            android:text="Рекомендации"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Рекомендации"
             style="@style/TextAppearance.App.ExerciseSubtitle"/>
 
         <TextView
@@ -86,21 +87,22 @@
             style="@style/TextAppearance.App.ExerciseText"/>
 
         <TextView
+            android:text="Подходы и повторения"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Подходы и повторения"
             style="@style/TextAppearance.App.ExerciseSubtitle"/>
 
         <TextView
             android:id="@+id/textViewSets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Подходы: 3-4\nПовторения: 12-15\nОтдых между подходами: 60-90 секунд"
             style="@style/TextAppearance.App.ExerciseText"/>
 
         <TextView
+            android:text="Противопоказания"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Противопоказания"
             style="@style/TextAppearance.App.ExerciseSubtitle"/>
 
         <TextView
@@ -110,9 +112,9 @@
             style="@style/TextAppearance.App.ExerciseText"/>
 
         <TextView
+            android:text="Альтернативные упражнения"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Альтернативные упражнения"
             style="@style/TextAppearance.App.ExerciseSubtitle"/>
 
         <TextView
@@ -126,10 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="СМОТРЕТЬ ВИДЕО"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"/>
+            style="@style/Widget.App.Button"/>
 
     </LinearLayout>
 </ScrollView> 

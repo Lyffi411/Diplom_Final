@@ -93,7 +93,7 @@ public class protein extends Fragment {
         items.add(new ProteinItem(
             "Казеиновый протеин",
             "Медленноусвояемый протеин, обеспечивающий длительное поступление аминокислот. Лучше всего принимать перед сном.",
-            R.drawable.kazein,
+            R.drawable.kazeinnn,
             R.id.action_proteinFragment_to_kazeinFragment
         ));
         
@@ -114,7 +114,7 @@ public class protein extends Fragment {
         items.add(new ProteinItem(
             "Соевый протеин",
             "Растительный протеин, подходящий для вегетарианцев. Содержит все необходимые аминокислоты.",
-            R.drawable.soevi,
+            R.drawable.soeviii,
             R.id.action_proteinFragment_to_soeviFragment
         ));
         

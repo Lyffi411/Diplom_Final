@@ -14,7 +14,7 @@ public class soevi extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_protein_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_protein_new_detail, container, false);
 
         ImageView proteinImage = view.findViewById(R.id.proteinImage);
         TextView titleTextView = view.findViewById(R.id.titleTextView);
@@ -22,7 +22,7 @@ public class soevi extends Fragment {
         TextView benefitsTextView = view.findViewById(R.id.benefitsTextView);
         TextView recommendationsTextView = view.findViewById(R.id.recommendationsTextView);
 
-        proteinImage.setImageResource(R.drawable.soevi);
+        proteinImage.setImageResource(R.drawable.soeviii);
         titleTextView.setText("Соевый протеин");
 
         descriptionTextView.setText(

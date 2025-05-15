@@ -1,64 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#673AB7</color>
-    <color name="purple_700">#512DA8</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="purple_505">#9C27B0</color>
-    <color name="gray1">#9C9C9C</color>
-
-    <!-- Цвета для светлой темы -->
-    <color name="colorPrimaryLight">#6200EE</color>
-    <color name="colorPrimaryVariantLight">#3700B3</color>
-    <color name="colorOnPrimaryLight">#FFFFFF</color>
-    <color name="colorBackgroundLight">#FFFFFF</color>
-    <color name="colorOnBackgroundLight">#000000</color>
-    <color name="background_light">#F5F5F5</color>
-    <color name="card_background_light">#FFFFFF</color>
-    <color name="text_primary_light">#673AB7</color>
-    <color name="text_secondary_light">#555555</color>
-
-    <!-- Цвета для темной темы -->
-    <color name="colorPrimaryDark">#BB86FC</color>
-    <color name="colorPrimaryVariantDark">#3700B3</color>
-    <color name="colorOnPrimaryDark">#000000</color>
-    <color name="colorBackgroundDark">#121212</color>
-    <color name="colorOnBackgroundDark">#FFFFFF</color>
-    <color name="light_gray">#CCCCCC</color>
-    <color name="background_color">#121212</color>
-    <color name="card_background">#1E1E1E</color>
-    <color name="text_secondary">#B3FFFFFF</color>
-
-    <!-- Основная палитра из изображения -->
-    <color name="background">#1A1A1D</color>      <!-- Темный фон -->
-    <color name="surface">#4E4E50</color>         <!-- Серый для карточек -->
-    <color name="primary">#C3073F</color>         <!-- Основной розовый -->
-    <color name="secondary">#950740</color>       <!-- Темно-розовый -->
-    <color name="accent">#6F2232</color>          <!-- Бордовый акцент -->
-    
-    <!-- Дополнительные оттенки -->
-    <color name="dark_surface">#2D2D30</color>    <!-- Темно-серый для элементов -->
-    <color name="light_surface">#6F6F74</color>   <!-- Светло-серый для неактивных элементов -->
-    
-    <!-- Текстовые цвета -->
-    <color name="on_background">#FFFFFF</color>   <!-- Белый текст на фоне -->
-    <color name="on_surface">#CCCCCC</color>      <!-- Светло-серый текст -->
-    <color name="on_primary">#FFFFFF</color>      <!-- Белый текст на primary -->
-    
-    <!-- Акцентные цвета -->
-    <color name="error">#C3073F</color>           <!-- Красный для ошибок -->
-    <color name="success">#950740</color>         <!-- Темно-розовый для успеха -->
-    
-    <!-- Градации розового -->
-    <color name="pink_100">#C3073F</color>        <!-- #C3073F -->
-    <color name="pink_200">#950740</color>        <!-- #950740 -->
-    <color name="pink_300">#6F2232</color>        <!-- #6F2232 -->
+    <!-- Основная цветовая схема темной темы -->
+    <color name="background">#1E1E1E</color>           <!-- Насыщенный темно-серый, близкий к черному -->
+    <color name="surface">#2C2D30</color>              <!-- Чуть более светлый оттенок темно-серого -->
+    <color name="primary">#FFAB00</color>              <!-- Солнечный желтый/оранжевый -->
+    <color name="primary_dark">#F29900</color>         <!-- Более темный оранжевый -->
+    <color name="secondary">#8AB4F8</color>            <!-- Синий как вторичный цвет -->
+    <color name="on_background">#E8EAED</color>        <!-- Светло-серый или почти белый -->
+    <color name="on_surface">#E8EAED</color>           <!-- Светло-серый или почти белый -->
+    <color name="on_secondary">#9AA0A6</color>         <!-- Менее контрастный серый -->
+    <color name="secondary_text">#9AA0A6</color>       <!-- Менее контрастный серый для текста -->
     
     <!-- Градации серого -->
-    <color name="gray_100">#4E4E50</color>        <!-- #4E4E50 -->
-    <color name="gray_200">#2D2D30</color>        <!-- Темнее -->
-    <color name="gray_300">#1A1A1D</color>        <!-- Самый темный -->
+    <color name="gray_100">#E8EAED</color>             <!-- Светло-серый -->
+    <color name="gray_200">#9AA0A6</color>             <!-- Средне-серый -->
+    <color name="gray_300">#3C4043</color>             <!-- Темно-серый -->
+    <color name="gray_400">#2C2D30</color>             <!-- Более темный серый -->
+    <color name="gray_500">#202124</color>             <!-- Очень темный серый -->
+    <color name="dark_gray">#2C2D30</color>            <!-- Дополнительный темно-серый цвет -->
+    <color name="gray1">#424242</color>                <!-- Дополнительный серый -->
+    <color name="light_gray">#E0E0E0</color>           <!-- Светло-серый для текста -->
+    
+    <!-- Вспомогательные цвета -->
+    <color name="error">#F28B82</color>                <!-- Красный для ошибок -->
+    <color name="success">#81C995</color>              <!-- Зеленый для успеха -->
+    <color name="info">#8AB4F8</color>                 <!-- Синий для информации -->
+    <color name="warning">#FDD663</color>              <!-- Желтый для предупреждений -->
+    
+    <!-- Цветовые акценты -->
+    <color name="pink_100">#FFCDD2</color>             <!-- Светло-розовый цвет -->
+    <color name="pink_200">#F48FB1</color>             <!-- Средне-розовый цвет -->
+    <color name="purple_200">#BB86FC</color>           <!-- Светло-фиолетовый -->
+    <color name="teal_700">#018786</color>             <!-- Темно-бирюзовый -->
+    
+    <!-- Совместимость с прежними именами цветов -->
+    <color name="app_primary_orange">#FFAB00</color>   <!-- Соответствует primary -->
+    <color name="app_background_dark">#1E1E1E</color>  <!-- Соответствует background -->
+    <color name="dark_surface">#2C2D30</color>         <!-- Соответствует surface -->
+    
+    <!-- Стандартные цвета -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background_color">#1E1E1E</color>     <!-- Дублирует фоновый цвет для совместимости -->
+    
+    <!-- Цвета для элементов управления -->
+    <color name="button_background">#FFAB00</color>
+    <color name="button_text">#202124</color>
+    <color name="input_background">#2C2D30</color>
+    <color name="input_text">#E8EAED</color>
+    <color name="input_hint">#9AA0A6</color>
+    <color name="accent">#FFAB00</color>
 </resources>

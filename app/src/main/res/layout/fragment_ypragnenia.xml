@@ -5,22 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/background">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Поиск упражнений"
+        app:hintTextColor="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        android:textColorHint="@color/on_background">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Поиск упражнений"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textColor="@color/on_background"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView

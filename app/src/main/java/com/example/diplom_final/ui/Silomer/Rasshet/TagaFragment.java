@@ -180,7 +180,7 @@ public class TagaFragment extends Fragment {
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                textRes.setText(String.format("%.1f кг", currentResult));
+                textRes.setText(String.format("Результат: %.1f кг", currentResult));
                 textRes.setVisibility(View.VISIBLE);
                 btnShowPercentages.setVisibility(View.VISIBLE);
                 btnSaveResult.setVisibility(View.VISIBLE);
