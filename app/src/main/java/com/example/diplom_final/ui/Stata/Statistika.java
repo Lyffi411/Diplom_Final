@@ -44,6 +44,12 @@ import android.app.DatePickerDialog;
 import android.widget.AutoCompleteTextView;
 import androidx.core.content.ContextCompat;
 import androidx.annotation.Nullable;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import com.github.mikephil.charting.utils.Utils;
+import android.graphics.Paint;
+import com.github.mikephil.charting.charts.Chart;
+import java.util.Comparator;
 
 public class Statistika extends Fragment {
     private static final String TAG = "Statistika";
@@ -55,6 +61,7 @@ public class Statistika extends Fragment {
     private long startDate = -1;
     private long endDate = -1;
     private Button clearButton;
+    private Button advancedStatisticsButton;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,6 +79,7 @@ public class Statistika extends Fragment {
         exerciseTypeSpinner = view.findViewById(R.id.exerciseTypeSpinner);
         startDateButton = view.findViewById(R.id.startDateButton);
         endDateButton = view.findViewById(R.id.endDateButton);
+        advancedStatisticsButton = view.findViewById(R.id.advancedStatisticsButton);
         clearButton = view.findViewById(R.id.clearButton);
 
         // Первичная установка адаптера и слушателя
@@ -95,7 +103,7 @@ public class Statistika extends Fragment {
         // Настройка остальных компонентов
         setupChart();
         setupDateButtons();
-        setupClearButton();
+        setupButtons();
 
         // Устанавливаем начальное состояние (спиннер выключен, текст графика)
         checkDatesAndEnableSpinner();
@@ -119,11 +127,28 @@ public class Statistika extends Fragment {
         // Не загружаем данные здесь
     }
 
-    // Добавляем реализацию метода настройки кнопки Очистить
-    private void setupClearButton() {
-        if (clearButton != null) {
-            clearButton.setOnClickListener(v -> showClearConfirmationDialog());
+    private void setupButtons() {
+        // Button loadDataButton = getView().findViewById(R.id.loadDataButton); // Если есть такая кнопка
+        // if (loadDataButton != null) { // Проверка, если кнопка есть
+        // loadDataButton.setOnClickListener(v -> loadInitialData());
+        // }
+
+        if (advancedStatisticsButton != null) {
+            advancedStatisticsButton.setOnClickListener(v -> {
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.nav_advanced_statistics);
+            });
         }
+
+        if (clearButton != null) {
+            clearButton.setOnClickListener(v -> clearChartData());
+        }
+    }
+
+    private void clearChartData() {
+        chart.clear();
+        chart.invalidate();
+        Toast.makeText(getContext(), "Данные графика очищены", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -135,6 +160,8 @@ public class Statistika extends Fragment {
         startDateButton = null;
         endDateButton = null;
         clearButton = null;
+        advancedStatisticsButton = null;
+        // workoutIntensityButton = null; // Удаляем обнуление
         // db = null; // Не надо, если это синглтон
     }
 
@@ -331,35 +358,45 @@ public class Statistika extends Fragment {
     private void loadData(String exerciseType) {
         Log.d(TAG, "Загрузка данных для типа: " + exerciseType);
         
-        final long finalStartDate = startDate;
-        final long finalEndDate = endDate;
-        
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> {
+        String dbExerciseType = convertToDbFormat(exerciseType);
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
             try {
                 List<ExerciseResult> results;
-                
-                // Используем правильный запрос в зависимости от наличия дат
-                if (finalStartDate != -1 && finalEndDate != -1) {
-                    Log.d(TAG, "Запрос с датами: " + finalStartDate + " - " + finalEndDate);
-                    // Используем прямой запрос с фильтрацией по типу и датам
-                    results = db.exerciseResultDao().getAllResults(exerciseType);
-                    
-                    // Фильтруем по датам
-                    List<ExerciseResult> filteredResults = new ArrayList<>();
-                    for (ExerciseResult result : results) {
-                        long timestamp = result.getTimestamp();
-                        if (timestamp >= finalStartDate && timestamp <= finalEndDate) {
-                            filteredResults.add(result);
-                        }
+                final long finalStartDate = startDate;
+                final long finalEndDate = endDate;
+
+                if (!"Все упражнения".equals(dbExerciseType)) {
+                    // Фильтрация по конкретному типу упражнения
+                    if (finalStartDate != -1 && finalEndDate != -1) {
+                        Log.d(TAG, "Фильтр: " + dbExerciseType + ", даты: " + finalStartDate + " - " + finalEndDate);
+                        results = db.exerciseResultDao().getResultsByTypeAndDateRange(dbExerciseType, finalStartDate, finalEndDate);
+                    } else if (finalStartDate != -1) {
+                        Log.d(TAG, "Фильтр: " + dbExerciseType + ", с даты: " + finalStartDate);
+                        results = db.exerciseResultDao().getResultsByTypeFromDate(dbExerciseType, finalStartDate);
+                    } else if (finalEndDate != -1) {
+                        Log.d(TAG, "Фильтр: " + dbExerciseType + ", до даты: " + finalEndDate);
+                        results = db.exerciseResultDao().getResultsByTypeToDate(dbExerciseType, finalEndDate);
+                    } else {
+                        Log.d(TAG, "Фильтр: только " + dbExerciseType);
+                        results = db.exerciseResultDao().getResultsByType(dbExerciseType);
                     }
-                    results = filteredResults;
-                    Log.d(TAG, "Отфильтровано результатов: " + results.size());
                 } else {
-                    Log.d(TAG, "Запрос без дат");
-                    // Просто получаем все результаты для типа упражнения
-                    results = db.exerciseResultDao().getAllResults(exerciseType);
-                    Log.d(TAG, "Всего результатов: " + results.size());
+                    // Загрузка для "Все упражнения"
+                    if (finalStartDate != -1 && finalEndDate != -1) {
+                        Log.d(TAG, "Фильтр: Все, даты: " + finalStartDate + " - " + finalEndDate);
+                        results = db.exerciseResultDao().getResultsByDateRange(finalStartDate, finalEndDate);
+                    } else if (finalStartDate != -1) {
+                        Log.d(TAG, "Фильтр: Все, с даты: " + finalStartDate);
+                        results = db.exerciseResultDao().getResultsFromDate(finalStartDate);
+                    } else if (finalEndDate != -1) {
+                        Log.d(TAG, "Фильтр: Все, до даты: " + finalEndDate);
+                        results = db.exerciseResultDao().getResultsToDate(finalEndDate);
+                    } else {
+                        Log.d(TAG, "Фильтр: Все, без дат");
+                        results = db.exerciseResultDao().getAllResults();
+                    }
                 }
 
                 // Сортируем результаты по времени (от старых к новым для графика)
@@ -384,19 +421,25 @@ public class Statistika extends Fragment {
                 e.printStackTrace();
             }
         });
-        executor.shutdown();
+        executorService.shutdown();
     }
 
     private void updateLineChart(List<ExerciseResult> results) {
-        ArrayList<Entry> entries = new ArrayList<>();
-        ArrayList<String> dates = new ArrayList<>();
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM HH:mm", Locale.getDefault());
-        
-        for (int i = 0; i < results.size(); i++) {
-            ExerciseResult result = results.get(i);
-            entries.add(new Entry(i, (float) result.getValue()));
-            dates.add(dateFormat.format(new Date(result.getTimestamp())));
+        List<Entry> entries = new ArrayList<>();
+        if (results != null && !results.isEmpty()) {
+            // Сортируем результаты по timestamp, чтобы график был корректным
+            results.sort(Comparator.comparingLong(ExerciseResult::getTimestamp));
+            for (ExerciseResult result : results) {
+                entries.add(new Entry(result.getTimestamp(), (float) result.getResult()));
+            }
+        }
+
+        if (entries.isEmpty()) {
+            chart.clear();
+            chart.setNoDataText("Нет данных за выбранный период");
+            chart.setNoDataTextColor(Color.WHITE);
+            chart.invalidate();
+            return;
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "Вес (кг)");
@@ -419,13 +462,10 @@ public class Statistika extends Fragment {
         xAxis.setGranularity(1f);
         xAxis.setTextColor(ContextCompat.getColor(requireContext(), R.color.on_surface));
         xAxis.setValueFormatter(new ValueFormatter() {
+            private final SimpleDateFormat mFormat = new SimpleDateFormat("dd.MM.yy", Locale.getDefault());
             @Override
             public String getFormattedValue(float value) {
-                int index = (int) value;
-                if (index >= 0 && index < dates.size()) {
-                    return dates.get(index);
-                }
-                return "";
+                return mFormat.format(new Date((long) value));
             }
         });
         xAxis.setLabelRotationAngle(45f);

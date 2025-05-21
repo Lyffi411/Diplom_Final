@@ -51,6 +51,8 @@ public class TagaFragment extends Fragment {
     private EditText weightInput;
     private EditText repsInput;
     private Button calculateButton;
+    private MinMaxFilter weightFilterTaga;
+    private MinMaxFilter repsFilterTaga;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,8 +82,10 @@ public class TagaFragment extends Fragment {
         btnSaveResult.setVisibility(View.GONE);
 
         // Фильтры ввода
-            weightInput.setFilters(new InputFilter[]{new MinMaxFilter(15, 400, weightInput, true)});
-           repsInput.setFilters(new InputFilter[]{new MinMaxFilter(2, 20, repsInput, true)});
+        weightFilterTaga = new MinMaxFilter(15, 400, weightInput, true);
+        repsFilterTaga = new MinMaxFilter(2, 20, repsInput, true);
+        weightInput.setFilters(new InputFilter[]{weightFilterTaga});
+        repsInput.setFilters(new InputFilter[]{repsFilterTaga});
 
         // Получаем максимальную тягу из профиля
         profilViewModel.getProfile().observe(getViewLifecycleOwner(), profile -> {
@@ -114,7 +118,11 @@ public class TagaFragment extends Fragment {
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
             
-            calculateResult();
+            // Принудительная валидация
+            weightFilterTaga.forceValidate();
+            repsFilterTaga.forceValidate();
+
+            calculateAndShowResult(); // Изменил вызов на новый метод
         });
 
         // Обработчик кнопки "Показать варианты"
@@ -122,22 +130,45 @@ public class TagaFragment extends Fragment {
 
         // Обработчик кнопки сохранения
         btnSaveResult.setOnClickListener(v -> {
-            new Thread(() -> {
-                saveResult(currentResult);
-            }).start();
+            if (currentResult > 0) {
+                try {
+                    ExerciseResult resultToSave = new ExerciseResult("deadlift", currentResult, System.currentTimeMillis());
+                    // Удаляем new Thread, так как saveResult уже использует ExecutorService
+                    saveResult(resultToSave);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Ошибка при подготовке данных для сохранения", Toast.LENGTH_SHORT).show();
+                    Log.e("TagaFragment", "Error preparing data for save: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(getContext(), "Сначала рассчитайте результат (1ПМ)", Toast.LENGTH_SHORT).show();
+            }
         });
 
         return root;
     }
 
-    private void calculateResult() {
+    // Объединенный метод для расчета и отображения результата
+    private void calculateAndShowResult() {
         try {
-            float weight = Float.parseFloat(weightInput.getText().toString());
-            float reps = Float.parseFloat(repsInput.getText().toString());
+            String weightText = weightInput.getText().toString();
+            String repsText = repsInput.getText().toString();
+
+            if (weightText.isEmpty() || repsText.isEmpty()) {
+                Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            float weight = Float.parseFloat(weightText);
+            float reps = Float.parseFloat(repsText);
+
+            if (weight < weightFilterTaga.getMinValue() || reps < repsFilterTaga.getMinValue()) {
+                 Toast.makeText(getContext(), "Значения меньше допустимых", Toast.LENGTH_SHORT).show();
+                 return;
+            }
             
             currentResult = weight * (1 + (reps / 30));
             
-            // Получаем данные из ViewModel
             UserProfile profile = profilViewModel.getProfile().getValue();
             
             if (profile != null) {
@@ -145,18 +176,13 @@ public class TagaFragment extends Fragment {
                 int age = profile.getAge();
                 boolean isMale = "Мужской".equals(profile.getGender());
                 
-
-                
-                // Получаем максимум из таблицы нормативов
                 int maxNorm = WeightNorms.getMaxWeight("deadlift", userWeight, age, isMale);
-                
-                // Рассчитываем процент от максимума
                 float targetPercentage = Math.min(100f, (float) (currentResult / maxNorm * 100));
                 
+                binding.buttonRasshet.setVisibility(View.GONE); // Скрываем кнопку "Рассчитать"
                 progressCircle1.setVisibility(View.VISIBLE);
                 startProgressAnimation(targetPercentage);
             } else {
-
                 Toast.makeText(getContext(), "Заполните данные профиля", Toast.LENGTH_SHORT).show();
             }
             
@@ -211,45 +237,71 @@ public class TagaFragment extends Fragment {
                 .show();
     }
 
-    private void saveResult(double weight) {
-        try {
-            ExerciseResult result = new ExerciseResult("deadlift", weight);
-            AppDatabase db = AppDatabase.getDatabase(requireContext());
-            
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            executor.execute(() -> {
-                try {
-                    db.exerciseResultDao().insert(result);
-                    Log.d("TagaFragment", "SUCCESS: Сохранен результат в БД: тип=deadlift, вес=" + weight);
-                    
-                    // Очищаем поля и скрываем элементы в UI потоке
-                    requireActivity().runOnUiThread(() -> {
-                        // Скрываем все элементы
-                        progressCircle1.setVisibility(View.GONE);
-                        textRes.setVisibility(View.GONE);
-                        btnShowPercentages.setVisibility(View.GONE);
-                        btnSaveResult.setVisibility(View.GONE);
-                        
-                        // Очищаем поля ввода
-                        weightInput.setText("");
-                        repsInput.setText("");
-                        
-                        Toast.makeText(requireContext(), "Результат сохранен", Toast.LENGTH_SHORT).show();
-                        Log.d("TagaFragment", "UI обновлен после сохранения");
-                    });
-                } catch (Exception e) {
-                    Log.e("TagaFragment", "ERROR при сохранении: " + e.getMessage());
-                    e.printStackTrace();
-                    requireActivity().runOnUiThread(() -> 
-                        Toast.makeText(requireContext(), "Ошибка при сохранении", Toast.LENGTH_SHORT).show()
-                    );
-                }
-            });
-            executor.shutdown();
-        } catch (Exception e) {
-            Log.e("TagaFragment", "ERROR в основном потоке: " + e.getMessage());
-            e.printStackTrace();
+    private void saveResult(ExerciseResult result) {
+        String weightStr = "";
+        if (binding.editWheit.getText() != null) {
+            weightStr = binding.editWheit.getText().toString();
         }
+
+        String repsStr = "";
+        if (binding.editKolvo.getText() != null) {
+            repsStr = binding.editKolvo.getText().toString();
+        }
+
+        double actualWeight = 0;
+        int actualReps = 0;
+
+        try {
+            if (!weightStr.isEmpty()) {
+                actualWeight = Double.parseDouble(weightStr);
+            }
+            if (!repsStr.isEmpty()) {
+                actualReps = Integer.parseInt(repsStr);
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(getContext(), "Ошибка в значениях веса или повторений", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ExerciseResult newResult = new ExerciseResult();
+        newResult.setExerciseType("deadlift"); // Убедитесь, что тип правильный - deadlift
+        newResult.setResult(currentResult); // currentResult должен быть уже рассчитанным 1ПМ
+        newResult.setTimestamp(System.currentTimeMillis());
+        newResult.setWeight(actualWeight); // Сохраняем введенный вес
+        newResult.setReps(actualReps);   // Сохраняем введенные повторения
+
+        AppDatabase db = AppDatabase.getDatabase(getContext());
+        ProfilViewModel profilViewModel = new ViewModelProvider(this).get(ProfilViewModel.class);
+        ExecutorService executorService = Executors.newSingleThreadExecutor(); // Создаем новый ExecutorService
+
+        executorService.execute(() -> {
+            db.exerciseResultDao().insert(newResult);
+            if (getActivity() != null) {
+                getActivity().runOnUiThread(() -> {
+                    Toast.makeText(getContext(), "Результат становой тяги сохранен", Toast.LENGTH_SHORT).show();
+                    profilViewModel.getProfile().observe(getViewLifecycleOwner(), userProfile -> {
+                        if (userProfile != null) {
+                            if (newResult.getResult() > userProfile.getDeadlift()) {
+                                userProfile.setDeadlift(newResult.getResult());
+                                profilViewModel.saveProfile(userProfile);
+                            }
+                        }
+                    });
+                    // Сброс UI для нового расчета
+                    binding.btnSaveResult.setVisibility(View.GONE);
+                    binding.btnShowPercentages.setVisibility(View.GONE);
+                    binding.textRes.setVisibility(View.GONE);
+                    binding.textRes.setText("Результат: 0 кг");
+                    binding.progressCircle.setVisibility(View.GONE);
+                    binding.progressCircle.setProgress(0);
+                    binding.progressCircle.setProgressText("0%");
+                    weightInput.setText(""); // Используем weightInput, т.к. binding.editWheit уже есть
+                    repsInput.setText("");   // Используем repsInput
+                    binding.buttonRasshet.setVisibility(View.VISIBLE);
+                    currentResult = 0;
+                });
+            }
+        });
     }
 
     @Override

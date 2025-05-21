@@ -36,32 +36,35 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.core.ktx)
+
+    // Lifecycle
+    implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+
+    // Navigation
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    implementation(libs.viewpager2)
-    implementation(libs.room.common)
-    implementation(libs.legacy.support.v4)
-    implementation(libs.androidx.room.runtime)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    implementation(libs.mpandroidchart)
-    androidTestImplementation(libs.espresso.core)
-    annotationProcessor(libs.androidx.room.compiler)
-    implementation(libs.glide.core)
-    annotationProcessor(libs.glide.compiler)
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-}
-dependencies {
+
+    // Room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     annotationProcessor(libs.room.compiler)
+
+    // UI
+    implementation(libs.viewpager2)
     implementation(libs.mpandroidchart)
+    implementation(libs.glide.core)
+    annotationProcessor(libs.glide.compiler)
+
+    // Legacy
+    implementation(libs.legacy.support.v4)
+
+    // Testing
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }

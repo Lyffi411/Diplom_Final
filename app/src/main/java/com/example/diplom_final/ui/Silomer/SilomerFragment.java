@@ -4,12 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -21,25 +18,30 @@ public class SilomerFragment extends Fragment {
     private FragmentSilomerBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSilomerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Настраиваем клики для всех кнопок
-        binding.imageButtonGim.setOnClickListener(view -> {
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        if (binding.cardGim != null) {
+            binding.cardGim.setOnClickListener(view -> {
+                NavController navController = Navigation.findNavController(view);
             navController.navigate(R.id.nav_gim);
         });
+        }
 
-        binding.imageButtonTaga.setOnClickListener(view -> {
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        if (binding.cardTaga != null) {
+            binding.cardTaga.setOnClickListener(view -> {
+                NavController navController = Navigation.findNavController(view);
             navController.navigate(R.id.nav_taga);
         });
+        }
 
-        binding.imageButtonPrisad.setOnClickListener(view -> {
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        if (binding.cardPrisad != null) {
+            binding.cardPrisad.setOnClickListener(view -> {
+                NavController navController = Navigation.findNavController(view);
             navController.navigate(R.id.nav_prisad);
         });
+        }
 
         return root;
     }

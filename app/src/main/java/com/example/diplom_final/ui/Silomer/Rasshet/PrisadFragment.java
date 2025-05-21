@@ -44,6 +44,8 @@ public class PrisadFragment extends Fragment {
     private double currentResult = 0;
     private ProfilViewModel profilViewModel;
     private double maxSquat = 0;
+    private MinMaxFilter weightFilterPrisad;
+    private MinMaxFilter repsFilterPrisad;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,8 +75,10 @@ public class PrisadFragment extends Fragment {
         btnSaveResult.setVisibility(View.GONE);
 
         // Фильтры ввода
-           editTextWeight.setFilters(new InputFilter[]{new MinMaxFilter(15, 400, editTextWeight, true)});
-          editTextReps.setFilters(new InputFilter[]{new MinMaxFilter(2, 20, editTextReps, true)});
+        weightFilterPrisad = new MinMaxFilter(15, 400, editTextWeight, true);
+        repsFilterPrisad = new MinMaxFilter(2, 20, editTextReps, true);
+        editTextWeight.setFilters(new InputFilter[]{weightFilterPrisad});
+        editTextReps.setFilters(new InputFilter[]{repsFilterPrisad});
 
         // Получаем максимальный присед из профиля
         profilViewModel.getProfile().observe(getViewLifecycleOwner(), profile -> {
@@ -86,36 +90,39 @@ public class PrisadFragment extends Fragment {
         // Обработчик кнопки "Рассчитать"
         buttonCalculate.setOnClickListener(v -> {
             try {
-                // Сначала скрываем все элементы
-                progressCircle1.setVisibility(View.VISIBLE);
-                progressCircle1.setProgress(0);
-                textRes.setVisibility(View.GONE);
-                btnShowPercentages.setVisibility(View.GONE);
-                btnSaveResult.setVisibility(View.GONE);
+                weightFilterPrisad.forceValidate();
+                repsFilterPrisad.forceValidate();
 
-                // Получение данных
-                float weight = Float.parseFloat(editTextWeight.getText().toString());
-                float reps = Float.parseFloat(editTextReps.getText().toString());
+                String weightText = editTextWeight.getText().toString();
+                String repsText = editTextReps.getText().toString();
 
-                // Расчет результата
+                if (weightText.isEmpty() || repsText.isEmpty()) {
+                    Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                
+                float weight = Float.parseFloat(weightText);
+                float reps = Float.parseFloat(repsText);
+
+                if (weight < weightFilterPrisad.getMinValue() || reps < repsFilterPrisad.getMinValue()) {
+                    Toast.makeText(getContext(), "Значения меньше допустимых", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 currentResult = weight * (1 + (reps / 30));
 
-                // Получаем данные из ViewModel
                 UserProfile profile = profilViewModel.getProfile().getValue();
                 
                 if (profile != null) {
                     int userWeight = (int) profile.getWeight();
                     int age = profile.getAge();
                     boolean isMale = "Мужской".equals(profile.getGender());
-
                     
-                    // Получаем максимум из таблицы нормативов
                     int maxNorm = WeightNorms.getMaxWeight("squat", userWeight, age, isMale);
-                    
-                    // Рассчитываем процент от максимума
                     float targetPercentage = Math.min(100f, (float) (currentResult / maxNorm * 100));
                     
-                    // Запуск анимации
+                    binding.buttonR.setVisibility(View.GONE); // Скрываем кнопку "Рассчитать"
+                    progressCircle1.setVisibility(View.VISIBLE);
                     startProgressAnimation(targetPercentage);
                 } else {
                     Toast.makeText(getContext(), "Заполните данные профиля", Toast.LENGTH_SHORT).show();
@@ -131,9 +138,17 @@ public class PrisadFragment extends Fragment {
 
         // Обработчик кнопки сохранения
         btnSaveResult.setOnClickListener(v -> {
-            new Thread(() -> {
-                saveResult(currentResult);
-            }).start();
+            if (currentResult > 0) {
+                try {
+                    saveResult(new ExerciseResult("squat", currentResult, System.currentTimeMillis()));
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Ошибка при подготовке данных для сохранения", Toast.LENGTH_SHORT).show();
+                    Log.e("PrisadFragment", "Error preparing data for save: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(getContext(), "Сначала рассчитайте результат (1ПМ)", Toast.LENGTH_SHORT).show();
+            }
         });
 
         return root;
@@ -185,47 +200,72 @@ public class PrisadFragment extends Fragment {
                 .show();
     }
 
-    private void saveResult(double weight) {
-        try {
-            ExerciseResult result = new ExerciseResult("squat", weight);
-            AppDatabase db = AppDatabase.getDatabase(requireContext());
-            
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            executor.execute(() -> {
-                try {
-                    db.exerciseResultDao().insert(result);
-                    Log.d("PrisadFragment", "SUCCESS: Сохранен результат в БД: тип=squat, вес=" + weight);
-                    
-                    // Очищаем поля и скрываем элементы в UI потоке
-                    requireActivity().runOnUiThread(() -> {
-                        // Скрываем все элементы
-                        progressCircle1.setVisibility(View.GONE);
-                        textRes.setVisibility(View.GONE);
-                        btnShowPercentages.setVisibility(View.GONE);
-                        btnSaveResult.setVisibility(View.GONE);
-                        
-                        // Очищаем поля ввода
-                        EditText weightInput = binding.editWheit;
-                        EditText repsInput = binding.editKolvo;
-                        weightInput.setText("");
-                        repsInput.setText("");
-                        
-                        Toast.makeText(requireContext(), "Результат сохранен", Toast.LENGTH_SHORT).show();
-                        Log.d("PrisadFragment", "UI обновлен после сохранения");
-                    });
-                } catch (Exception e) {
-                    Log.e("PrisadFragment", "ERROR при сохранении: " + e.getMessage());
-                    e.printStackTrace();
-                    requireActivity().runOnUiThread(() -> 
-                        Toast.makeText(requireContext(), "Ошибка при сохранении", Toast.LENGTH_SHORT).show()
-                    );
-                }
-            });
-            executor.shutdown();
-        } catch (Exception e) {
-            Log.e("PrisadFragment", "ERROR в основном потоке: " + e.getMessage());
-            e.printStackTrace();
+    private void saveResult(ExerciseResult result) {
+        String weightStr = "";
+        if (binding.editWheit.getText() != null) {
+            weightStr = binding.editWheit.getText().toString();
         }
+
+        String repsStr = "";
+        if (binding.editKolvo.getText() != null) {
+            repsStr = binding.editKolvo.getText().toString();
+        }
+
+        double actualWeight = 0;
+        int actualReps = 0;
+
+        try {
+            if (!weightStr.isEmpty()) {
+                actualWeight = Double.parseDouble(weightStr);
+            }
+            if (!repsStr.isEmpty()) {
+                actualReps = Integer.parseInt(repsStr);
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(getContext(), "Ошибка в значениях веса или повторений", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ExerciseResult newResult = new ExerciseResult();
+        newResult.setExerciseType("squat"); // Убедитесь, что тип правильный - squat
+        newResult.setResult(currentResult); // currentResult должен быть уже рассчитанным 1ПМ
+        newResult.setTimestamp(System.currentTimeMillis());
+        newResult.setWeight(actualWeight); // Сохраняем введенный вес
+        newResult.setReps(actualReps);   // Сохраняем введенные повторения
+
+        AppDatabase db = AppDatabase.getDatabase(getContext());
+        ProfilViewModel profilViewModel = new ViewModelProvider(this).get(ProfilViewModel.class);
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        executorService.execute(() -> {
+            db.exerciseResultDao().insert(newResult);
+            if (getActivity() != null) {
+                getActivity().runOnUiThread(() -> {
+                    Toast.makeText(getContext(), "Результат приседаний сохранен", Toast.LENGTH_SHORT).show();
+                    profilViewModel.getProfile().observe(getViewLifecycleOwner(), userProfile -> {
+                        if (userProfile != null) {
+                            if (newResult.getResult() > userProfile.getSquat()) {
+                                userProfile.setSquat(newResult.getResult());
+                                profilViewModel.saveProfile(userProfile);
+                            }
+                        }
+                    });
+
+                    // Сброс UI для нового расчета
+                    binding.btnSaveResult.setVisibility(View.GONE);
+                    binding.btnShowPercentages.setVisibility(View.GONE);
+                    binding.textRes.setVisibility(View.GONE);
+                    binding.textRes.setText("Результат: 0 кг"); // Сброс текста
+                    binding.progressCircle.setVisibility(View.GONE);
+                    binding.progressCircle.setProgress(0);
+                    binding.progressCircle.setProgressText("0%");
+                    binding.editWheit.setText("");
+                    binding.editKolvo.setText("");
+                    binding.buttonR.setVisibility(View.VISIBLE); // Показываем кнопку "Рассчитать"
+                    currentResult = 0;
+                });
+            }
+        });
     }
 
     @Override

@@ -4,10 +4,26 @@
         <item>Мужской</item>
         <item>Женский</item>
     </string-array>
-    <string-array name="exercise_types">
-        <item>Все упражнения</item>
+    <string-array name="exercise_types_display_names">
+        <item>Жим лежа</item>
+        <item>Приседания</item>
+        <item>Становая тяга</item>
+    </string-array>
+    <string-array name="exercise_types_keys">
         <item>bench_press</item>
-        <item>deadlift</item>
         <item>squat</item>
+        <item>deadlift</item>
+    </string-array>
+    <string-array name="exercise_types_with_all">
+        <item>Все упражнения</item>
+        <item>Жим лежа</item>
+        <item>Приседания</item>
+        <item>Становая тяга</item>
+    </string-array>
+    <string-array name="diet_types">
+        <item>Сбалансированная (40%У, 30%Б, 30%Ж)</item>
+        <item>Высокобелковая (30%У, 40%Б, 30%Ж)</item>
+        <item>Низкоуглеводная (20%У, 40%Б, 40%Ж)</item>
+        <item>Кето (5%У, 25%Б, 70%Ж)</item>
     </string-array>
 </resources> 

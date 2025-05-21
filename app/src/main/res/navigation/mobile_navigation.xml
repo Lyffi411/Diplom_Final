@@ -107,7 +107,11 @@
         android:id="@+id/nav_stata"
         android:name="com.example.diplom_final.ui.Stata.Stata"
         android:label="@string/menu_stata"
-        tools:layout="@layout/fragment_stata" />
+        tools:layout="@layout/fragment_stata" >
+        <action
+            android:id="@+id/action_nav_stata_to_nav_advanced_statistics"
+            app:destination="@id/nav_advanced_statistics" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_spravochnik"
@@ -1140,4 +1144,35 @@
         android:name="com.example.diplom_final.ui.Ypragnenia.ButtExerciseDetailFragment"
         android:label="Детали упражнения"
         tools:layout="@layout/fragment_butt_exercise_detail" />
+
+    <fragment
+        android:id="@+id/nav_advanced_statistics"
+        android:name="com.example.diplom_final.ui.Stata.AdvancedStatisticsFragment"
+        android:label="Расширенная статистика"
+        tools:layout="@layout/fragment_advanced_statistics" >
+        <action
+            android:id="@+id/action_advancedStatisticsFragment_to_tonnageStatisticsFragment"
+            app:destination="@id/nav_tonnage_statistics" />
+        <action
+            android:id="@+id/action_advancedStatisticsFragment_to_bestApproachFragment"
+            app:destination="@id/nav_best_approach" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_tonnage_statistics"
+        android:name="com.example.diplom_final.ui.Stata.TonnageStatisticsFragment"
+        android:label="Статистика по тоннажу"
+        tools:layout="@layout/fragment_tonnage_statistics" />
+
+    <fragment
+        android:id="@+id/nav_workout_intensity"
+        android:name="com.example.diplom_final.ui.Stata.WorkoutIntensityFragment"
+        android:label="Интенсивность тренировок"
+        tools:layout="@layout/fragment_workout_intensity" />
+
+    <fragment
+        android:id="@+id/nav_best_approach"
+        android:name="com.example.diplom_final.ui.Stata.BestApproachFragment"
+        android:label="Лучший подход"
+        tools:layout="@layout/fragment_best_approach" />
 </navigation>

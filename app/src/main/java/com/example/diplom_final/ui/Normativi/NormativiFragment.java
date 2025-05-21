@@ -99,7 +99,7 @@ public class NormativiFragment extends Fragment {
         items.add(new NormativItem(
             "Жим лёжа",
             "Базовое упражнение для развития грудных мышц, трицепсов и передних дельт",
-            R.drawable.giiiiim,
+            R.drawable.lega_gim,
             R.id.nav_gimlega
         ));
         

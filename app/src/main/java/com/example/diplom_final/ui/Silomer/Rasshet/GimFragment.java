@@ -138,6 +138,7 @@ public class GimFragment extends Fragment {
                         "Percentage calculation: (%.2f / %d) * 100 = %.2f%%",
                         currentResult, maxNorm, targetPercentage));
                     
+                    binding.buttonRasshet.setVisibility(View.GONE); // Скрываем кнопку "Рассчитать"
                     progressCircle1.setVisibility(View.VISIBLE);
                     startProgressAnimation(targetPercentage);
 
@@ -160,9 +161,21 @@ public class GimFragment extends Fragment {
 
         // Обработчик кнопки сохранения
         btnSaveResult.setOnClickListener(v -> {
-            new Thread(() -> {
-                saveResult(currentResult);
-            }).start();
+            // Убедимся, что currentResult был рассчитан и он больше нуля
+            if (currentResult > 0) {
+                try {
+                    // Используем конструктор, который принимает тип, результат (1ПМ - currentResult) и timestamp
+                    ExerciseResult result = new ExerciseResult("bench_press", currentResult, System.currentTimeMillis());
+                    saveResult(result); // Метод saveResult уже ожидает ExerciseResult
+                    // Сообщение о сохранении уже есть внутри saveResult -> runOnUiThread
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Ошибка при подготовке данных для сохранения", Toast.LENGTH_SHORT).show();
+                    Log.e("GimFragment", "Error preparing data for save: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            } else {
+                Toast.makeText(getContext(), "Сначала рассчитайте результат (1ПМ)", Toast.LENGTH_SHORT).show();
+            }
         });
 
         return root;
@@ -223,47 +236,81 @@ public class GimFragment extends Fragment {
                 .show();
     }
 
-    private void saveResult(double weight) {
-        try {
-            ExerciseResult result = new ExerciseResult("bench_press", weight);
-            AppDatabase db = AppDatabase.getDatabase(requireContext());
-            
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            executor.execute(() -> {
-                try {
-                    db.exerciseResultDao().insert(result);
-                    Log.d("GimFragment", "SUCCESS: Сохранен результат в БД: тип=bench_press, вес=" + weight);
-                    
-                    // Очищаем поля и скрываем элементы в UI потоке
-                    requireActivity().runOnUiThread(() -> {
-                        // Скрываем все элементы
-                        progressCircle1.setVisibility(View.GONE);
-                        textRes.setVisibility(View.GONE);
-                        btnShowPercentages.setVisibility(View.GONE);
-                        btnSaveResult.setVisibility(View.GONE);
-                        
-                        // Очищаем поля ввода
-                        EditText editTextWeight = binding.editWheit;
-                        EditText editTextReps = binding.editKolvo;
-                        editTextWeight.setText("");
-                        editTextReps.setText("");
-                        
-                        Toast.makeText(requireContext(), "Результат сохранен", Toast.LENGTH_SHORT).show();
-                        Log.d("GimFragment", "UI обновлен после сохранения");
-                    });
-                } catch (Exception e) {
-                    Log.e("GimFragment", "ERROR при сохранении: " + e.getMessage());
-                    e.printStackTrace();
-                    requireActivity().runOnUiThread(() -> 
-                        Toast.makeText(requireContext(), "Ошибка при сохранении", Toast.LENGTH_SHORT).show()
-                    );
-                }
-            });
-            executor.shutdown();
-        } catch (Exception e) {
-            Log.e("GimFragment", "ERROR в основном потоке: " + e.getMessage());
-            e.printStackTrace();
+    private void saveResult(ExerciseResult result) {
+        // Убедимся, что currentResult - это рассчитанный 1ПМ
+        // Предполагаем, что введенные вес и повторения доступны как локальные переменные
+        // или поля класса, например, this.inputWeight и this.inputReps,
+        // которые были использованы для расчета currentResult.
+
+        String weightStr = "";
+        if (binding.editWheit.getText() != null) {
+            weightStr = binding.editWheit.getText().toString();
         }
+
+        String repsStr = "";
+        if (binding.editKolvo.getText() != null) {
+            repsStr = binding.editKolvo.getText().toString();
+        }
+
+        double actualWeight = 0;
+        int actualReps = 0;
+
+        try {
+            if (!weightStr.isEmpty()) {
+                actualWeight = Double.parseDouble(weightStr);
+            }
+            if (!repsStr.isEmpty()) {
+                actualReps = Integer.parseInt(repsStr);
+            }
+        } catch (NumberFormatException e) {
+            // Обработка ошибки, если значения не могут быть преобразованы
+            Toast.makeText(getContext(), "Ошибка в значениях веса или повторений", Toast.LENGTH_SHORT).show();
+            return; // Не сохраняем, если данные некорректны
+        }
+
+
+        ExerciseResult newResult = new ExerciseResult();
+        newResult.setExerciseType("bench_press"); // Убедитесь, что тип правильный
+        newResult.setResult(currentResult); // currentResult должен быть уже рассчитанным 1ПМ
+        newResult.setTimestamp(System.currentTimeMillis());
+        newResult.setWeight(actualWeight); // Сохраняем введенный вес
+        newResult.setReps(actualReps);   // Сохраняем введенные повторения
+
+        AppDatabase db = AppDatabase.getDatabase(getContext());
+        ProfilViewModel profilViewModel = new ViewModelProvider(this).get(ProfilViewModel.class);
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            db.exerciseResultDao().insert(newResult);
+            if (getActivity() != null) {
+                getActivity().runOnUiThread(() -> {
+                    Toast.makeText(getContext(), "Результат жима сохранен", Toast.LENGTH_SHORT).show();
+                    // updateLastSavedResult(); // Обновляем отображение последнего сохраненного результата
+                    // Если есть логика для обновления профиля, вызываем её
+                     profilViewModel.getProfile().observe(getViewLifecycleOwner(), userProfile -> {
+                        if (userProfile != null) {
+                            if (newResult.getResult() > userProfile.getBenchPress()) {
+                                userProfile.setBenchPress(newResult.getResult());
+                                profilViewModel.saveProfile(userProfile); // Сохраняем обновленный профиль
+                            }
+                        }
+                    });
+
+                    // Сброс UI для нового расчета
+                    binding.btnSaveResult.setVisibility(View.GONE);
+                    binding.btnShowPercentages.setVisibility(View.GONE);
+                    binding.textRes.setVisibility(View.GONE);
+                    binding.textRes.setText("Результат: 0 кг"); // Сброс текста
+                    binding.progressCircle.setVisibility(View.GONE);
+                    binding.progressCircle.setProgress(0);
+                    binding.progressCircle.setProgressText("0%");
+                    binding.editWheit.setText("");
+                    binding.editKolvo.setText("");
+                    binding.buttonRasshet.setVisibility(View.VISIBLE);
+                    currentResult = 0;
+                });
+            }
+        });
     }
 
     @Override

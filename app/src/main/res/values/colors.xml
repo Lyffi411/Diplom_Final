@@ -6,6 +6,7 @@
     <color name="primary">#FFAB00</color>              <!-- Солнечный желтый/оранжевый -->
     <color name="primary_dark">#F29900</color>         <!-- Более темный оранжевый -->
     <color name="secondary">#8AB4F8</color>            <!-- Синий как вторичный цвет -->
+    <color name="secondary_dark">#6A9EF7</color>        <!-- Более темный синий -->
     <color name="on_background">#E8EAED</color>        <!-- Светло-серый или почти белый -->
     <color name="on_surface">#E8EAED</color>           <!-- Светло-серый или почти белый -->
     <color name="on_secondary">#9AA0A6</color>         <!-- Менее контрастный серый -->

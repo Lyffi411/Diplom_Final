@@ -21,6 +21,9 @@ import com.example.diplom_final.ui.Stata.Profile.UserProfile;
 import com.example.diplom_final.data.AppDatabase;
 import com.example.diplom_final.ui.Stata.Stytis.ExerciseResult;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import android.util.Log;
 
 public class Profil extends Fragment {
     private EditText nameInput, ageInput, heightInput, weightInput;
@@ -34,6 +37,8 @@ public class Profil extends Fragment {
     private MinMaxFilter benchFilter;
     private MinMaxFilter deadliftFilter;
     private MinMaxFilter squatFilter;
+    private ExecutorService executorService;
+    private AppDatabase db;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -88,6 +93,9 @@ public class Profil extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         
+        executorService = Executors.newSingleThreadExecutor();
+        db = AppDatabase.getDatabase(requireContext());
+
         viewModel = new ViewModelProvider(this).get(ProfilViewModel.class);
 
         // Настройка числового ввода и фильтров
@@ -210,6 +218,13 @@ public class Profil extends Fragment {
                         }
                     }
                 }
+
+                // Загружаем последние результаты из ExerciseResult
+                loadLastExerciseResults(profile.getBenchPress(), profile.getDeadlift(), profile.getSquat());
+            } else {
+                // Если профиль еще не создан, можно попробовать загрузить напрямую из ExerciseResult,
+                // если это предполагается как начальные значения по умолчанию.
+                loadLastExerciseResults(0,0,0); // Передаем 0 или другие значения по умолчанию
             }
         });
 
@@ -230,13 +245,13 @@ public class Profil extends Fragment {
 
                         // Обновляем профиль новыми значениями
                         if (benchPress != null) {
-                            profileToUpdate.setBenchPress(benchPress.getValue());
+                            profileToUpdate.setBenchPress(benchPress.getResult());
                         }
                         if (deadlift != null) {
-                            profileToUpdate.setDeadlift(deadlift.getValue());
+                            profileToUpdate.setDeadlift(deadlift.getResult());
                         }
                         if (squat != null) {
-                            profileToUpdate.setSquat(squat.getValue());
+                            profileToUpdate.setSquat(squat.getResult());
                         }
 
                         // Сохраняем обновленный профиль
@@ -277,5 +292,36 @@ public class Profil extends Fragment {
         
         // Очищаем ViewModel если необходимо
         viewModel = null;
+    }
+
+    private void loadLastExerciseResults(double currentBench, double currentDeadlift, double currentSquat) {
+        // Используем ExecutorService для асинхронной загрузки данных из БД
+        if (executorService == null) { // Дополнительная проверка и инициализация, если нужно
+            executorService = Executors.newSingleThreadExecutor();
+        }
+        executorService.execute(() -> {
+            try {
+                AppDatabase db = AppDatabase.getDatabase(requireContext());
+                ExerciseResult lastBenchPress = db.exerciseResultDao().getLastResult("bench_press");
+                ExerciseResult lastDeadlift = db.exerciseResultDao().getLastResult("deadlift");
+                ExerciseResult lastSquat = db.exerciseResultDao().getLastResult("squat");
+
+                // Обновляем UI в основном потоке
+                requireActivity().runOnUiThread(() -> {
+                    if (lastBenchPress != null && currentBench == 0) { // Обновляем, только если в профиле еще нет значения
+                        benchPressInput.setText(String.format(Locale.getDefault(), "%.1f", lastBenchPress.getResult()));
+                    }
+                    if (lastDeadlift != null && currentDeadlift == 0) {
+                        deadliftInput.setText(String.format(Locale.getDefault(), "%.1f", lastDeadlift.getResult()));
+                    }
+                    if (lastSquat != null && currentSquat == 0) {
+                        squatInput.setText(String.format(Locale.getDefault(), "%.1f", lastSquat.getResult()));
+                    }
+                });
+            } catch (Exception e) {
+                Log.e("Profil", "Error loading last exercise results: " + e.getMessage());
+                e.printStackTrace();
+            }
+        });
     }
 }
